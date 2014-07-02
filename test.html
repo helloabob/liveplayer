@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=gb2312" />
+    <title>正在播出：东方卫视</title>
+    <link rel="stylesheet" type="text/css" media="all" href="http://www.bbtv.cn/bbtv_common/video/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="http://www.bbtv.cn/bbtv_common/video/css/grid.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="http://www.bbtv.cn/bbtv_common/video/css/common.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="http://www.bbtv.cn/bbtv_common/video/css/posting.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="http://www.bbtv.cn/bbtv_common/comment/img/emot/emote.css" /> 
+    <script type="text/javascript" src="smgbbflash.js"></script>
+
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="bbtvcomment.js"></script>
+    <script type="text/javascript" src="getLastVisiter.js"></script>
+<script type="text/javascript" src="jquery.pngfix.js"></script>
+<script type="text/javascript" src="jsScroller_h.js"></script>
+<script type="text/javascript" src="layout-posting-live.js"></script>
+
+    <link rel="stylesheet" type="text/css" media="all" href="http://www.bbtv.cn/bbtv_common/video/css/SMGBBTips.css" />
+
+<script language="javascript">
+    function ShowPlayerHelp()
+    { $(".smgbbAlert").css("display","block"); }
+     $(document).ready(function(){
+	$(".pngfix").parent().pngFix({sizingMethod: "crop"});
+	$(".close").click(function(){
+		if($(".smgbbAlert")&&$(this).parent().parent().html()==$(".smgbbAlert").html())	
+		{
+			$(".smgbbAlert").css("display","none");
+		}
+	});
+     });
+</script>
+
+</head>
+<body>
+    <script type="text/javascript">
+$(document).ready(
+	function(){
+		inputTipText();    //直接调用就OK了
+	}
+);
+
+function inputTipText(){ 
+$("input[class*=grayTips]") //所有样式名中含有grayTips的input
+.each(function(){
+   var oldVal=$(this).val();     //默认的提示性文本
+   $(this)
+   .css({"color":"#888"})     //灰色
+   .focus(function(){
+    if($(this).val()!=oldVal){$(this).css({"color":"#000"})}else{$(this).val("").css({"color":"#878787"})}
+   })
+   .blur(function(){
+    if($(this).val()==""){$(this).val(oldVal).css({"color":"#878787"})}
+   })
+   .keydown(function(){$(this).css({"color":"#000"})})
+  
+})
+}
+
+</script>
+<div class="hd">
+	<div class="top container_16">
+		<a href="/" class="logo" title="返回首页"></a>
+		<ul class="topmenu">
+			<li class="tv"><a href="javascript:void(0)"   class="crt">电视</a></li>
+
+			<li class="radio"><a href="http://radio.bbtv.cn" >广播</a></li>
+		</ul>
+		<div class="login">
+			<ul class="guest" id="ddd_logostat">
+				
+			</ul>
+		</div>
+		
+		
+		
+	</div>
+	<div class="menu">
+
+		<div class="container_16">
+			<div class="tv_menu inner-left">
+				<ul class="menuList" id="ddd_head">
+					<li class="menu01"><a href="/">首 页</a><em></em></li>
+					<li class="menu02"><a target="_blank" href="http://info.smgbb.cn/" >视 频</a><em></em></li>
+					<li class="menu03"><a href="/program/" >栏 目</a><em></em></li>
+					<li class="menu04"><a href="/EPG-graphic.shtml" >频 道</a><em></em></li>
+
+					<li class="menu05"><a href="/bigevent/" >活 动</a><em></em></li>
+					<li class="menu06"><a style="cursor:pointer" target=_blank >社 区</a><em></em></li>
+					<li class="blank"><span></span></li>
+				</ul>
+				
+<script type="text/javascript">
+    $.getJSON("http://www1.bbtv.cn/ws/getUserName.ashx?callback=?", {}, function(s) {
+        if (s.Name != null) {
+        $("#ddd_logostat").html("<li>您好，<a href=\"http://user.bbtv.cn/user/" + s.Name.value + "\" target=\"_blank\">" + s.Name.value + "</a></li><li class=\"line\">|</li><li><a href=\"javascript:ddd_logout()\" >注销</a></li><li class=\"line\">|</li><li><a href=\"http://www.bbtv.cn/bbtv_help.shtml\" target=_blank>帮助中心</a></li>");
+        $("ul#ddd_head a").eq(5).attr("href","http://user.bbtv.cn/user/" + s.Name.value);
+        }
+        else {
+        $("#ddd_logostat").html("<li><a href=\"http://passport.bbtv.cn/\" target=_blank><b>登录</b></a></li><li class=\"line\">|</li><li><a  href=\"http://passport.bbtv.cn/\" target=_blank>注册</a></li><li class=\"line\">|</li><li><a href=\"http://passport.bbtv.cn/forget.html\" target=_blank>忘记密码</a></li><li class=\"line\">|</li><li><a href=\"http://www.bbtv.cn/bbtv_help.shtml\" target=_blank>帮助中心</a></li>");
+        $("ul#ddd_head a").eq(5).attr("href","http://passport.bbtv.cn/");
+        }
+    });	
+    
+    function ddd_logout()
+    {
+         $.getJSON("http://passport.bbtv.cn/logout.aspx?callback=?", {}, function(s) {
+            if (s.Root.status =="1") {
+            window.location= window.location;  
+            }         
+        });        
+    }
+    
+    function search_ddd()
+    {
+        var key=$.trim($("#search_input").val());
+        if(key=="")
+        {
+            alert("请输入搜索关键字");
+            $("#search_input").focus();
+        }
+        else
+        {
+            key=encodeURIComponent(key);
+            key=key.replace("'","");
+            self.location="/search.shtml?k="+key;
+        }
+    }	
+</script>
+				
+			</div>
+			<div class="inner-right"></div>
+
+			<div class="search">
+				<div class="inputCtx">
+				<input type="text" name="" value="" class="grayTips" id="search_input" onclick="$('#search_input').focus();" onkeydown="if(event.keyCode==13) search_ddd();" /></div>
+				<input type="button" name="" value="搜索" class="btn-submit" id="ddd_head_search" onclick="search_ddd();" />				
+			</div>
+			<div class="inner-right"></div>
+		</div>
+	</div>
+</div>
+
+    <script type="text/javascript">
+$("ul#ddd_head a").eq(3).addClass("crt");
+    </script>
+
+    <div class="bd container_16">
+        <ul class="bread-crumb">
+            <li>您当前的位置：<a href="/">首页</a></li>
+<li><a href="/EPG-graphic.shtml">频道</a></li>
+            <li>正在播出：东方卫视</li>
+
+        </ul>
+        <div class="posting">
+            <div class="post-player" id="ddd_bbtvplayer">
+            </div>
+
+            <script language="javascript">
+
+function getQueryStringRegExp(param)
+{
+ var query = location.search;
+ var iLen = param.length;
+ var iStart = query.indexOf(param);
+ if (iStart == -1)
+  return "";
+ iStart += iLen + 1;
+ var iEnd = query.indexOf("&", iStart);
+ if (iEnd == -1)
+  return query.substring(iStart);
+ return query.substring(iStart, iEnd);
+}
+
+
+ var bbtv_channelid = "216";
+          
+            var bbtv_channel="东方卫视";
+            var bbtv_key="";
+            var bbtv_detail="";
+            
+            var bbtv_title="东方卫视";
+            var bbtv_comment_channelid = "0202";
+            var bbtv_comment_id = "310";
+            var bbtv_url = "/live/2009-05-17/310.shtml";
+            var bbtv_titlepic = "/d/file/live/2009-06-01/4fbd16dbd579322b8bf469e83d56dddb.jpg";
+
+var bbtv_starttime=getQueryStringRegExp("st");
+var bbtv_endtime=getQueryStringRegExp("ed");
+if(bbtv_starttime==="") bbtv_starttime="0";
+if(bbtv_endtime==="") bbtv_endtime="0";
+
+            function readJS()
+            {				
+                var smgbbFlash2 = new smgFlash("vidPlayer.swf","smgbbFlashID01","960","528","7","#333333");
+                smgbbFlash2.addParam("quality", "high");
+                smgbbFlash2.addParam("wmode", "transparent");
+                smgbbFlash2.addParam("salign", "t");
+                smgbbFlash2.addParam("allowFullScreen", "true");
+                smgbbFlash2.addVariable("bbtv_channelid",bbtv_channelid);
+                smgbbFlash2.addVariable("bbtv_starttime",bbtv_starttime);
+                smgbbFlash2.addVariable("bbtv_endtime",bbtv_endtime);	
+                smgbbFlash2.addVariable("bbtv_channel",bbtv_channel);
+                smgbbFlash2.addVariable("bbtv_key",bbtv_key);
+                smgbbFlash2.addVariable("bbtv_detail",bbtv_detail);
+                smgbbFlash2.write("ddd_bbtvplayer");
+            }
+            readJS();
+            </script>
+
+            <!--相关视频-->
+        <div class="videoList_relative">
+
+            <div class="videoList_wrapper" id="idContent" >
+                <ul class="videoList">
+
+		 </ul>
+
+            </div>
+        	<div class="scroll">
+                	<div class="scrollWraper">
+                    	<div class="w_left"></div>
+                    	<div class="w_right"></div>
+
+                    	<div class="scrollContainer"  id="idSlider">
+
+                        <span id="idBar"><em class="lft"></em> <em class="rt"></em></span>
+                        
+                       
+                        
+                        </div>
+                    </div>
+                    <div class="scrollBtn">
+                    	<a href="javascript:void(0)" id="sliderLeft"></a>
+                    	<a href="javascript:void(0)" id="sliderRight"></a>
+                    </div>
+
+            </div>
+        </div>
+<script type="text/javascript">
+var xg_cname=$.trim('东方卫视');
+var xg_type=0;
+</script>
+<script type="text/javascript" src="/bbtv_common/video/js/ddd-play.js"></script>
+        <!--相关视频结束-->
+        </div>
+        <div class="container_16">
+            <div class="grid_11">
+
+                <!--评论-->
+            <div id="comment">
+                <h2>
+                    留言板</h2>
+                <div class="inner">
+                    <fieldset>
+                        <ul class="logoff clr" id="user_logostat">
+                        </ul>
+
+                        <ul class="cmtipt clr">
+                            <li class="textipt">
+                                <textarea id="msg" name="msg" rows="" cols="5" onfocus="javascript:ChecknameInputOnfocus(this)">BBTV小提示：文明上网，登录评论！</textarea></li>
+                            <li class="emots">
+                                <img src="/bbtv_common/comment/img/emot/0.gif" alt="[emo0]" />
+                                <img src="/bbtv_common/comment/img/emot/1.gif" alt="[emo1]" />
+                                <img src="/bbtv_common/comment/img/emot/2.gif" alt="[emo2]" />
+                                <img src="/bbtv_common/comment/img/emot/3.gif" alt="[emo3]" />
+
+                                <img src="/bbtv_common/comment/img/emot/4.gif" alt="[emo4]" />
+                                <img src="/bbtv_common/comment/img/emot/5.gif" alt="[emo5]" />
+                                <img src="/bbtv_common/comment/img/emot/6.gif" alt="[emo6]" />
+                                <img src="/bbtv_common/comment/img/emot/7.gif" alt="[emo7]" />
+                                <img src="/bbtv_common/comment/img/emot/8.gif" alt="[emo8]" />
+                                <img src="/bbtv_common/comment/img/emot/9.gif" alt="[emo9]" />
+                                <img src="/bbtv_common/comment/img/emot/10.gif" alt="[emo10]" />
+                                <img src="/bbtv_common/comment/img/emot/11.gif" alt="[emo11]" />
+                                <img src="/bbtv_common/comment/img/emot/12.gif" alt="[emo12]" />
+
+                                <img src="/bbtv_common/comment/img/emot/13.gif" alt="[emo13]" />
+                                <img src="/bbtv_common/comment/img/emot/14.gif" alt="[emo14]" />
+                                <img src="/bbtv_common/comment/img/emot/15.gif" alt="[emo15]" />
+                                <img src="/bbtv_common/comment/img/emot/16.gif" alt="[emo16]" />
+                                <img src="/bbtv_common/comment/img/emot/17.gif" alt="[emo17]" />
+                                <img src="/bbtv_common/comment/img/emot/18.gif" alt="[emo18]" />
+                                <img src="/bbtv_common/comment/img/emot/19.gif" alt="[emo19]" />
+                            </li>
+                        </ul>
+
+                        <ul class="msg-submit clr">
+                            <li class="codeipt">
+                                <label>
+                                    验证码</label>
+                                <input type="text" name="vcode" value="" style="width: 30px" maxlength="4" id="comment_vcode" />
+                                <div class="codeimg">
+                                    <img src="" id="SMGBBTV_comment_vcode" height="24" width="60" style="cursor: pointer;"
+                                        onclick="changevode('SMGBBTV_comment_vcode')" alt="看不清楚，请刷新页面" title="看不清楚，换张图片？" /></div>
+                            </li>
+
+                            <li class="btn-submit">
+                                <input type="button" id="savecomment" name="savecomment" value="发布评论" /><div style="display:none"><label for="anonymous">匿名</label><input
+                                        type="checkbox" class="chkbx" id="anonymous" name="anonymous" value="1"  /></div></li>
+                            <li class="msg-left" id="remaining_word">（还可输入600字）</li>
+                    </fieldset>
+                    <div class="allcmt">
+                        <h3>
+                            <!-- 分页 begin -->
+                            <ul class="pages">
+
+                                
+                            </ul>
+                            <!-- 分页 end -->
+                            <span id="total_count"></span>
+                        </h3>
+                        <div class="cmt-list clearfix" id="div-cmt-list">
+
+<div class="refresh"><a href="javascript:getfeedback(bbtv_comment_id, 1);" title="刷新"></a></div>
+
+                            <ul class="clearfix" id="comment_list">
+                            </ul>
+
+                        </div>
+                        <ul class="pages">
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--评论end-->
+            </div>
+                <!-- end .grid_11 -->
+
+        <div class="grid_5">
+            <div id="recom-video" class="container_1">
+                <h2>
+                    <a href="/EPG-graphic.shtml" target="_blank" class="more">更多视频..</a> 推荐视频
+                </h2>
+                <div class="inner">
+                    <ul class="vodList"><li><a href="/special/huitoushian/video/2009-10-13/23040.shtml"  class="pic"><img src="http://pic.smgbb.cn/webtv/getsnapshot.ashx?channelid=216&timestamp=1255404360000&resolution=120x96&mode=image" alt="回头释案(83)：逆来顺受的悲剧" /></a><div class="txt"><p class="blue"><a href="/special/huitoushian/video/2009-10-13/23040.shtml"  class="tit">回头释案(83)：逆来顺受的悲剧</a></p><p>频道：东方卫视</p><p><span class="blue">[<a href="/special/huitoushian/video/2009-10-13/23040.shtml" >播放</a>]</span></p></div></li></ul><ul class="txtList"><li><a href="/special/huitoushian/video/2009-10-12/22879.shtml" >回头释案(82)谁阻挡了救命车 </a></li><li><a  href="/normal/shendu105/2009-10-12/22870.shtml">深度105（217）</a></li><li><a  href="/special/kandongfang/video/2009-10-12/22856.shtml">【报天下】第一段</a></li><li><a  href="/special/kandongfang/video/2009-10-12/22857.shtml">【报天下】第二段</a></li><li><a  href="/special/kandongfang/video/2009-10-12/22858.shtml">【焦点】房子，买还是不买？</a></li><li><a  href="/special/kandongfang/video/2009-10-12/22859.shtml">集装箱压扁轿车 三人幸运逃生</a></li><li><a  href="/special/kandongfang/video/2009-10-12/22860.shtml">台中：超市女店员勇夺歹徒凶器</a></li></ul>                </div>
+
+            </div>
+            <div id="recom-tv" class="container_1">
+                <h2>
+                    <a href="/program/index.shtml" target="_blank" class="more">更多栏目..</a> 推荐栏目
+                </h2>
+                <div class="inner">
+                    <ul class="vodList">
+                        <li><a href="http://www.bbtv.cn/special/kandongfang/index.shtml" target=_blank class="pic"><img src="/d/file/program/2009-06-25/4860f19e7d3cd7fa2f1ec62a922415a7.jpg" alt="看东方" /></a><div class="txt"><p class="blue"><a target=_blank href="http://www.bbtv.cn/special/kandongfang/index.shtml" class="tit">看东方</a></p><p>频道：<a href="http://www.bbtv.cn/special/kandongfang/index.shtml">东方卫视</a></p><p>类型：<a target=_blank href="http://www.bbtv.cn/special/kandongfang/index.shtml">新闻资讯</a></p></div></li><li><a href="http://www.bbtv.cn/normal/zoujintamen/" target=_blank class="pic"><img src="/d/file/program/2009-09-04/fd3871be5b701650240e0b23271a8dfb.jpg" alt="走近他们" /></a><div class="txt"><p class="blue"><a target=_blank href="http://www.bbtv.cn/normal/zoujintamen/" class="tit">走近他们</a></p><p>频道：<a href="http://www.bbtv.cn/normal/zoujintamen/">东方卫视</a></p><p>类型：<a target=_blank href="http://www.bbtv.cn/normal/zoujintamen/">谈话</a></p></div></li><li><a href="http://www.bbtv.cn/normal/mimilieche/" target=_blank class="pic"><img src="/d/file/program/2009-09-02/2d5226562e86cb1f739745fb33602227.jpg" alt="秘密列车" /></a><div class="txt"><p class="blue"><a target=_blank href="http://www.bbtv.cn/normal/mimilieche/" class="tit">秘密列车</a></p><p>频道：<a href="http://www.bbtv.cn/normal/mimilieche/">东方卫视</a></p><p>类型：<a target=_blank href="http://www.bbtv.cn/normal/mimilieche/">影视剧</a></p></div></li>                    </ul>
+
+                </div>
+            </div>
+            <div id="visitors" class="container_1">
+      <h2>最近来访</h2>
+      <ul class="picList clearfix"></ul></div>
+
+        </div>
+        <!-- end .grid_5 -->
+    </div>
+
+ </div>
+   
+<!--帮助提示-->
+<div class="smgbbAlert" style="display:none">
+    <div class="mask"></div>
+    <div class="helpMask"></div>
+    <div class="help">
+        <div class="div_01"></div>
+        <div class="div_02"></div>
+        <div class="div_03"></div>
+
+        <div class="div_04"></div>
+        <div class="div_05"></div>
+        <div class="div_06"></div>
+        <div class="div_07"></div>
+        <div class="div_08"></div>
+        <a class="close pngfix" href="javascript:void(0)" title="关闭">关闭</a>
+    </div>
+</div>
+<!--帮助提示 end-->
+
+    <img id="trace" src="" width="0" height="0" style="display: none" alt="" />
+    <div class="ft">
+	<div class="container_16">
+		<a href="http://www.smgbb.cn/" target=_blank class="logo"></a>
+
+		<div class="ft-txt">
+			<ul class="linkList">
+				<li class="hline">-</li>
+
+				<li><a href="http://www.smgbb.cn/main/touwei/ABC-about.htm" target=_blank >关于我们</a></li>
+				<li class="hline">-</li>
+				<li><a href="http://www.smgbb.cn/main/touwei/ABC-recruitment.htm" target=_blank >加入我们</a></li>
+				<li class="hline">-</li>
+
+				<li><a href="http://www.smgbb.cn/main/touwei/ABC-contact.htm" target=_blank >联系我们</a></li>
+				<li class="hline">-</li>
+
+				<li><a href="mailto:webmaster@smgbb.cn" target=_blank >在线客服</a></li>
+				<li class="hline">-</li>
+				<li><a href="http://www.smgbb.cn/bbmagazine/" target=_blank >宽频通讯</a></li>
+				<li class="hline">-</li>
+
+				<li><a href="http://www.smgbb.cn" target=_blank >帮助说明</a></li>
+				<li class="hline">-</li>
+
+				<li><a href="http://www.smgbb.cn/main/touwei/ABC-declaration.htm" target=_blank >版权声明</a></li>
+				<li class="hline">-</li>
+			</ul>
+			<p>信息网络传播视听节目许可证：0905106 广播电视节目制作经营许可证：(沪)字第302号</p>
+			<p>中华人民共和国互联网出版许可证：新出网证(沪)字005号 | 中华人民共和国增值电信业务经营许可证：沪B2-20040046 | 沪ICP备09003930号</p>
+			<p>上海东方宽频传播有限公司版权所有，未经许可不得转载。</p><p>技术支持：北京浪弯融科科技有限公司</p>            
+            <p><a target=_blank href="http://sh.cyberpolice.cn/"><img src="/bbtv_common/video/img/cyber_police_station_2.gif" width="53" height="53"/></a><a target=_blank href="http://sh.cyberpolice.cn/"><img src="/bbtv_common/video/img/cyberpolice_0803_01.gif" width="53" height="53"/></a></p>
+
+		</div>
+	</div>
+</div>
+<!-- START ChinaRank SiteCensus V5.3 -->
+<!-- COPYRIGHT 2009 ChinaRank -->
+<script type="text/javascript">
+         var _rsCI="cn-smg";
+         var _rsCG="0";
+         var _rsDN="//secure-cn.imrworldwide.com/";
+         var _rsSE=1;
+         var _rsSM=1.0;
+         var _rsSS=150;
+         var _rsTC=500;
+         var _rsCL=0;
+</script>
+<script type="text/javascript" src="//secure-cn.imrworldwide.com/v53.js"></script>
+<noscript>
+         <div><img src="//secure-cn.imrworldwide.com/cgi-bin/m?ci=cn-smg&amp;cg=0&amp;cc=1" alt=""/></div>
+</noscript>
+<!-- END ChinaRank SiteCensus V5.3 -->
+
+</body>
+</html>

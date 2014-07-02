@@ -1,0 +1,8 @@
+音频/视频间切换
+* vidPlayer.as中变量ui_epg值分别是"ui_epg_radio.swf"和"ui_epg.swf"
+* 主文件编译后的文件名分别是radio.swf和tv.swf
+* EPG.as里的常量CID_ARR成员分别对应相应的CID
+* Program.as里一字符串分别为"听直播"和"看直播"
+
+BBTV和.tv切换
+* 修改EPG.as里的CID_ARR
