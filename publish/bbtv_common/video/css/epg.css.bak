@@ -1,0 +1,377 @@
+.epg{padding:10px;}
+.epg .controller{
+	background:url(../img/epg-ctrl-bg.gif) repeat-x 0 0;
+	height:48px;
+}
+.epg .controller input{outline:none;moz-outline:none;}
+
+.epg .ctrl-sel{
+	float:left;
+	display:inline;
+	background:url(../img/epg-ctrl-side.gif) no-repeat 0 -48px;
+	padding:12px 0 12px 20px;
+}
+.epg .ctrl-sel li{
+	float:left;
+	display:inline;
+	margin:0 20px 0 0;
+	width:auto;
+	position:relative;
+	vertical-align:top;
+	z-index:100;
+}
+.epg .ctrl-sel li label{line-height:24px;float:left;display:inline;width:36px;}
+.epg .ctrl-sel li.sel01{width:195px;}
+.epg .ctrl-sel li.sel02{width:95px;}
+.epg .ctrl-sel li.sel03{width:130px;}
+.epg .ctrl-sel li.sel01 select{width:159px;}
+.epg .ctrl-sel li.sel02 select{width:59px;}
+.epg .ctrl-sel li.sel03 select{width:94px;}
+
+.btn-s{
+	border:none;
+	background:url(../img/btn-2.gif) no-repeat 0 0;
+	display:block;
+	color:#fff;
+	cursor:pointer;
+	width:64px;
+	height:24px;
+	line-height:24px;
+}
+.btn-s:hover{background-position:0 -24px;}
+.btn-s:active{background-position:0 -48px;}
+/* -------------
+ * Selects
+ * ------------- */
+.epg .ctrl-sel li select {border:none;float:left;display:inline;}
+
+.jNiceSelectWrapper {
+	border:1px solid #c1c1c1;
+	background-color:#fff;
+	height: 16px;
+	left:36px;_left:0;top:0px;z-index:90;position:absolute;
+	padding:3px 0;
+}
+
+.epg .ctrl-sel li iframe {position:absolute;z-index:1;left:0;top:0;border:none;}
+.epg .ctrl-sel li.sel01 iframe{width:159px;}
+.epg .ctrl-sel li.sel02 iframe{width:59px;}
+.epg .ctrl-sel li.sel03 iframe{width:94px;}
+.jNiceSelectWrapper .jNiceSelectText {
+	height: 16px;
+	line-height: 16px;
+	padding: 0 3px;
+	border-right: none;
+	overflow:hidden;float:none;position:absolute;z-index:100;
+}
+
+.jNiceSelectWrapper .jNiceSelectOpen {
+	width: 15px;
+	height: 16px;
+	background: url(../img/icon-select.gif) no-repeat 0 0;
+	z-index:99;display:block;position:absolute;right:3px;
+}
+
+.jNiceSelectWrapper ul {
+	top: 22px;
+	background-color: #FFF;
+	height: 300px;
+	border:1px solid #c1c1c1;
+	position:absolute;left:0px;display: none;overflow-y:auto;z-index:100;width: 99%;
+}
+.jNiceSelectWrapper ul li{white-space:nowrap;}
+.jNiceSelectWrapper ul a {
+	color:#333;
+	display:block;padding:2px 0 2px 2px;text-decoration:none;
+}
+
+.jNiceSelectWrapper ul a:hover {color:#fff; background:#4bcaed; }
+.jNiceSelectWrapper ul a.selected {color:#333;background: #ebebeb;}
+.jNiceFocus { border: dotted 1px #666; }
+
+.jNiceHidden {opacity:0;z-index:-1;position:absolute;}
+.jNiceWrapper {position:relative;vertical-align:top;background-color:#000;}
+.jNiceWrapper input {outline:none;moz-outline:none;}
+.epg .ctrl-mode{
+	float:right;
+	display:inline;
+	background:url(../img/epg-ctrl-side.gif) no-repeat 100% 0;
+	padding:12px 0 12px 20px;
+	height:24px;
+	border-left:1px solid #c1c1c1;
+	width:330px;
+}
+.epg .ctrl-mode li{
+	float:left;
+	display:inline;
+	border:1px solid #c1c1c1;
+	background:url(../img/btn-g-1.gif) repeat-x 0 -22px;
+	height:22px;
+	line-height:22px;
+	margin:0 20px 0 0;
+	padding:0 8px;
+}
+.epg .ctrl-mode li a{display:block;padding-left:19px;background:url(../img/icon-epg.gif) no-repeat;}
+.epg .ctrl-mode .mode-p{background-position:0 5px;}
+.epg .ctrl-mode .mode-t{background-position:0 -20px;}
+.epg .ctrl-mode .selected{background-position:0 0;}
+#epg-graphic{clear:both;position:relative;top:10px;left:0;width:940px;height:345px;padding-bottom:15px;}
+#epg-graphic .scroll-ch-up{
+	position:absolute;
+	top:0;
+	left:0;
+	background:url(../img/epg-arrow-up.gif) no-repeat 0 0;
+	width:101px;
+	height:15px;
+	cursor:pointer;
+	z-index:50;
+}
+#epg-graphic .scroll-ch-up:hover{background-position:0 -15px;}
+#epg-graphic .scroll-ch-up:active,
+#epg-graphic .scroll-ch-up:focus{background-position:0 -30px;}
+#epg-graphic .scroll-ch-down{
+	position:absolute;
+	top:329px;
+	left:0;
+	background:url(../img/epg-arrow-down.gif) no-repeat 0 0;
+	width:101px;
+	height:15px;
+	cursor:pointer;
+	z-index:50;
+}
+#epg-graphic .scroll-ch-down:hover{background-position:0 -15px;}
+#epg-graphic .scroll-ch-down:active,
+#epg-graphic .scroll-ch-down:focus{background-position:0 -30px;}
+
+#epg-graphic .onair{
+	position:absolute;
+	top:1px;
+	left:440px;
+	background:url(../img/line-onair.gif) no-repeat 0 0;
+	width:51px;
+	height:323px;
+	z-index:48;
+}
+#epg-graphic .scroll-hor{
+	position:absolute;
+	top:324px;
+	left:0px;
+	height:19px;
+	z-index:48;
+	text-align:center;
+	width:940px;
+	background:url(../img/epg-scroll-bg.gif) repeat-x 0 0;
+}
+#epg-graphic .scroll-hor .handle{
+	position:absolute;
+	top:0;
+	left:300px;
+	background-color:#b40e15;
+	height:3px;
+	width:104px;
+	overflow:hidden;
+	z-index:49;
+}
+#epg-graphic .scroll-hor .scroll-arrows{
+	position:absolute;
+	top:4px;
+	left:325px;
+	clear:both;
+	width:52px;
+	height:15px;
+	overflow:hidden;
+	z-index:49;
+}
+
+#epg-graphic .scroll-hor .scroll-prev,
+#epg-graphic .scroll-hor .scroll-next{
+	width:25px;
+	height:15px;
+	display:inline;
+	cursor:pointer;
+	background:url(../img/epg-arrow-h.gif) no-repeat;
+}
+#epg-graphic .scroll-hor .scroll-prev{float:left;background-position:0 0;}
+#epg-graphic .scroll-hor .scroll-prev:hover,
+#epg-graphic .scroll-hor .scroll-prev:active,
+#epg-graphic .scroll-hor .scroll-prev:focus{background-position:0 -15px;}
+#epg-graphic .scroll-hor .scroll-next{float:right;background-position:100% 0;}
+#epg-graphic .scroll-hor .scroll-next:hover,
+#epg-graphic .scroll-hor .scroll-next:active,
+#epg-graphic .scroll-hor .scroll-next:focus{background-position:100% -15px;}
+#epg-graphic .time-line{
+	position:relative;
+	top:15px;
+	left:0;
+	background:url(../img/epg-time-bg.gif) repeat-x 0 0;
+	border:1px solid #cacaca;
+	border-bottom:1px solid #b0b0b0;
+	height:13px;
+	line-height:13px;
+	overflow:hidden;
+}
+#epg-graphic .time-line h2{float:left;display:inline;width:99px;text-align:center;}
+#epg-graphic .time-line .inner{float:left;display:inline;width:828px;}
+#epg-graphic .time-line .times li{
+	float:left;display:inline;
+	width:138px;
+	background:url(../img/epg-time-line.jpg) no-repeat 0 0;
+	overflow:hidden;
+	text-indent:11px;
+	font:10px "Arial";
+	font-weight:bold;
+	height:13px;
+}
+#epg-graphic .time-line-sd{
+	position:absolute;
+	top:30px;
+	left:99px;
+	width:840px;
+	height:7px;
+	z-index:47;
+}
+#epg-graphic .time-line-sd .shadow{
+	background:url(../img/epg-shadow.png) no-repeat -5px 0;
+	width:840px;
+	height:7px;
+	overflow:hidden;
+}
+#epg-graphic .scroll-time-prev{
+	position:absolute;
+	top:0;
+	left:102px;
+	background:url(../img/epg-arrows-prev.gif) no-repeat 0 2px;
+	width:5px;
+	height:13px;
+	cursor:pointer;
+	z-index:48;
+}
+#epg-graphic .scroll-time-next{
+	position:absolute;
+	top:0;
+	right:2px;
+	background:url(../img/epg-arrows-next.gif) no-repeat 0 2px;
+	width:5px;
+	height:13px;
+	z-index:48;
+	cursor:pointer;
+}
+#epg-graphic .scroll-time-prev:hover,
+#epg-graphic .scroll-time-next:hover{background-position:0 -11px;}
+#epg-graphic .scroll-time-prev-disabled,
+#epg-graphic .scroll-time-prev-disabled:hover,
+#epg-graphic .scroll-time-prev-disabled:active,
+#epg-graphic .scroll-time-next-disabled,
+#epg-graphic .scroll-time-next-disabled:hover,
+#epg-graphic .scroll-time-next-disabled:active{cursor:default;background-position:0 -24px;}
+#epg-graphic .epgCon{
+	position:relative;
+	top:15px;
+	left:0;
+	border:0 solid #ccc;
+	border-width:0 1px 1px 1px;
+	height:298px;
+	z-index:46;
+}
+#epg-graphic .epg-fl{
+	position:absolute;z-index:100;
+	width:355px;
+	height:auto;
+	overflow:hidden;
+}
+#epg-graphic .epg-fl a.pic{
+	float:left;display:inline;
+	width:130px;height:75px;padding:1px;overflow:hidden;
+	margin:11px 10px 10px 27px;
+}
+#epg-graphic .epg-fl .txt{float:left;display:inline;width:165px;padding-top:11px;}
+#epg-graphic .epg-fl .txt a.tit{font-weight:bold;font-size:14px;line-height:25px;}
+#epg-graphic .epg-fl .txt p{color:#666;}
+#epg-graphic .epg-fl .txt .statues{clear:both;padding:10px 0;}
+#epg-graphic .epg-fl .epg-fl-wrap{
+	background:url(../img/epg-float-r.png) no-repeat 0 0;
+}
+#epg-graphic .epg-fl .inner{
+	background:url(../img/epg-float-t.png) no-repeat 0 0;
+}
+#epg-graphic .epg-fl .epg-fl-bt{background:url(../img/epg-float-bt.png) no-repeat 0 0;height:9px;clear:both;}
+.channel-list{
+	height:58px;
+	border-bottom:1px solid #c1c1c1;
+}
+.epgCon .scroll-vertical,
+.epgCon .scroll-vertical .handle,
+.channel-list h2,
+.channel-list .inner{position:absolute;border:0 solid #9b9b9b;border-width:0 1px;}
+.channel-list h2{
+	width:99px;
+	height:58px;
+	overflow:hidden;
+	z-index:45;
+	background:url(../img/epg-ch-bg.gif) repeat-x;
+}
+.channel-list h2 a{
+	display:block;
+	height:58px;
+	line-height:58px;
+}
+.channel-list h2 a span{float:left;display:inline;overflow:hidden;width:23px;height:23px;margin:15px 5px 0 10px;}
+.channel-list h2,
+.channel-list h2:hover,
+.channel-list h2:visited{background-position:0 -58px;}
+.epgCon .selected h2,
+.channel-list h2:active,
+.channel-list h2:focus{background-position:0 0;}
+.channel-list .inner{overflow:hidden;padding:5px;height:48px;z-index:90;}
+.channel-list .inner .tit{font-size:14px;font-weight:bold;line-height:25px;float:left;display:inline;height:25px;}
+.channel-list .inner .vod{background:url(../img/icon-play2.gif) no-repeat 0 50%;padding-left:22px;}
+.channel-list .inner p{clear:both;color:#666;white-space:nowrap;}
+.channel-list .living{background:url(../img/epg-s1.gif) repeat-x 0 0;}
+.epgCon .selected{background-color:#ffffe5;}
+.epgCon .scroll-vertical{
+	top:0;right:0;width:9px;
+	height:294px;
+	overflow:hidden;
+	z-index:45;
+	background-color:#cdcdcd;
+	border-left:none;
+}
+.epgCon .scroll-vertical .handle{background-color:#1a66d4;height:44px;z-index:98;width:9px;border:none;}
+.channel-list h2 a.ch01 span{background:url(../img/channel/logo-cbn.png) no-repeat;}
+.channel-list h2 a.ch02 span{background:url(../img/channel/logo-etv.png) no-repeat;}
+.channel-list h2 a.ch03 span{background:url(../img/channel/logo-stv.png) no-repeat;}
+.channel-list h2 a.ch04 span{background:url(../img/channel/logo-young.png) no-repeat;}
+.channel-list h2 a.ch05 span{background:url(../img/channel/logo-movie.png) no-repeat;}
+.channel-list h2 a.ch06 span{background:url(../img/channel/logo-discovery.png) no-repeat;}
+.channel-list h2 a.ch07 span{background:url(../img/channel/logo-ent.png) no-repeat;}
+.channel-list h2 a.ch08 span{background:url(../img/channel/logo-art.png) no-repeat;}
+.channel-list h2 a.ch09 span{background:url(../img/channel/logo-ics.png) no-repeat;}
+.channel-list h2 a.ch10 span{background:url(../img/channel/logo-drama.png) no-repeat;}
+.channel-list h2 a.ch11 span{background:url(../img/channel/logo-child.png) no-repeat;}
+.channel-list h2 a.ch12 span{background:url(../img/channel/logo-catoon.png) no-repeat;}
+.channel-list h2 a.ch13 span{background:url(../img/channel/logo-stv.png) no-repeat;}
+.channel-list h2 a.ch14 span{background:url(../img/channel/logo-sport.png) no-repeat;}
+.channel-list h2 a.ch15 span{background:url(../img/channel/logo-ent.png) no-repeat;}
+.channel-list h2 a.ch16 span{background:url(../img/channel/logo-stv.png) no-repeat;}
+.channel-list h2 a.ch17 span{background:url(../img/channel/logo-stv.png) no-repeat;}
+.channel-list h2 a.ch18 span{background:url(../img/channel/logo-stv.png) no-repeat;}
+#epg-txt{clear:both;margin:15px 0;border:1px solid #ccc;}
+#epg-txt .epg-chs{width:99px;text-align:center;background-color:#f6f6f6;border-right:1px solid #ccc;}
+#epg-txt .epg-chs a{color:#326699;}
+#epg-txt .epg-chs li{display:block;clear:both;height:22px;line-height:22px;overflow:hidden;}
+#epg-txt .epg-chs li.selected a{color:#333;font-weight:bold;cursor:text;}
+#epg-txt .epg-chs li.selected{background-color:#e1e1e1;}
+#epg-txt .epgCon{padding:0 10px;}
+#epg-txt .epgCon h2{
+	font-size:16px;font-weight:bold;color:#999;line-height:35px;height:35px;
+	background:url(../img/dot-1.gif) repeat-x 0 100%;
+	margin-bottom:5px;
+}
+#epg-txt .epgCon .inner{clear:both;padding:0 10px 15px 10px;}
+#epg-txt .epgCon h3{font-weight:bold;}
+#epg-txt .epgCon h3 span.time{float:left;display:inline;color:#000;margin-right:20px;width:34px;}
+span.red,
+span.red a{color:#b42323;}
+#epg-txt .epgCon .inner span.red,
+#epg-txt .epgCon .inner span.blue{font-weight:normal;}
+#epg-txt .epgCon .inner p{clear:both;margin-left:55px;width:743px;color:#666;line-height:16px;}

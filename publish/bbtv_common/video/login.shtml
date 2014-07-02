@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+<title>注册/登陆</title>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/grid.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/common.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/login.css" />
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.jNice.js"></script>
+<script type="text/javascript" src="js/layout-login.js"></script>
+
+</head>
+<body>
+<div class="hd">
+</div>
+<div class="bd container_16">
+	<ul class="bread-crumb">
+		<li>您当前的位置：<a href="#">首页</a></li>
+		<li><a href="#">注册</a></li>
+	</ul>
+	<div class="container_16 ">
+		<div class="grid_9" id="login">
+			<h2><img src="img/h2-login.gif" alt="欢迎来到 BBTV.cn" /></h2>
+			<form class="jNice">
+				<h3>
+					<div class="inner-left icon">登录</div>
+					<div class="inner-left tit">
+						<h4>会员登录</h4>
+						<p>可用手机号/会员名/邮箱登录</p>
+					</div>
+				</h3>				
+				<ol>
+					<li class="ipt-long">
+						<label>帐户名:</label>
+						<input type="text" name="" value=""/>
+					</li>
+					<li class="ipt-long">
+						<label for="login_pw">密 码:</label>
+						<input type="password" name="login_pw" id="login_pw" value=""/>
+					</li>
+					<!-- 默认不输入验证码，连续输错三次密码，出现验证码框 -->
+					<li class="ipt-short">
+						<label for="login_code">验证码:</label>
+						<input type="text" name="login_code" id="login_code" value=""/>
+						<a href="#" class="codepic"><img src="pic/code.gif" alt="请输入验证码" /></a>
+						<a href="#" class="codetxt">看不清楚？ 换一个</a>
+					</li>
+				</ol>
+				<div class="auto_login">				
+					<input type="checkbox" name="" value="" id="login_auto" />
+					<label for="login_auto">自动登录</label>
+				</div>
+				<div class="submit-login">
+					<input type="submit" name="login_submit" value="登  录" class="btn-3" />
+					<a href="#">忘记密码</a>
+				</div>
+			</form>
+		</div>
+		<!-- end .grid_3 -->
+		<div class="grid_7" id="register">
+			<h2><img src="img/h2-reg.gif" alt="注册新用户" /></h2>
+			<h3>请输入您的电子邮件或手机号<span class="red">(免费)</span>作为BBTV登录账号,并激活.</h3>			
+			<form class="jNice">
+				<ol>
+					<li class="ipt-long">
+						<label><select name="reg_mode">
+							<option value="">手机号码</option>
+							<option value="" selected="selected">电子邮件</option>
+						</select>
+						</label>
+						<input type="text" name="" value=""/>
+						<span class="pass"></span>
+						<!-- 错误提示 -->
+						<div class="info">Email格式有误，请重新输入</div>
+					</li>
+					<li class="ipt-long">
+						<label for="reg_username">用户名:</label>
+						<input type="text" name="reg_username" id="reg_username" value=""/>
+						<span class="pass"></span>
+						<!-- 错误提示 -->
+						<div class="info">5-20个字符(包括小写字母、数字、下划线、中文)</div>
+					</li>
+					<li class="ipt-long">
+						<label for="reg_pw">密 码:</label>
+						<input type="password" name="reg_pw" id="reg_pw" value="" />
+						<span class="pass"></span>
+						<!-- 密码强度提示 -->
+						<div class="pw-strong">
+							<span class="pw-1">弱</span>
+							<span class="pw-2">中</span>
+							<span class="pw-3">强</span>
+						</div>
+					</li>
+					<!-- 邮件注册不输入验证码，手机注册需要输入验证码 -->
+					<li class="ipt-short">
+						<label for="reg_code">验证码:</label>
+						<input type="text" name="login_code" id="reg_code" value="" />
+						<a href="#" class="codepic"><img src="pic/code.gif" alt="请输入验证码" /></a>
+						<a href="#" class="codetxt">看不清楚？ 换一个</a>
+					</li>
+				</ol>
+				<div class="submit-register">
+					<input type="submit" name="login_submit" value="立即注册" class="btn-3" />
+				</div>
+				<div class="auto_read">				
+					<input type="checkbox" name="" value="" id="reg_read" checked />
+					<label for="reg_read">我已经阅读并同意<span class="blue">《<a href="#">东方宽频注册协议</a>》</span></label>
+				</div>
+			</form>
+		</div>
+		<!-- end .grid_7 -->
+	</div>
+</div>
+<div class="ft">
+</div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+@charset "gb2312";
+.listPage{clear:both;margin-top:10px;}
+.listPage h2{
+	font-size:14px;
+	font-weight:bold;
+	color:#666;
+	line-height:33px;
+	height:33px;
+	overflow:hidden;
+}
+.filters{
+	clear:both;
+	margin-bottom:15px;
+}
+
+.filters .inner{clear:both;padding:2px 0;}
+.filters .filter-list{
+	border:1px solid #ddd;
+	display:block;
+	line-height:22px;
+}
+.filters .filter-list li{
+	height:22px;
+	overflow:hidden;
+}
+.filters .filter-list li a{display:block;padding:0 10px;color:#666;}
+.filters .filter-list li a:hover,
+.filters .filter-list li a:active{text-decoration:none;}
+.filters .filter-list li.selected span,
+.filters .filter-list li.selected a{
+	color:#333;
+	font-weight:bold;
+	background-color:#ebebeb;
+}
+.filters .filter-list .highlight{
+	color:#fff;
+	background-color:#4bcaed;
+}
+.filters .filter-list .highlight span,
+.filters .filter-list .highlight a{color:#fff;}
+.filters .filter-list li span{
+	float:right;
+	display:inline;
+	margin-right:5px;
+}
+/* -------------
+ * Selects
+ * ------------- */
+.ctrls{clear:both;}
+.ctrl-sel{
+	float:left;
+	display:inline;
+	padding:1px 0 4px 0;
+}
+.ctrl-sel li{
+	float:left;
+	display:inline;
+	margin:0 5px 0 0;
+	width:auto;
+	vertical-align:top;
+	z-index:100;
+	height:24px;
+}
+.ctrl-sel li.sel01{width:155px;}
+.ctrl-sel li.of{width:13px;line-height:24px;}
+.ctrl-sel li.sel03{width:120px;}
+.LeeSelect{
+	margin-right:5px;
+	border:#ddd 1px solid;
+	height:22px;
+	position:relative;overflow:visible;
+	font-size:12px;
+	top:0;left:0;
+}
+.LeeSelect ul{
+	display:none;
+	border:#ddd 1px solid;
+	background-color:#fff;
+	border-top:none;
+	position:absolute;top:23px;left:-1px;padding:3px;zoom:1;z-index:100;overflow:hidden;}
+.LeeSelect ul li{display:block;clear:both;cursor:pointer;height:19px;line-height:19px;overflow:hidden;zoom:1;white-space:nowrap;width:100%;}
+.LeeSelect ul .li2{color:#fff; background:#4bcaed;}
+.LeeSelect small{
+	position:absolute;display:block;
+	top:3px;right:3px;
+	width: 15px;
+	height: 16px;
+	background: #fff url(../img/icon-select.gif) no-repeat 0 0;
+	overflow:hidden;font-size:0;cursor:pointer;
+}
+.LeeSelect span{display:block;padding:3px 5px;margin-right:4px;height:16px;overflow:hidden;cursor:pointer; background: #fff url(../img/icon-select.gif) no-repeat right}
+.ctrl-sel li.sel01 select,
+.ctrl-sel li.sel01 .LeeSelect{width:151px;}
+.ctrl-sel li.sel01 .LeeSelect ul{width:145px;}
+.ctrl-sel li.sel03 select,
+.ctrl-sel li.sel03 .LeeSelect{width:84px;}
+.ctrl-sel li.sel03 .LeeSelect ul{width:78px;}
+
+ul.pages{padding:8px 0 3px 0;margin:0;float:right;display:inline;width:auto;}
+ul.pages li{float:left;display:block;height:17px;font-size:11px;font-weight:bold;font-family:"Lucida Grande",Helvetica,Arial,Verdana,sans-serif;margin:0;}
+ul.pages li.btn{margin-top:2px;width:8px;height:12px;cursor:pointer;}
+ul.pages li.first{margin-right:9px;width:12px;background:url("../img/pagination-arrows-first.gif") 0 0 no-repeat;}
+ul.pages li.prev{background:url("../img/pagination-arrows-prev.gif") 0 0 no-repeat;}
+ul.pages li.next{background:url("../img/pagination-arrows-next.gif") 0 0 no-repeat;}
+ul.pages li.first:hover{background-position:0 -15px;}
+ul.pages li.prev:hover{background-position:0 -15px;}
+ul.pages li.next:hover{background-position:0 -15px;}
+ul.pages li.disabled{cursor:default;background-position:0 -30px;}
+ul.pages li.disabled:hover{background-position:0 -30px;}
+ul.pages li.total{margin:0 13px 0 9px;cursor:pointer;color:#369;}
+ul.pages li.total:hover{text-decoration:underline;}
+ul.pages li.input{padding:0 10px 0 13px;}
+ul.pages input{height:14px;width:11px;border:1px solid #BBB;font-weight:bold;font-size:11px;line-height:11px;padding:0 3px 0 3px;text-align:center;margin:0;font-family:"Lucida Grande",Helvetica,Arial,Verdana,sans-serif;*padding-top:2px;*height:12px;}
+ul.pages input.long{width:27px;}
+ul.pages input.short{width:11px;}
+
+.listCon{clear:both;}
+.listCon ul.pages{padding: 5px 0;clear:both;}
+
+.show-list{clear:both;}
+.show-list li{
+	float:left;
+	display:inline;
+	overflow:hidden;
+}
+.show-list li:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.show-list li div.pic{
+	width:130px;
+	height:75px;
+	margin:0 0 7px 0;
+}
+.show-list li div.pic img{
+	width:130px;
+}
+.show-list p{color:#999;line-height:18px;}
+.mode-atoz .listCon{border-top:1px solid #ccc;}
+.mode-atoz-item h2{
+	clear:both;
+	float:left;display:inline;
+	width:28px;
+	height:18px;
+	text-align:center;
+	color:#fff;
+	font:16px Arial;
+	font-weight:bold;
+	background-color:#9a9a9a;
+	overflow:hidden;
+}
+.mode-atoz-item{
+	clear:both;
+	margin-top:6px;
+	width:740px;
+	overflow:hidden;
+	border-bottom:1px solid #e5e5e5;
+}
+.mode-atoz-item .show-list{padding-top:8px;width:796px;}
+.mode-atoz-item .show-list li{
+	height:205px;
+	width:134px;
+	margin:0 65px 0 0;
+	
+}
+#radio .mode-atoz-item .show-list li { text-align:center; height:155px}
+.mode-atoz-item .show-list li .tit{margin-bottom:6px;padding:0 4px;}
+.mode-atoz-item .show-list li .tit a{
+	color:#666;
+	font-weight:bold;
+}
+.mode-atoz-item .show-list .txt{padding:0 4px;}
+.mode-atoz-item .show-list p a{color:#666;}
+.mode-search .pages,
+.mode-search .listCon{padding-right:9px;}
+.mode-search .show-list{
+	border:0 solid #e6e6e6;
+	border-width:1px 0 0 1px;
+}
+
+.mode-search .show-list li{
+	border:0 solid #e6e6e6;
+	border-width:0 1px 1px 0;
+	width:374px;
+	height:110px;
+	padding:10px 0;
+
+}
+
+
+
+.mode-search .show-list div.pic{float:left; display:inline; width:130px; height:73px;margin:0 20px;}
+.mode-search .show-list div.pic div {  width:130px; height:73px; }
+.mode-search .show-list div.pic img { width:130px}
+
+
+
+.mode-search .show-list .txt{
+	float:left;display:inline;
+	width:195px;
+	
+}
+.mode-search .show-list .tit {
+	height:75px;
+	overflow:hidden;
+}
+.mode-search .show-list p a{color:#369;}
+.mode-search .show-list .tit a{color:#666;}
+.mode-search .show-list .tit a span{font-weight:bold;}
+.mode-search .show-list .tit em{
+	display:block;
+	font-family:Arial,SimSun;
+	line-height:24px;
+}
+
+/*bbtv_radio*/
+#radio .mode-search  .show-list div.pic{float:left; display:inline;width:74px; height:74px;margin:0 20px;}
+#radio .mode-search  .show-list div.pic div {width:74px; height:74px; }
+#radio .mode-search  .show-list div.pic img { height:74px; width:auto}

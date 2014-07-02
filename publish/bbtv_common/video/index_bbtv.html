@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+<title>BBTV.CN 首页</title>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/grid.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/common.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/index.css" />
+<link type="text/css" href="css/jquery-ui/jquery-ui-1.7.1.custom.css" rel="stylesheet" />	
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.pngfix.js"></script>
+<script type="text/javascript" src="js/jquery.jNice.js"></script>
+<script type="text/javascript" src="js/ui.core.js"></script>
+<script type="text/javascript" src="js/ui.tabs.js"></script>
+<script type="text/javascript" src="js/ui.datepicker.js"></script>
+<script type="text/javascript" src="js/layout-index.js"></script>
+<script type="text/javascript" src="js/jsScroller.js"></script>
+
+</head>
+<body>
+
+<div class="hd"> </div>
+<div class="bd" id="index">
+  <div class="channels">
+    <div class="container_16 clearfix">
+      <div class="arrows">
+        <!-- 底部滚动箭头 -->
+        <a class="arrow-up" id="barup"></a> <a class="arrow-down" id="bardown"></a>
+        <div id="mask"></div>
+      </div>
+      <div id="ch-tabs" class="clearfix">
+        <div class="scroller" id="slider">
+          <!-- 纵向滚条 -->
+          <div class="scroll-handle" id="chnBar"></div>
+        </div>
+        <!-- 节目列表 -->
+        <ul class="ch-nav" id="chnContent">
+          <li><a href="#ch001" class="ch01"><span></span>第一财经</a></li>
+          <li><a href="#ch002" class="ch02"><span></span>东方卫视</a></li>
+          <li><a href="#ch003" class="ch03"><span></span>新闻综合</a></li>
+          <li><a href="#ch004" class="ch04"><span></span>生活时尚</a></li>
+          <li><a href="#ch005" class="ch05"><span></span>东方电影</a></li>
+          <li><a href="#ch006" class="ch06"><span></span>纪实频道</a></li>
+          <li><a href="#ch007" class="ch07"><span></span>娱乐频道</a></li>
+          <li><a href="#ch008" class="ch08"><span></span>艺术人文</a></li>
+          <li><a href="#ch009" class="ch09"><span></span>外语频道</a></li>
+          <li><a href="#ch010" class="ch10"><span></span>戏剧频道</a></li>
+          <li><a href="#ch011" class="ch11"><span></span>哈哈少儿</a></li>
+          <li><a href="#ch012" class="ch12"><span></span>炫动卡通</a></li>
+          <li><a href="#ch013" class="ch13"><span></span>电视剧</a></li>
+          <li><a href="#ch014" class="ch14"><span></span>五星体育</a></li>
+          <li><a href="#ch015" class="ch15"><span></span>东方CJ</a></li>
+          <li><a href="#ch016" class="ch16"><span></span>电影直播</a></li>
+          <li><a href="#ch017" class="ch17"><span></span>今日频道</a></li>
+          <li><a href="#ch018" class="ch18"><span></span>电视剧场</a></li>
+        </ul>
+        <!-- 节目列表结束 -->
+        <div class="tabCon" id="ch001">
+          <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          <div class="epg-fl" style="top:310px;left:560px;">
+            <div class="epg-fl-wrap clearfix">
+              <div class="inner clearfix"> <a href="#" class="pic"><img src="pic/pic02.jpg" alt="图片标题" /></a>
+                <div class="txt"> <a href="#" class="tit">电视剧</a>
+                  <p>清凌凌的水蓝莹莹的天Ⅱ16/36</p>
+                  <div class="statues"><span class="red"><a href="#">正在播放</a></span></div>
+                </div>
+              </div>
+            </div>
+            <a class="close" title="关闭"></a>
+            <div class="epg-fl-bt"></div>
+          </div>
+          <div class="epg">
+            <div class="date">
+              <span class="date-dd">12</span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year">2009</span>.<span class="date-mon">04</span> </div>
+              <input id="dateinput" value=" "   type="text" readonly="readonly"/>
+            </div>
+            <h2><span class="blue">第一财经</span><br>
+              频道节目单</h2>
+            <div class="onair"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li>10:00</li>
+                <li>10:30</li>
+                <li>11:00</li>
+                <li>11:30</li>
+                <li>12:00</li>
+                <li>12:30</li>
+                <li>13:00</li>
+                <li>13:30</li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+                <div class="inner" style="top:0;left:0;width:127px;"> <a href="#" class="tit vod">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:138px;width:127px;"> <a href="#" class="tit vod">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+                <div class="inner living" style="top:0;left:276px;width:127px;"> <a href="#" class="tit vod">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:414px;width:127px;"> <a href="#" class="tit">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:552px;width:127px;"> <a href="#" class="tit">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch002">
+          <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          <div class="epg">
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd">8</span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year">2009</span>. <span class="date-mon">04</span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">东方卫视</span><br>
+              频道节目单</a></h2>
+            <div class="onair"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li>10:00</li>
+                <li>10:30</li>
+                <li>11:00</li>
+                <li>11:30</li>
+                <li>12:00</li>
+                <li>12:30</li>
+                <li>13:00</li>
+                <li>13:30</li>
+              </ul>
+            </div>
+            <div class="epg-fl clearfix" style="top:40px;left:560px;">
+              <div class="epg-fl-wrap clearfix">
+                <div class="inner clearfix"> <a href="#" class="pic"><img src="pic/pic02.jpg" alt="图片标题" /></a>
+                  <div class="txt"> <a href="#" class="tit">电视剧</a>
+                    <p>清凌凌的水蓝莹莹的天Ⅱ16/36</p>
+                    <div class="statues"><span class="red"><a href="#">正在播放</a></span></div>
+                  </div>
+                </div>
+              </div>
+              <a class="close" title="关闭"></a>
+              <div class="epg-fl-bt"></div>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+                <div class="inner" style="top:0;left:0;width:81px;"> <a href="#" class="tit vod">1今日股市</a>
+                  <p>1基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:92px;width:81px;"> <a href="#" class="tit vod">2今日股市</a>
+                  <p>2基金解套后继续走高走高</p>
+                </div>
+                <div class="inner living" style="top:0;left:184px;width:92px;"> <a href="#" class="tit vod">3今日股市</a>
+                  <p>3基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:414px;width:127px;"> <a href="#" class="tit">4今日股市</a>
+                  <p>4基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:552px;width:127px;"> <a href="#" class="tit">5今日股市</a>
+                  <p>5基金解套后继续走高走高</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch003">
+          <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          <div class="epg">
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd">8</span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year">2009</span>. <span class="date-mon">04</span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">新闻综合</span><br>
+              频道节目单</a></h2>
+            <div class="onair"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li>10:00</li>
+                <li>10:30</li>
+                <li>11:00</li>
+                <li>11:30</li>
+                <li>12:00</li>
+                <li>12:30</li>
+                <li>13:00</li>
+                <li>13:30</li>
+              </ul>
+            </div>
+            <div class="epg-fl clearfix" style="top:40px;left:560px;">
+              <div class="epg-fl-wrap clearfix">
+                <div class="inner clearfix"> <a href="#" class="pic"><img src="pic/pic02.jpg" alt="图片标题" /></a>
+                  <div class="txt"> <a href="#" class="tit">电视剧</a>
+                    <p>清凌凌的水蓝莹莹的天Ⅱ16/36</p>
+                    <div class="statues"><span class="red"><a href="#">正在播放</a></span></div>
+                  </div>
+                </div>
+              </div>
+              <a class="close" title="关闭"></a>
+              <div class="epg-fl-bt"></div>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+                <div class="inner" style="top:0;left:0;width:127px;"> <a href="#" class="tit vod">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:138px;width:127px;"> <a href="#" class="tit vod">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+                <div class="inner living" style="top:0;left:276px;width:127px;"> <a href="#" class="tit vod">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:414px;width:127px;"> <a href="#" class="tit">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+                <div class="inner" style="top:0;left:552px;width:127px;"> <a href="#" class="tit">今日股市</a>
+                  <p>基金解套后继续走高走高</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch004">生活时尚</div>
+        <div class="tabCon" id="ch005">afafa</div>
+        <div class="tabCon" id="ch006"></div>
+        <div class="tabCon" id="ch007">7</div>
+        <div class="tabCon" id="ch008">8</div>
+        <div class="tabCon" id="ch009">9</div>
+        <div class="tabCon" id="ch010">10</div>
+        <div class="tabCon" id="ch011">11</div>
+        <div class="tabCon" id="ch012">12</div>
+        <div class="tabCon" id="ch013">13</div>
+        <div class="tabCon" id="ch014">14</div>
+        <div class="tabCon" id="ch015">15</div>
+        <div class="tabCon" id="ch016">16</div>
+        <div class="tabCon" id="ch017">17</div>
+        <div class="tabCon" id="ch018">aaaa</div>
+      </div>
+    </div>
+  </div>
+  <!--推荐-->
+  <div class="recommend container_16">
+    <ul class="reco-list clearfix">
+      <li class="rec1">
+        <h2>直播关注</h2>
+        <div class="inner">
+        <div class="txtwarpper">
+         <a href="#" class="pic"><img src="pic/pic01.jpg" alt="视频标题" /></a>
+          <div class="txt">
+            <p><a href="#" class="tit">火箭官方宣布姚明手术成功</a></p>
+            <p>播出：12月22日12:35</p>
+            <p>频道：<a href="#" class="six" title="第一财经">第一财经</a></p>
+          </div>
+         </div>
+        <ul class="newsList clr">
+            <li><span>25日 11:35</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+            <li><span>25日 11:35</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+            <li class="fix"><span>25日 11:35</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+        </ul>
+          
+        </div>
+      </li>
+      <li class="rec2">
+        <h2>热播视频</h2>
+        <div class="inner">
+        <div class="txtwarpper">
+         <a href="#" class="pic"><img src="pic/pic01.jpg" alt="视频标题" /></a>
+          <div class="txt">
+            <p><a href="#" class="tit">看东方</a></p>
+            <p>周一至周五 7:35</p>
+            <p>频道：<a href="#" class="six" title="第一财经">第一财经</a></p>
+            <p><span class="blue">[<a href="#" title="播放">播放</a>]</span></p>
+          </div>
+         </div>
+        <ul class="newsList clr">
+            <li><span>第一财经</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+            <li><span>第一财经</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+            <li class="fix"><span>第一财经</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+        </ul>
+          
+        </div>
+      </li>
+      <li class="rec3">
+        <h2>热播影视</h2>
+        <div class="inner">
+        <div class="txtwarpper">
+         <a href="#" class="pic"><img src="pic/pic01.jpg" alt="视频标题" /></a>
+          <div class="txt">
+            <p><a href="#" class="tit">上班这点事</a></p>
+            <p>频道：<a href="#" class="six" title="连续剧">连续剧</a></p>
+            <p><span class="blue">[<a href="#" title="播放">播放</a>]</span></p>
+          </div>
+         </div>
+        <ul class="newsList clr">
+            <li><span>连续剧</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+            <li><span>连续剧</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+            <li class="fix"><span>连续剧</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+        </ul>
+          
+        </div>
+      </li>
+      <li class="rec4">
+        <h2>闪耀明星</h2>
+        <div class="inner">
+        <div class="txtwarpper">
+         <a href="#" class="pic"><img src="pic/pic01.jpg" alt="视频标题" /></a>
+          <div class="txt">
+            <p>《非常完美》首映</p>
+            <p><h4>章子怡</h4></p>
+            <p><span class="blue">[<a href="#" title="查看详细">查看详细</a>]</span></p>
+          </div>
+         </div>
+        <ul class="newsList clr">
+            <li><span>相约星期六</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+            <li><span>相约星期六</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+            <li class="fix"><span>相约星期六</span><a href="#" title="">沪车牌网上拍卖系统遭攻击</a></li>
+        </ul>
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--推荐 end-->
+</div>
+<div class="ft"> </div>
+</body>
+</html>

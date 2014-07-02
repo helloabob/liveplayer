@@ -1,0 +1,6 @@
+@charset "gb2312";
+/* CSS Document */
+
+.error404 { width:960px; height:568px;margin:0px auto; background:#fff url(../img/error404_bg.jpg) 652px top no-repeat; position:relative;border:2px solid #aeaeae; border-left:none; border-right:none }
+.error404 .errorTxt { width:477px; height:106px; background:url(../img/error404_txt.gif); position:absolute; left:65px; top:63px}
+.error404 p { position:absolute; width:772px; line-height:22px;font-size:14px; color:#666; font-weight:bold;left:65px; top:245px}

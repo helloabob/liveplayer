@@ -1,0 +1,147 @@
+/*
+	960 Grid System ~ Core CSS.
+	Learn more ~ http://960.gs/
+
+	Licensed under GPL and MIT.
+*/
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+/* http://www.positioniseverything.net/easyclearing.html */
+
+.clearfix:after {
+	clear: both;
+	content: '.';
+	display: block;
+	visibility: hidden;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+.clearfix {
+	display: block;
+}
+html{color:#333;background: #1a1a1a;}
+body
+{
+	background: #1a1a1a;
+	color: #333;
+	font: 12px SimSun, Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif, SimHei;
+	line-height:18px;
+}
+.clr{clear:both;}
+.inner-left{float:left;display:inline;}
+.inner-right{float:right;display:inline;}
+a{color:#333;cursor:pointer;}
+a:link, a:visited {text-decoration: none;}
+a:hover, a:active {text-decoration: underline;}
+a:focus {outline: 1px dotted invert;}
+a.pic:link,a.pic:visited{border:1px solid #ccc;}
+a.pic:hover,a.pic:active,a.pic:focus{border:1px solid #aaa;}
+.blue,.blue a{color:#369;}
+.red,.red a{color:#b42323;}
+.gray3{color:#333;}
+.gray6{color:#666;}
+.gray9{color:#333;}
+
+.bd{
+	clear:both;
+	border:0 solid #aeaeae;
+	border-width:2px 0;
+	background-color:#fff;
+}
+.bd:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.bread-crumb{
+	background:url(../img/bread-crumb-bg.gif) repeat-x 0 0;
+	height:27px;
+	line-height:27px;
+	overflow:hidden;
+}
+.bread-crumb li{
+	background:url(../img/bread-crumb-arrow.gif) no-repeat 100% 0;
+	padding:0 22px 0 12px;
+	float:left;
+	display:inline;
+	width:auto;
+	white-space:nowrap;
+}
+a.more{
+	float:right;
+	display:inline;
+}
+.container_1{clear:both;border:1px solid #ddd;}
+.container_1 .inner{padding:5px 9px;}
+.grid_5 a.more:link,
+.grid_5 a.more:visited,
+.grid_5 a.more:hover,
+.grid_5 a.more:active,
+.grid_5 a.more:focus{color:#fff;}
+.grid_11 h2{
+	clear:both;
+	color:#444;
+	background-color:#f4f4f4;
+	padding:0 10px;
+	height:24px;
+	line-height:24px;
+	overflow:hidden;
+}
+.grid_5 h2{
+	clear:both;
+	color:#fff;
+	background:url(../img/title-bg.gif) repeat-x 0 0;
+	padding:0 10px;
+	height:24px;
+	line-height:24px;
+	overflow:hidden;
+}
+.vodList{clear:both;}
+.vodList li{
+	clear:both;
+	display:block;
+	height:79px;
+	margin:5px 0;
+}
+.vodList li:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.vodList li a.pic{
+	float:left;
+	display:inline;
+	width:130px;
+	height:75px;
+	overflow:hidden;
+	padding:1px;
+	margin-right:9px;
+}
+.vodList li a.tit{
+	font-weight:bold;
+	line-height:16px;
+}
+.vodList li .txt p{color:#999;margin:3px 0;line-height:18px;}
+.txtList{clear:both;display:block;}
+.txtList li{
+	clear:both;
+	display:block;
+	height:24px;
+	line-height:24px;
+	white-space:nowrap;
+	overflow:hidden;
+	background:url(../img/icon-play.gif) no-repeat 0 50%;
+	padding-left:18px;
+}
+.txtList li a{color:#369;}

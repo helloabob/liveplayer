@@ -1,0 +1,152 @@
+/*
+ * 文件名：city.css
+ * 创建人：ybyt
+ * 创建时间：2009-04-27 14:20
+ * 最后更新：
+ * 功能说明：
+ * 功能:bbtv.cn 信息页面样式
+ * 历史修改记录：
+ * smgbb.cn
+*/
+/*通用*/
+
+h1 {font-size:14px; font-weight:bold}
+p {line-height:155%}
+/*灰色边框，灰色背景*/
+.graybox {border:1px solid #d4d4d4;background:#f6f6f6;}
+/*10px的空距*/
+.pd10 {clear:both;display:block;height:10px;font-size:0px}
+/*图片链接的边框*/
+.picbd li img , .singlepic img {padding:1px;border:1px solid #aba9aa}
+.picbd li img:hover,.singlepic img:hover {border-color:#B14205}
+/*播放链接*/
+a.playa {color:#326698;text-decoration:underline;margin-left:24px}
+a.playa:link {text-decoration:underline}
+a.playa:visited {text-decoration:underline}
+a.playa:hover {text-decoration:none}
+a.playa:active {text-decoration:underline}
+/*文字不折行*/
+.txt_nowrap h1,.txt_nowrap li {white-space:nowrap;text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow:hidden}
+
+/*盒子类*/
+.smg_box {width:auto;height:auto}
+	.smg_box .box_title {height:29px;line-height:29px;background:url(../img/bg_clm_m.jpg) repeat-x; position:relative}/*盒子标题*/
+		.smg_box .box_title h1 {text-indent:12px}
+		.smg_box .box_title .more {  float:right;margin:1px 28px 0 0}
+		.smg_box .box_title .submenus {position:absolute;right:120px;top:1px}
+		.smg_box .box_title .submenus a {margin:0px 8px}
+		.smg_box .box_title .box_l {height:29px;width:5px;background:url(../img/bg_clm_l.gif) no-repeat; position:absolute;left:0;top:0}
+		.smg_box .box_title .box_r {height:29px;width:6px;background:url(../img/bg_clm_r.gif) no-repeat; position:absolute;right:0;top:0}
+	.smg_box .box_content {border:1px #d2e7f8 solid; background:#fff;padding-top:13px;*padding-top:11px;-margin-top:-1px;}/*盒子内容*/
+		.smg_box .box_content ul li {float:left;overflow:hidden}
+		
+		.smg_box .box_content .putb  {width:415px;-width:398px}/*上图下文排版*/
+		.smg_box .box_content .putb li {width:109px;height:124px;*height:122px;margin:0 14px 12px 14px;-margin:0 10px 12px 10px;}
+		.smg_box .box_content .putb li img {width:102px;height:76px}
+		
+		.smg_box .box_content .pltr {}/*左图右文排版*/
+		.smg_box .box_content .pltr li {width:255px;height:80px;margin:0px 12px 11px;-margin:0px 0px 10px 6px}/*左图右文排版*/
+		.smg_box .box_content .pltr li a.imgframe { display:inline;padding:1px;font-size:0px;border:1px solid #aba9aa;width:130px;height:76px;float:left;margin-right:8px;}
+		.smg_box .box_content .pltr li a.imgframe:hover {border-color:#B14205}
+		.smg_box .box_content .pltr li a.imgframe span { display:block;width:130px;height:76px;overflow:hidden;margin:0px}
+		.smg_box .box_content .pltr li .imgframe img {width:130px;}
+		.smg_box .box_content .pltr li a {color:#326698;text-decoration:underline}
+		.smg_box .box_content .pltr li a:hover {text-decoration:none}
+		.smg_box .box_content .pltr li span {color:#666;margin:4px 0;display:block}
+		.smg_box .box_content #fashList {width: 689px; margin-left: 4px;_margin-left: 4px;_margin-right:-24px;}
+		.smg_box .box_content .newslist {padding:0px 8px}/*新闻列表*/
+		.smg_box .box_content .newslist li {height:16px;line-height:16px;margin-bottom:10px;*margin-bottom:11px; text-indent:9px; display:block;width:100%;background:url(../img/listdot.gif) left center no-repeat}
+		.smg_box .box_content .newslist li a {color:#326698;font-size:14px;}
+
+/*第一屏*/
+#info_main {height:550px;-height:543px; overflow:hidden}
+#smg_fls {width:320px;height:240px; float:left;font-size:0px}
+#smg_mainnews { width:320px; height:240px;over-flow:hidden; float:right;}
+	#smg_mainnews div { height:70px; width:302px;padding:8px; overflow:hidden; line-height:185% }
+	#smg_mainnews div h1 {width:300px}
+	#smg_mainnews div h1 a { font-family:"黑体"; font-size:20px;color:#c00; font-weight:normal;height:24px; margin-bottom:4px; line-height:24px;display:block}
+#smg_mainnews ul {padding-top:6px;}
+	#smg_mainnews ul li { background:url(../img/listdot.gif) 2px center no-repeat;padding:3px 10px;width:298px}
+	#smg_mainnews ul li a {font-size:14px;color:#326698;margin-right:12px; text-decoration:underline}
+	#smg_mainnews ul li a:hover {text-decoration:none}
+
+#smg_newest {clear:both;width:636px;padding:6px;overflow:hidden;white-space:nowrap;}
+	#smg_newest h1 { display:inline; color:#c00;}
+	#smg_newest a {margin:0px 2px}
+#hotvideo {width:636px;-width:638px;padding:6px;-padding:3px 5px; height:auto; overflow:hidden}
+#hotvideo ul { text-align:center;margin-left:3px;-margin-left:3px; width:636px;height:120px}
+.smg_videolist h1 {padding:0px 0px 4px 6px}
+.smg_videolist ul li { float:left;width:110px; height:120px;-height:119px; overflow:hidden;margin-right:20px;-margin-right:20px}
+.smg_videolist ul li.fixed {margin-right:0px}
+.smg_videolist ul li img {width:102px;height:76px}
+
+/*时事*/
+.lftbgpic {width:238px;padding:0px 10px 10px 10px}
+.lftbgpic img {width:237px; height:177px}
+.lftbgpic h1 {padding:8px 0;}
+.lftbgpic h1 a {font-size:14px;font-weight:bold;color:#326698;height:18px;line-height:18px}
+.vpding,.vpding_b  { width:20px;height:270px; background:url(../img/bg_vline.jpg) no-repeat 11px 0px;-background-position:14px 0px}
+.vpding_b { background-position:0px 0px}
+
+.topnews { width:217px;padding-top:9px}
+.topnews li { width:100%; height:13px;line-height:13px;padding:5px 0;white-space:nowrap;text-overflow:ellipsis; -o-text-overflow:ellipsis;overflow:hidden; display:block;}
+.topnews li a {display:block;padding-left:18px;background:url(../img/idx_icon_rank.gif) no-repeat;text-decoration:underline;color:#326698;}
+.topnews li a:link {text-decoration:underline}
+.topnews li a:visited {text-decoration:underline}
+.topnews li a:hover {text-decoration:none}
+.topnews li a:active {text-decoration:underline}
+.topnews a.rk1 { background-position:0px 0px}
+.topnews a.rk2 { background-position:0px -13px}
+.topnews a.rk3 { background-position:0px -26px}
+.topnews a.rk4 { background-position:0px -39px}
+.topnews a.rk5 { background-position:0px -52px}
+.topnews a.rk6 { background-position:0px -65px}
+.topnews a.rk7 { background-position:0px -78px}
+.topnews a.rk8 { background-position:0px -91px}
+.topnews a.rk9 { background-position:0px -104px}
+.topnews a.rk10 { background-position:0px -117px}
+
+/*smg栏目*/
+#smgcolumn .box_content {height:200px;}
+#smgcolumn ul { width:630px;margin:10px auto;margin-top:-3px}
+#smgcolumn ul li {width:630px;clear:both; display:block;border-bottom:1px dashed #d4d4d4;padding:6px 0px;color:#326698;}
+#smgcolumn ul li h2 {font-size:14px; display:inline;margin-right:10px;color:#323232; background:none}
+#smgcolumn ul li a {color:#326698;margin:0px 8px}
+/*相约地带*/
+#smgfriend {height:320px;}
+#smgfriend .box_content {height:270px;padding:10px}
+#smgfriend select {width:80px;margin-right:4px; float:left}
+#smgfriend ul {width:258px; clear:both;padding-top:12px;border-top:1px dashed #d4d4d4;color:#989898}
+#smgfriend ul li  {width:86px;height:120px;-height:115px; overflow:hidden;text-align:center;margin:0}
+#smgfriend ul li img {width:56px;height:56px;}
+#smgfriend ul li a {display:block; color:#326698;white-space:nowrap}
+
+a.frdsearch { float:right;margin-top:-4px;display:block; width:84px;height:24px; line-height:24px;text-align:center; background:url(../img/btn-1.gif);color:#FFF}
+a.frdsearch:link,a.frdsearch:visited {text-decoration:none}
+a.frdsearch:hover {background-position:0 -24px;text-decoration:none}
+a.frdsearch:active {background-position:0 -48px;text-decoration:none}
+/*底线*/
+.btmline {border-bottom:3px solid #aeaeae}
+/*框架调整*/
+#info-index .grid_11 {width:650px}
+#info-index .grid_5 {margin-left:0; float:right}
+/*图片切换*/
+.jsflash {width:320px;height:240px; overflow:hidden;border:1px solid #dedede; position:relative; font-size:12px;color:#fff}
+.jsflash img {width:320px}
+.jsflash a.jspiclink {display:block;width:320px;height:240px;position:relative;}
+.jsflash div {position:absolute;top:190px;left:0;width:322px;color:#FFF;height:24px;line-height:25px;}
+.jsflash #jsmask {filter: alpha(opacity=50);opacity:0.5;background:#7F7F7F;width:332px}
+.jsflash #jslinks {top:225px; left:238px; background:none;height:32px}
+.jsflash #jslinks a {text-align:center; font-family:Verdana; font-size:9px; display:block;width:19px;color:#fff; height:13px;padding:0px; float:left; line-height:12px; background:#2b2b29;filter: alpha(opacity=75);opacity:0.75;border-left:1px solid #FFF;text-decoration:none}
+.jsflash #jstxt { text-indent:14px; text-align:left;}
+.jsflash #jstxt a { color:#fff;font-size:14px}
+.jsflash #jslinks a:hover {filter: alpha(opacity=100);opacity:1;}
+
+
+
+
+
+
+
+
+

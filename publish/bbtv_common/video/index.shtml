@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+<title>BBTV.CN 首页</title>
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/grid.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/common.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/index.css" />
+<script type="text/javascript" src="/bbtv_common/video/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/jquery.pngfix.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/jquery.jNice.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/ui.core.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/ui.tabs.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/ui.draggable.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/layout-index.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/jsScroller.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/ddd-index.js"></script>
+</head>
+<body>
+<!--#include file="head.html"-->
+<div class="bd" id="index">
+  <div class="channels">
+    <div class="container_16 clearfix">
+      <div class="arrows">
+        <!-- 底部滚动箭头 -->
+        <div class="arrow-up" id="barup"></div>
+        <div class="arrow-down" id="bardown" ></div>
+      </div>
+      <div id="ch-tabs" class="clearfix">
+          <div class="scroller" id="slider">
+            <!-- 纵向滚条 -->
+            <div class="scroll-handle" id="chnBar"></div>
+          </div>
+      <!-- 节目列表 -->
+        <ul class="ch-nav" id="chnContent">
+          <li><a href="#ch001" class="ch01"><span></span>新闻综合</a></li>
+          <li><a href="#ch002" class="ch02"><span></span>生活时尚</a></li>
+          <li><a href="#ch003" class="ch03"><span></span>第一财经</a></li>
+          <li><a href="#ch004" class="ch04"><span></span>五星体育</a></li>
+          <li><a href="#ch005" class="ch05"><span></span>纪实频道</a></li>
+          <li><a href="#ch006" class="ch06"><span></span>东方卫视</a></li>
+          <li><a href="#ch007" class="ch07"><span></span>娱乐频道</a></li>
+          <li><a href="#ch008" class="ch08"><span></span>艺术人文</a></li>
+          <li><a href="#ch009" class="ch09"><span></span>戏剧频道</a></li>
+          <li><a href="#ch010" class="ch10"><span></span>外语频道</a></li>
+        </ul>
+      <!-- 节目列表结束 -->
+        <div class="tabCon" id="ch001">
+          <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">新闻综合</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>        
+        
+        <script language="javascript" type="text/javascript">ddd_index(0);</script>
+                
+        <div class="tabCon" id="ch002">
+        
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">生活时尚</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        
+        </div>       
+        <div class="tabCon" id="ch003">
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">第一财经</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch004">
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">五星体育</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch005">
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">纪实频道</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch006">
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">东方卫视</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        
+        </div>
+        <div class="tabCon" id="ch007">
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+         
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">娱乐频道</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch008">
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">艺术人文</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch009">
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">戏剧频道</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabCon" id="ch010">
+        
+        <div class="recom clearfix">
+            <div class="inner-left"> <a href="#"><img src="/bbtv_common/video/pic/index.jpg" alt="推荐图片" /></a> </div>
+            <div class="inner-right">
+              <div class="player"><img src="/bbtv_common/video/pic/index-p.jpg" alt="请插入播放器" /></div>
+              <div class="tags"> 关键词：<a href="#">股市</a> <a href="#">上班这点事</a> <a href="#">财经</a> <a href="#">温喜庆</a> <a href="#">刘仪伟</a> </div>
+            </div>
+          </div>
+          <div class="epg">
+            <form class="jNice">
+              <select name="sel-date">
+                
+              </select>
+            </form>
+            <div class="date">
+              <div class="dd-hover"></div>
+              <span class="date-dd"></span><span class="date-ri">日</span>
+              <div class="date-ym"> <span class="date-year"></span>. <span class="date-mon"></span> </div>
+            </div>
+            <h2><a href="#"><span class="blue">外语频道</span><br>
+              频道节目单</a></h2>
+            <div class="onair" style="display:none"></div>
+            <!-- 正在直播 -->
+            <div class="scroll-hor">
+              <!-- 水平滚条 -->
+              <div class="handle"></div>
+              <!-- 滑块 -->
+              <div class="scroll-arrows">
+                <div class="scroll-prev"></div>
+                <!-- 左滚 -->
+                <div class="scroll-next"></div>
+                <!-- 右滚 -->
+              </div>
+            </div>
+            <div class="time-line">
+              <div class="scroll-time-prev"></div>
+              <!-- 时间轴滚动 前 -->
+              <div class="scroll-time-next"></div>
+              <!-- 时间轴滚动 后 -->
+              <ul class="times">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="epgCon">
+              <div class="channel-list">
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <script language="javascript" type="text/javascript">gettodayselect();</script>
+      </div>
+    </div>
+  </div>
+  <div class="recommend container_16">
+    <ul class="reco-list clearfix">
+      <li class="hot-show">
+        <h2>热播栏目</h2>
+        <div class="inner"> <a href="#" class="pic"><img src="/bbtv_common/video/pic/pic01.jpg" alt="视频标题" /></a>
+          <div class="txt">
+            <p><a href="#" class="tit">上班这点事</a></p>
+            <p>剧集：<a href="#">第12集</a></p>
+            <p>频道：<a href="#">新闻综合频道</a></p>
+            <p><span class="blue">[<a href="#">播放</a>]</span></p>
+          </div>
+        </div>
+      </li>
+      <li class="hot-video">
+        <h2>热播视频</h2>
+        <div class="inner"> <a href="#" class="pic"><img src="/bbtv_common/video/pic/pic01.jpg" alt="视频标题" /></a>
+          <div class="txt">
+            <p><a href="#" class="tit">金山石化火灾男子身亡或烧香拜佛引起</a></p>
+            <p>频道：<a href="#">新闻综合频道</a></p>
+            <p><span class="blue">[<a href="#">播放</a>]</span></p>
+          </div>
+        </div>
+      </li>
+      <li class="hot-star">
+        <h2>闪耀明星</h2>
+        <div class="inner">
+          <div id="200901345" style="background-image:url(pic/index-hotp.jpg);background-position:10px 6px;">
+            <h3>上班这点事栏目主持人</h3>
+            <h4>刘仪伟</h4>
+            <p><span class="blue">[<a href="#">查看详细</a>]</span></p>
+          </div>
+        </div>
+      </li>
+      <li class="tag-cloud">
+        <h2>关键词</h2>
+        <div class="inner"> <a href="#"><span class="blue font16">经济</span></a>&nbsp;<a href="#">城客</a>&nbsp;<a href="#">环保</a>&nbsp;<a href="#">旅游</a>&nbsp;<a href="#">人文</a>&nbsp;<a href="#">春运</a>&nbsp;<a href="#">祝福</a>&nbsp;<a href="#">影像</a>&nbsp;<a href="#"><span class="blue font14">书评</span></a>&nbsp;<a href="#">迎财神</a>&nbsp;<a href="#">赤壁</a>&nbsp;<a href="#"><span class="blue font14">公益</span></a>&nbsp;<a href="#">影像</a>&nbsp;<a href="#">岁月</a>&nbsp;<a href="#">音乐</a>&nbsp;<a href="#"><span class="blue font16">电影</span></a>&nbsp;<a href="#">贺岁片</a>&nbsp;<a href="#">书评</a> </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class='epg-fl' style='display:none'>
+    <div class='epg-fl-wrap clearfix'>
+      <div class='inner clearfix'> <a href='#' class='pic'><img src='/bbtv_common/video/img/Loading-animated-circle.gif' /></a>
+        <div class='txt'> <a href='#' class='tit'></a>
+          <p></p>
+          <div class='statues'><span class='red'><span class="red"><a href="#">正在播放</a></span>&nbsp;&nbsp;<a style="cursor:pointer" onclick="ddd_hide();">关闭</a></div>
+        </div>
+      </div>
+    </div>
+    <div class='epg-fl-bt'></div>
+</div>
+
+<!--#include file="foot.html"-->
+</body>
+</html>

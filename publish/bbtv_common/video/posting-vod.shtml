@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+<title>最终播放页：点播</title>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/grid.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/common.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/posting.css" />
+</head>
+<body>
+<!--#include file="head.html"-->
+<div class="bd container_16">
+	<ul class="bread-crumb">
+		<li>您当前的位置：<a href="#">首页</a></li>
+		<li><a href="#">娱乐频道</a></li>
+		<li><a href="#">阿庆讲故事</a></li>
+		<li><a href="#">名校优等生遇冷记</a></li>
+	</ul>
+	<div class="posting">
+		<div class="post-tit">
+			<h2>好心收养弃婴遭遇违法尴尬</h2>
+			<h3><a href="#">真情实录</a>&nbsp;&nbsp;播出于&nbsp;&nbsp;2009年4月6日 19:02:36&nbsp;&nbsp;|&nbsp;&nbsp;1:24:41</h3>
+			<div class="inner">
+				<a href="#" class="detail">详细信息</a>
+				上视五星体育消息  目前曼联在少赛一轮的情况下，还领先第二名切尔西队7分之多。不过切尔西的新帅希丁克却表示，不到最后一刻，蓝军绝不放弃希望。
+			</div>
+		</div>
+		<div class="post-player">
+			<img src="pic/player.jpg" alt="请插入播放器" />
+		</div>
+		<div class="post-guests clearfix">
+			<h2>最近来访</h2>
+			<div class="inner">
+				<ul class="guest-list">
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+					<li><a href="#"><img src="pic/pic01.jpg" alt="用户名" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container_16">
+		<div class="grid_11">
+			<div id="comment">
+				<h2>网友评论</h2>
+				<div class="inner">
+					<fieldset>
+						<ul class="logoff clr">
+							<li>用户：</li>
+							<li>您目前是匿名发表 <span class="blue">[<a href="#">登录</a>] [<a href="#">注册</a>]</span></li>
+						</ul>
+						<ul class="cmtipt clr">
+							<li class="textipt"><textarea name="" rows="" cols="" >BBTV小提示：请遵纪守法注意语言文明！</textarea></li>
+							<li class="emots">
+								<img src="img/emot/0.gif" alt="表情1"/>
+								<img src="img/emot/1.gif" alt="表情2"/>
+								<img src="img/emot/2.gif" alt="表情3"/>
+								<img src="img/emot/3.gif" alt="表情4"/>
+								<img src="img/emot/4.gif" alt="表情5"/>
+								<img src="img/emot/5.gif" alt="表情6"/>
+								<img src="img/emot/6.gif" alt="表情7"/>
+								<img src="img/emot/7.gif" alt="表情8"/>
+								<img src="img/emot/8.gif" alt="表情9"/>
+								<img src="img/emot/9.gif" alt="表情10"/>
+								<img src="img/emot/10.gif" alt="表情11"/>
+								<img src="img/emot/11.gif" alt="表情12"/>
+								<img src="img/emot/12.gif" alt="表情13"/>
+								<img src="img/emot/13.gif" alt="表情14"/>
+								<img src="img/emot/14.gif" alt="表情15"/>
+								<img src="img/emot/15.gif" alt="表情16"/>
+								<img src="img/emot/16.gif" alt="表情17"/>
+								<img src="img/emot/17.gif" alt="表情18"/>
+								<img src="img/emot/18.gif" alt="表情19"/>
+								<img src="img/emot/19.gif" alt="表情20"/>
+							</li>
+						</ul>
+						<ul class="msg-submit clr">
+							<li class="codeipt">
+								<label>验证码</label>
+								<input type="text" name="" value="" />
+								<div class="codeimg">53M6</div>
+							</li>
+							<li class="btn-submit"><input type="submit" name="" value="发布评论" /></li>
+							<li class="msg-left">您还可以输入800个字</li>
+						</ul>
+					</fieldset>
+					<div class="allcmt">
+						<h3>
+							<!-- 分页 begin -->
+							<ul class="pages" id="s14ub543-nav">
+								<li class="btn first"></li>
+								<li class="btn prev"></li>
+								<li class="input">
+									<input autocomplete="off" name="page" onfocus="$(this).select();" onkeydown="if(event.keyCode == 13) s14ub543.move(event, 'input');" type="text" value="1" />
+								</li>
+								<li class="of">...</li>
+								<li class="total">10</li>
+								<li class="btn next"></li>
+							</ul>
+							<!-- 分页 end -->
+							本视频共 <b>230</b>条评论
+						</h3>
+						<div class="cmt-list">
+							<ul>
+								<li class="odd">
+									<div class="cmt-icon"><a href="#" class="pic"><img src="pic/pic01.jpg" alt="用户名" /></a></div>
+									<div class="txt">
+										<h4>
+											<div class="post-time">2009-03-11 19:39</div>
+											<span>BBTV上海市网友</span> 说：
+										</h4>
+										<div class="cmt-con">
+											<p>这些天我对两会的关心越来越少,为什么?就是议案不振奋人心,都是鸡毛蒜皮的事情,让人失望</p>
+										</div>
+										<a href="#" class="reply">回复</a>
+									</div>
+								</li>
+								<li>
+									<div class="cmt-icon"><a href="#" class="pic"><img src="pic/pic01.jpg" alt="用户名" /></a></div>
+									<div class="txt">
+										<h4>
+											<div class="post-time">2009-03-11 19:39</div>
+											<a href="#">李一凡</a> 对 <span>BBTV上海市网友</span> 说：
+										</h4>
+										<div class="cmt-con">
+											<p>鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！！</p>
+											<p>鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！！</p>
+											<p>鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！！</p>
+											<p>鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！！</p>
+											<p>鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！！</p>
+										</div>
+										<a href="#" class="reply">回复</a>
+									</div>
+								</li>
+								<li class="odd">
+									<div class="cmt-icon"><a href="#" class="pic"><img src="pic/pic01.jpg" alt="用户名" /></a></div>
+									<div class="txt">
+										<h4>
+											<div class="post-time">2009-03-11 19:39</div>
+											<a href="#">李一凡</a> 说：
+										</h4>
+										<div class="cmt-con">
+											<p>这些天我对两会的关心越来越少,为什么?就是议案不振奋人心,都是鸡毛蒜皮的事情,让人失望</p>
+										</div>
+										<a href="#" class="reply">回复</a>
+									</div>
+								</li>
+								<li>
+									<div class="cmt-icon"><a href="#" class="pic"><img src="pic/pic01.jpg" alt="用户名" /></a></div>
+									<div class="txt">
+										<h4>
+											<div class="post-time">2009-03-11 19:39</div>
+											<a href="#">李一凡</a> 说：
+										</h4>
+										<div class="cmt-con">
+											<p>鸡毛蒜皮的事，可能起到极大的作用。事情不在于大小，而在于是否有用！</p>
+										</div>
+										<a href="#" class="reply">回复</a>
+									</div>
+								</li>
+								<li class="odd">
+									<div class="cmt-icon"><a href="#" class="pic"><img src="pic/pic01.jpg" alt="用户名" /></a></div>
+									<div class="txt">
+										<h4>
+											<div class="post-time">2009-03-11 19:39</div>
+											<span>BBTV上海市网友</span> 说：
+										</h4>
+										<div class="cmt-con">
+											<p>这些天我对两会的关心越来越少,为什么?就是议案不振奋人心,都是鸡毛蒜皮的事情,让人失望</p>
+										</div>
+										<a href="#" class="reply">回复</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!-- 分页 begin -->
+						<ul class="pages" id="s14ub543-nav">
+							<li class="btn first"></li>
+							<li class="btn prev"></li>
+							<li class="input">
+								<input autocomplete="off" name="page" onfocus="$(this).select();" onkeydown="if(event.keyCode == 13) s14ub543.move(event, 'input');" type="text" value="1" />
+							</li>
+							<li class="of">...</li>
+							<li class="total">10</li>
+							<li class="btn next"></li>
+						</ul>
+						<!-- 分页 end -->
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- end .grid_11 -->
+		<div class="grid_5">
+			<div id="recom-video" class="container_1">
+				<h2>
+					<a href="#" class="more">更多视频..</a>
+					同类视频推荐
+				</h2>
+				<div class="inner">
+					<ul class="vodList">
+						<li>
+							<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+							<div class="txt">
+								<p class="blue"><a href="#" class="tit">金山石化火灾男子身亡或烧香拜佛引起</a></p>
+								<p>频道：<a href="#">新闻综合频道</a></p>
+								<p><span class="blue">[<a href="#">播放</a>]</span></p>
+							</div>
+						</li>
+					</ul>
+					<ul class="txtList">
+						<li><a href="#">蒙牛“特仑苏”事件新闻发布会</a></li>
+						<li><a href="#">蒙牛“特仑苏”事件新闻发布会</a></li>
+						<li><a href="#">蒙牛“特仑苏”事件新闻发布会</a></li>
+						<li><a href="#">蒙牛“特仑苏”事件新闻发布会</a></li>
+						<li><a href="#">蒙牛“特仑苏”事件新闻发布会</a></li>
+						<li><a href="#">蒙牛“特仑苏”事件新闻发布会</a></li>
+						<li><a href="#">蒙牛“特仑苏”事件新闻发布会</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="recom-tv" class="container_1">
+				<h2>
+					<a href="#" class="more">更多栏目..</a>
+					相关栏目推荐
+				</h2>
+				<div class="inner">
+					<ul class="vodList">
+						<li>
+							<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+							<div class="txt">
+								<p class="blue"><a href="#" class="tit">上班这点事</a></p>
+								<p>频道：<a href="#">新闻综合频道</a></p>
+								<p>类型：<a href="#">谈话节目</a></p>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+							<div class="txt">
+								<p class="blue"><a href="#" class="tit">上班这点事</a></p>
+								<p>频道：<a href="#">新闻综合频道</a></p>
+								<p>类型：<a href="#">谈话节目</a></p>
+							</div>
+						</li>
+						<li>
+							<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+							<div class="txt">
+								<p class="blue"><a href="#" class="tit">上班这点事</a></p>
+								<p>频道：<a href="#">新闻综合频道</a></p>
+								<p>类型：<a href="#">谈话节目</a></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- end .grid_5 -->
+	</div>
+</div>
+<!--#include file="foot.html"-->
+</body>
+</html>

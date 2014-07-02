@@ -1,0 +1,64 @@
+<script type="text/javascript">
+$(document).ready(
+	function(){
+		inputTipText();    //直接调用就OK了
+	}
+);
+
+function inputTipText(){ 
+$("input[class*=grayTips]") //所有样式名中含有grayTips的input
+.each(function(){
+   var oldVal=$(this).val();     //默认的提示性文本
+   $(this)
+   .css({"color":"#888"})     //灰色
+   .focus(function(){
+    if($(this).val()!=oldVal){$(this).css({"color":"#000"})}else{$(this).val("").css({"color":"#878787"})}
+   })
+   .blur(function(){
+    if($(this).val()==""){$(this).val(oldVal).css({"color":"#878787"})}
+   })
+   .keydown(function(){$(this).css({"color":"#000"})})
+  
+})
+}
+
+</script>
+<div class="hd">
+	<div class="top container_16">
+		<a href="#" class="logo" title="返回首页"></a>
+		<ul class="topmenu">
+			<li class="tv"><a href="#" class="active" title="电视">电视</a></li>
+			<li class="radio"><a href="#" title="广播">广播</a></li>
+		</ul>
+		<div class="login">
+			<ul class="guest">
+				<li><a href="#"><b>登录</b></a></li>
+				<li class="line">|</li>
+				<li><a href="#">注册</a></li>
+				<li class="line">|</li>
+				<li><a href="#">忘记密码</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="menu">
+		<div class="container_16">
+			<div class="tv_menu inner-left">
+				<ul class="menuList">
+					<li><a href="/" class="menu01"><span>首 页</span></a></li>
+					<li><a href="#" class="menu02"><span>视 频</span></a></li>
+					<li class="active"><a href="#" class="menu03"><span>栏 目</span></a></li>
+					<li><a href="/EPG-graphic.shtml" class="menu04"><span>频 道</span></a></li>
+					<li><a href="#" class="menu05"><span>活 动</span></a></li>
+					<li><a href="#" class="menu06"><span>社 区</span></a></li>
+					<li class="blank"><span></span></li>
+				</ul>
+			</div>
+			<div class="inner-right"></div>
+			<div class="search">
+				<input type="text" name="" value="2009魔法天裁" class="searchipt grayTips" />
+				<input type="submit" name="" value="搜索" class="btn-submit" />
+			</div>
+			<div class="inner-right"></div>
+		</div>
+	</div>
+</div>

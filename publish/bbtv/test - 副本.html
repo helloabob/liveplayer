@@ -1,0 +1,87 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>ICS上海外语频道 - 视频回放</title>
+<link href="http://www.icshanghai.com/skin/ics/css/ics.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://www.icshanghai.com/skin/ics/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.icshanghai.com/skin/ics/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="http://www.icshanghai.com/skin/ics/js/vino.js"></script>
+<script type="text/javascript" src="http://www.icshanghai.com/skin/ics/js/global.js"></script>
+<script type="text/javascript" src="script/AC_RunActiveContent.js"></script>
+</head>
+
+<body>
+
+
+
+<div align="center" id="ddd_bbtvplayer">
+			<script type="text/javascript">
+    var bbtv_channelid = "240";
+    var bbtv_channel = "ics";
+    var bbtv_starttime = "0";
+    var ddd_arr = new Array(220);
+    var ddd_name = new Array('ICS')
+    var srcflash = 'tv';
+    var str = "bbtv_channelid=240&bbtv_starttime=0";
+	var str1 = "0";
+    try {
+        bbtv_channelid = 240;
+		url = document.location.href;
+		var parm = url.substr(url.indexOf("?") + 1);
+        var parms = parm.split('-');
+        bbtv_channelid = parms[0];
+		var str1 = url.substr(url.indexOf("?") + 1) ? url.substr(url.indexOf("?") + 1) : 1306481561;
+        //for (var i = 0; i < ddd_arr.length; i++) {
+            //if (ddd_arr[i] === parseInt(bbtv_channelid, 10)) {
+                bbtv_channel = ddd_name[0];
+                //if (parms.length > 1)
+                bbtv_starttime =str1;
+                if (bbtv_starttime === "") bbtv_starttime = "0";
+                str = "bbtv_channelid=" + bbtv_channelid + "&bbtv_starttime=" + bbtv_starttime;
+                //document.title = bbtv_channel + " - 直播回看 - 东方宽频";
+            //}
+        //}
+		str = "bbtv_channelid=" + bbtv_channelid + "&bbtv_starttime=" + str1;
+		
+    } catch (e) {
+        //document.title = bbtv_channel + " - 直播回看 - 东方宽频";
+        str = "bbtv_channelid=240&bbtv_starttime=0";
+    }
+    if (str != "") {
+        if (AC_FL_RunContent == 0) {
+            alert("此页需要 AC_RunActiveContent.js");
+        } else {
+            AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+			'width', '960',
+			'height', '528',
+			'src', srcflash,
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'align', 'middle',
+			'play', 'true',
+			'loop', 'true',
+			'scale', 'showall',
+			'wmode', 'window',
+			'devicefont', 'false',
+			'id', 'webtv',
+			'bgcolor', '#ffffff',
+			'name', 'webtv',
+			'menu', 'true',
+			'allowFullScreen', 'true',
+			'allowScriptAccess', 'always',
+			'movie', srcflash,
+			'salign', '',
+			'FlashVars', str
+			); //end AC code
+
+        }
+    }
+    else {
+        alert("wrong parm");
+    }
+    
+</script>
+</div>

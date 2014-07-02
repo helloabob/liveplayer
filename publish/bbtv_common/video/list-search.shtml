@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+<title>栏目首页（列表）</title>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/grid.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/common.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/list.css" />
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/LeeSelect.js"></script>
+<script type="text/javascript" src="js/layout-list.js"></script>
+</head>
+<body>
+<!--#include file="head.html"-->
+<div class="bd container_16">
+	<ul class="bread-crumb">
+		<li>您当前的位置：<a href="#">首页</a></li>
+		<li><a href="#">栏目</a></li>
+	</ul>
+	<div class="container_16 listPage">
+		<div class="grid_3">
+			<div class="filters">
+				<h2>选择排序方式</h2>
+				<div class="inner">
+					<ul class="filter-list">
+						<li class="selected"><a href="#">按名称排列</a></li>
+						<li><a href="#">最受欢迎</a></li>
+						<li><a href="#">最近更新</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="filters">
+				<h2>选择栏目类型</h2>
+				<div class="inner">
+					<ul class="filter-list">
+						<li class="selected"><span>(1020)</span><a href="#">全部类型</a></li>
+						<li><span>(532)</span><a href="#">新闻资讯栏目</a></li>
+						<li><span>(16)</span><a href="#">谈话栏目</a></li>
+						<li><span>(690)</span><a href="#">文艺栏目</a></li>
+						<li><span>(10)</span><a href="#">娱乐栏目</a></li>
+						<li><span>(50)</span><a href="#">纪录片</a></li>
+						<li><span>(6)</span><a href="#">电视剧</a></li>
+						<li><span>(2)</span><a href="#">电影</a></li>
+						<li><span>(505)</span><a href="#">特别栏目</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- end .grid_3 -->
+		<div class="grid_13 mode-search">
+			<h2>“2009魔法天裁”(搜索结果1020条)</h2>
+			<div class="ctrls">
+				<form class="jNice">
+					<ul class="ctrl-sel">
+						<li class="sel01">
+							<select name="sel-date" id="sel-date">
+								<option value="all" selected="selected">所有日期</option>
+								<option value="20090402">4月2日 星期四</option>
+								<option value="20090403">4月3日 星期五</option>
+								<option value="20090404">4月4日 星期六</option>
+								<option value="20090405">4月5日 星期日</option>
+								<option value="20090406">4月6日 星期一</option>
+								<option value="20090407">【昨天】4月7日 星期二</option>
+								<option value="20090408">【今天】4月8日 星期三</option>
+							</select>
+						</li>
+						<li class="of">的</li>
+						<li class="sel03">
+							<select name="sel-channel" id="sel-channel">
+								<option value="ch00" selected="selected">所有频道</option>
+								<option value="ch01">第一财经</option>
+								<option value="ch02">东方卫视</option>
+								<option value="ch03">新闻综合</option>
+								<option value="ch04">生活时尚</option>
+								<option value="ch05">东方电影</option>
+								<option value="ch06">纪实频道</option>
+								<option value="ch07">娱乐频道</option>
+								<option value="ch08">艺术人文</option>
+								<option value="ch09">外语频道</option>
+								<option value="ch10">戏剧频道</option>
+								<option value="ch11">哈哈少儿</option>
+								<option value="ch12">炫动卡通</option>
+								<option value="ch13">电视剧频道</option>
+								<option value="ch14">五星体育</option>
+								<option value="ch15">东方CJ</option>
+								<option value="ch16">电影直播</option>
+								<option value="ch17">今日频道</option>
+								<option value="ch18">电视剧场</option>
+							</select>
+						</li>
+					</ul>
+				</form>
+				<!-- 分页 begin -->
+				<ul class="pages">
+					<li class="btn first"></li>
+					<li class="btn prev"></li>
+					<li class="input">
+						<input autocomplete="off" name="page" onfocus="$(this).select();" onkeydown="if(event.keyCode == 13) s14ub543.move(event, 'input');" type="text" value="1" />
+					</li>
+					<li class="of">...</li>
+					<li class="total">10</li>
+					<li class="btn next"></li>
+				</ul>
+				<!-- 分页 end -->
+			</div>
+			<div class="listCon clearfix">
+				<ul class="show-list clearfix">
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>上班这点事</span>:我有婚前恐惧症(上)</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>时事资讯</span>:广州起飞货机在东京成田机场坠毁爆炸！</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>上班这点事</span>:我有婚前恐惧症(上)</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>时事资讯</span>:广州起飞货机在东京成田机场坠毁爆炸！</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>上班这点事</span>:我有婚前恐惧症(上)</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>时事资讯</span>:广州起飞货机在东京成田机场坠毁爆炸！</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>上班这点事</span>:我有婚前恐惧症(上)</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>时事资讯</span>:广州起飞货机在东京成田机场坠毁爆炸！</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>上班这点事</span>:我有婚前恐惧症(上)</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="pic"><img src="pic/pic02.jpg" alt="视频标题" /></a>
+						<div class="txt">
+							<p class="tit">
+								<a href="#"><span>时事资讯</span>:广州起飞货机在东京成田机场坠毁爆炸！</a>
+								<em>时长：<span class="gray6">03’15”</span></em>
+							</p>
+							<p>更多：<a href="#">上班这点事</a></p>
+							<p>频道：<a href="#">新闻综合频道</a></p>
+							<p>类型：<a href="#">谈话栏目</a></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- 分页 begin -->
+			<ul class="pages" id="s14ub543-nav">
+				<li class="btn first"></li>
+				<li class="btn prev"></li>
+				<li class="input">
+					<input autocomplete="off" name="page" onfocus="$(this).select();" onkeydown="if(event.keyCode == 13) s14ub543.move(event, 'input');" type="text" value="1" />
+				</li>
+				<li class="of">...</li>
+				<li class="total">10</li>
+				<li class="btn next"></li>
+			</ul>
+			<!-- 分页 end -->
+		</div>
+		<!-- end .grid_5 -->
+	</div>
+</div>
+<!--#include file="foot.html"-->
+</body>
+</html>

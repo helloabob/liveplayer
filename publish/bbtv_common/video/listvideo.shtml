@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/grid.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/common.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/list.css" />
+<script type="text/javascript" src="/bbtv_common/video/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/ddd-liebiao.js"></script>
+<script type="text/javascript">var d_classid=getQueryStringRegExp("c");var MAXINDEX=1;var d_type=getQueryStringRegExp("t")</script>
+</head>
+<body>
+<!--#include file="head.html"-->
+<script type="text/javascript">
+$("ul#ddd_head li").eq(2).addClass("active");
+</script>
+
+<div class="bd container_16">
+	<ul class="bread-crumb" id="d_title1">
+		<li>您当前的位置：<a href="/">首页</a></li>
+		<li><a href="/program/">栏目</a></li>		
+		
+	</ul>
+	<div class="container_16 listPage">
+		<div class="grid_3">
+			<div class="filters">
+				<h2>选择排序方式</h2>
+				<div class="inner">
+					<ul class="filter-list">
+						<li><a href="javascript:window.location.reload();">最近更新</a></li>
+						<li class="selected"><a href="javascript:window.location.reload();">按人气排列</a></li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+		<!-- end .grid_3 -->
+		<div class="grid_13 mode-search">
+			<h2 id="d_title2">视频列表</h2>
+			<div class="ctrls">
+				<!-- 分页 begin -->
+				<ul class="pages">
+					<li class="btn first"/>
+					<li class="btn prev"/>
+					<li class="input">
+<input type="text" value="1" onkeydown="if(event.keyCode == 13) page_move();" onfocus="$(this).select();" name="page" autocomplete="off"/>
+					</li>
+					<li class="of">of</li>
+					<li class="total"></li>
+					<li class="btn next"/>
+</ul>
+				<!-- 分页 end -->
+			</div>
+			<div class="listCon clearfix">
+				<ul class="show-list clearfix" id="liebiao">
+				
+				</ul>
+				<script type="text/javascript">get_liebiao(d_classid,0);</script>
+
+			</div>
+			<!-- 分页 begin -->
+			<ul class="pages">
+					<li class="btn first"/>
+					<li class="btn prev"/>
+					<li class="input">
+<input type="text" value="1" onkeydown="if(event.keyCode == 13) page_move();" onfocus="$(this).select();" name="page" autocomplete="off"/>
+					</li>
+					<li class="of">of</li>
+					<li class="total"></li>
+					<li class="btn next"/>
+</ul>
+			<!-- 分页 end -->
+<script type="text/javascript">
+var NOWINDEX=1;
+function getnurl()
+{
+    if(NOWINDEX>MAXINDEX) NOWINDEX=MAXINDEX;
+    if(NOWINDEX<1) NOWINDEX=1;
+    $("ul.pages input").val(NOWINDEX);
+    get_liebiao(d_classid,NOWINDEX-1);        
+}
+$("ul.pages li.first").click(function(){
+   NOWINDEX=1;
+   getnurl();
+});
+$("ul.pages li.prev").click(function(){
+   NOWINDEX=NOWINDEX-1;
+   getnurl();
+});
+$("ul.pages li.next").click(function(){
+   NOWINDEX=NOWINDEX+1;
+   getnurl();
+});
+$("ul.pages li.total").click(function(){
+NOWINDEX=MAXINDEX;
+   getnurl();
+});
+function page_move()
+{
+   var page=parseInt($("ul.pages input").val());
+   NOWINDEX=page;
+   if(NOWINDEX<1) NOWINDEX=1;
+   if(NOWINDEX>MAXINDEX)
+   {$("ul.pages input").val(MAXINDEX);
+   NOWINDEX=MAXINDEX;}
+   getnurl();     
+}
+
+get_class_info(d_classid,d_type);
+</script>
+
+		</div>
+		<!-- end .grid_5 -->
+	</div>
+</div>
+<!--#include file="foot.html"-->
+</body>
+</html>

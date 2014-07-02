@@ -1,0 +1,106 @@
+.listPage{clear:both;margin-top:10px;}
+.listPage h2{
+	font-size:14px;
+	font-weight:bold;
+	color:#666;
+	line-height:33px;
+	height:33px;
+	overflow:hidden;
+}
+.filters{
+	clear:both;
+	margin-bottom:15px;
+}
+
+.filters .inner{clear:both;padding:2px 0;}
+.filters .filter-list{
+	border:1px solid #ddd;
+	display:block;
+	line-height:22px;
+}
+.filters .filter-list li{
+	height:22px;
+	overflow:hidden;
+}
+.filters .filter-list li a{display:block;padding:0 10px;color:#666;}
+.filters .filter-list li a:hover,
+.filters .filter-list li a:active{text-decoration:none;}
+.filters .filter-list li.selected span,
+.filters .filter-list li.selected a{
+	color:#333;
+	font-weight:bold;
+	background-color:#ebebeb;
+}
+.filters .filter-list .highlight{
+	color:#fff;
+	background-color:#4bcaed;
+}
+.filters .filter-list .highlight span,
+.filters .filter-list .highlight a{color:#fff;}
+.filters .filter-list li span{
+	float:right;
+	display:inline;
+	margin-right:5px;
+}
+
+ul.pages{padding:8px 0 3px 0;margin:0;float:right;display:inline;width:auto;}
+ul.pages li{float:left;display:block;height:17px;font-size:11px;font-weight:bold;font-family:"Lucida Grande",Helvetica,Arial,Verdana,sans-serif;margin:0;}
+ul.pages li.btn{margin-top:2px;width:8px;height:12px;cursor:pointer;}
+ul.pages li.first{margin-right:9px;width:12px;background:url("../img/pagination-arrows-first.gif") 0 0 no-repeat;}
+ul.pages li.prev{background:url("../img/pagination-arrows-prev.gif") 0 0 no-repeat;}
+ul.pages li.next{background:url("../img/pagination-arrows-next.gif") 0 0 no-repeat;}
+ul.pages li.first:hover{background-position:0 -15px;}
+ul.pages li.prev:hover{background-position:0 -15px;}
+ul.pages li.next:hover{background-position:0 -15px;}
+ul.pages li.disabled{cursor:default;background-position:0 -30px;}
+ul.pages li.disabled:hover{background-position:0 -30px;}
+ul.pages li.total{margin:0 13px 0 9px;cursor:pointer;color:#369;}
+ul.pages li.total:hover{text-decoration:underline;}
+ul.pages li.input{padding:0 10px 0 13px;}
+ul.pages input{height:14px;width:11px;border:1px solid #BBB;font-weight:bold;font-size:11px;line-height:11px;padding:0 3px 0 3px;text-align:center;margin:0;font-family:"Lucida Grande",Helvetica,Arial,Verdana,sans-serif;*padding-top:2px;*height:12px;}
+ul.pages input.long{width:27px;}
+ul.pages input.short{width:11px;}
+
+.listCon{clear:both;}
+.listCon ul.pages{padding:0 0 5px 0;clear:both;}
+.show-list{clear:both;}
+.show-list li{
+	float:left;
+	display:inline;
+	overflow:hidden;
+}
+.show-list li:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.show-list li a.pic{
+	display:block;
+	width:130px;
+	height:75px;
+	overflow:hidden;
+	padding:1px;
+	margin:0 0 7px 0;
+}
+.show-list li a.pic img{
+	width:130px;
+	height:75px;
+}
+.show-list p{color:#999;line-height:18px;}
+
+.mode-test .listCon{border-top:1px solid #ccc;border-bottom:1px solid #ccc;}
+.mode-test{
+	width:740px;
+	overflow:hidden;
+}
+.mode-test ul.pages{padding-right:5px;}
+.mode-test .show-list{padding-top:8px;width:796px;}
+.mode-test .show-list li{
+	height:165px;
+	width:134px;
+	margin:0 65px 0 0;
+}
+
+.mode-test .show-list li .tit{margin-bottom:6px;padding:0 4px;}
+.mode-test .show-list li .tit a{
+	color:#666;
+	font-weight:bold;
+}
+.mode-test .show-list .txt{padding:0 4px;}
+.mode-test .show-list p a{color:#666;}

@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>广播回听 - 东方宽频</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta name="keywords" content="smgbb 东方宽频" />
+    <meta name="description" content="SMG东方传媒集团旗下视频信息资讯门户" />
+    <meta name="author" content="SMGBB" />
+    <meta name="Copyright" content="东方宽频版权所有" />
+    <link href="../css/reset.css" type="text/css" rel="Stylesheet" />
+    <link href="../css/smgbbiframe.css" type="text/css" rel="Stylesheet" />
+    <script type="text/javascript" src="../js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.pngfix.js"></script>
+    <script type="text/javascript" src="../js/AC_RunActiveContent.js"></script>
+    <script type="text/javascript" language="javascript">
+        function ShowPlayerHelp()
+        { $(".smgbbAlert").css("display", "block"); }
+        $(document).ready(function() {
+            $(".pngfix").parent().pngFix({ sizingMethod: "crop" });
+            $(".close").click(function() {
+                if ($(".smgbbAlert") && $(this).parent().parent().html() == $(".smgbbAlert").html()) {
+                    $(".smgbbAlert").css("display", "none");
+                }
+            });
+        });
+</script>
+
+</head>
+<body>
+<!--header-->
+<iframe src="http://www.smgbb.cn/2010/head/index.html#radio" width="100%" height="150" frameborder="0" scrolling="no"></iframe>
+<!--header end-->
+<!--smgbbContent-->
+<div class="smgbbContent clearfix" id="ddd_bbtvplayer">
+<script type="text/javascript">
+    var bbtv_channelid = "240";
+    var bbtv_channel = "上海电台";
+    var bbtv_starttime = "0";
+    var ddd_arr = new Array(240);
+    var ddd_name = new Array('星尚酷');
+    var srcflash = '/bbtv_common/bbtv_flash/radio';
+    var str = "";
+    try {
+        var url = window.location.href;
+        var parm = url.substr(url.indexOf("?") + 1);
+        var parms = parm.split('-');
+        bbtv_channelid = parms[0];
+        for (var i = 0; i < ddd_arr.length; i++) {
+            if (ddd_arr[i] === parseInt(bbtv_channelid, 10)) {
+                bbtv_channel = ddd_name[i];
+                if (parms.length > 1)
+                    bbtv_starttime = parms[1];
+                if (bbtv_starttime === "") bbtv_starttime = "0";
+                str = "bbtv_channelid=" + bbtv_channelid + "&bbtv_starttime=" + bbtv_starttime;
+                document.title = bbtv_channel + " - 直播回听 - 东方宽频";
+                break;
+            }
+        }
+    } catch (e) {
+        document.title = bbtv_channel + " - 直播回听 - 东方宽频";
+        str = "bbtv_channelid=240&bbtv_starttime=0";
+    }
+    if (str != "") {
+
+        if (AC_FL_RunContent == 0) {
+            alert("此页需要 AC_RunActiveContent.js");
+        } else {
+            AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+			'width', '960',
+			'height', '528',
+			'src', srcflash,
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'align', 'middle',
+			'play', 'true',
+			'loop', 'true',
+			'scale', 'showall',
+			'wmode', 'window',
+			'devicefont', 'false',
+			'id', 'webtv',
+			'bgcolor', '#000000',
+			'name', 'webtv',
+			'menu', 'true',
+			'allowFullScreen', 'true',
+			'allowScriptAccess', 'always',
+			'movie', srcflash,
+			'salign', '',
+			'FlashVars', str
+			); //end AC code
+        }
+    }
+    else {
+        alert("wrong parm");
+    }
+</script></div>
+<!--smgbbContent end-->
+<div class="smgbbContent clearfix">
+    <!--grid_right-->
+    <div class="grid_right">
+        <div class="newsImageList">
+            <div class="imagelistWrapper">
+                <div class="org" style="float:left"><b>
+                <a href="http://info.smgbb.cn/zixun/shishi/" title="时政">时政</a> &nbsp; 
+                <a href="http://info.smgbb.cn/zixun/shehui/" title="社会">社会</a> &nbsp; 
+                <a href="http://info.smgbb.cn/zixun/yule/" title="娱乐">娱乐</a> &nbsp; 
+                <a href="http://info.smgbb.cn/zixun/caijing/" title="财经">财经</a> &nbsp; 
+                <a href="http://info.smgbb.cn/zixun/tiyu/" title="体育">体育</a> &nbsp; 
+                <a href="http://info.smgbb.cn/zixun/shishang/" title="时尚">时尚</a>
+                </b>
+                </div>
+                <div style="float:right"><b>
+                <a href="http://info.smgbb.cn/zixun/" title="更多" style="font-size:12px;">更多</a>
+                </b></div>
+            </div>
+        </div>
+        <div class="newsImageList" id="contentdiv">
+            <!--pagelistNav-->
+            <div class="pagelistNav">
+                
+            </div>
+            <!--pagelistNav end-->
+            <!--imagelistWrapper-->
+            <div class="imagelistWrapper clearfix">
+                <ul class="imagelist">
+                    
+                </ul>
+            </div>
+            <!--imagelistWrapper end-->
+            <!--pagelistNav-->
+            <div class="pagelistNav">
+                
+            </div>
+            <!--pagelistNav end-->
+        </div>
+    </div>
+    <!--grid_right end-->
+</div>
+
+<script type="text/javascript">
+    function getpage() {
+        $.ajax({
+            type: "get",
+            url: "http://www.smgbb.cn/2010/ws2010/infoiframe.aspx",
+            dataType: "html",
+            data: "",
+            beforeSend: function(XMLHttpRequest) {
+                $("#contentdiv").html('<li><br /><br /><a>读取数据中，请稍候...</a></li>');
+            },
+            success: function(data) {
+                $("#contentdiv").html(data);
+
+            },
+            complete: function(XMLHttpRequest, textStatus) {
+            },
+            error: function() {
+                $("#contentdiv").html('<li><br /><br /><a>读取数据失败</a></li>');
+            }
+        });
+    }
+    getpage();
+</script>
+<!--footer-->
+<iframe src="http://www.smgbb.cn/2010/foot/" width="100%" height="270" frameborder="0" scrolling="no"></iframe>
+<!--footer end-->
+<script type="text/javascript" src="http://www.smgbb.cn/stat.js"></script>
+</body>
+</html>

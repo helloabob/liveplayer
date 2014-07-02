@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+<title>频道：文本方式</title>
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/grid.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/common.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/bbtv_common/video/css/epg.css" />
+<script type="text/javascript" src="/bbtv_common/video/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/jquery.jNice.js"></script>
+<script type="text/javascript" src="/bbtv_common/video/js/ddd-txtepg.js"></script>
+</head>
+<body>
+<!--#include file="head.html"-->
+<div class="bd container_16">
+	<ul class="bread-crumb">
+		<li>您当前的位置：<a href="/">首页</a></li>
+		<li><a href="EPG-graphic.shtml">频道</a></li>
+		<li><a href="EPG-txt.shtml">文字形式</a></li>
+	</ul>
+	<div class="epg">
+		<form class="jNice">
+			<div class="controller">
+				<ul class="ctrl-sel">
+					<li class="sel01">
+						<label for="sel-date">日期：</label>
+						<select name="sel-date" id="sel-date">
+						</select>
+					</li>
+					<li class="sel02">
+						<label for="sel-time">时间：</label>
+						<select name="sel-time" id="sel-time">
+						</select>
+					</li>
+					<script language="javascript" type="text/javascript">gettodayselect();</script>
+					<li class="sel03">
+						<label for="sel-channel">频道：</label>
+						<select name="sel-channel" id="sel-channel">
+							<option value="210" selected="selected">新闻综合</option>
+							<option value="211">生活时尚</option>
+							<option value="212">第一财经</option>
+							<option value="214">五星体育</option>
+							<option value="215">纪实频道</option>
+							<option value="216">东方卫视</option>
+							<option value="217">娱乐频道</option>
+							<option value="218">艺术人文</option>
+							<option value="219">戏剧频道</option>
+							<option value="220">外语频道</option>
+						</select>
+					</li>
+					<li><input type="button" name="" id="epg_look"   value="查看" class="btn-s"/></li>
+				</ul>
+				<ul class="ctrl-mode">
+					<li><a href="EPG-graphic.shtml" class="mode-p">菜单形式</a></li>
+					<li class="selected"><a class="mode-t">文字形式</a></li>
+				</ul>
+			</div>
+			 
+		</form>
+		<div id="epg-txt" class="clearfix">
+			<div class="epg-chs inner-left">
+				<ul id="ddd_sx">
+					<li><a style="cursor:pointer" ddd="210">新闻综合</a></li>
+					<li><a style="cursor:pointer" ddd="211">生活时尚</a></li>
+					<li><a style="cursor:pointer" ddd="212">第一财经</a></li>
+					<li><a style="cursor:pointer" ddd="214">五星体育</a></li>			
+					<li><a style="cursor:pointer" ddd="215">纪实频道</a></li>
+					<li><a style="cursor:pointer" ddd="216">东方卫视</a></li>
+					<li><a style="cursor:pointer" ddd="217">娱乐频道</a></li>
+					<li><a style="cursor:pointer" ddd="218">艺术人文</a></li>
+					<li><a style="cursor:pointer" ddd="219">戏剧频道</a></li>
+					<li><a style="cursor:pointer" ddd="220">外语频道</a></li>					
+				</ul>
+			</div>
+			<div class="epgCon inner-left" id="ddd_lx">			
+				
+			</div>
+			<script language="javascript" type="text/javascript">LoadtxtXML();</script>
+		</div>
+	</div>
+</div>
+<!--#include file="foot.html"-->
+</body>
+</html>
