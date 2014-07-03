@@ -307,7 +307,6 @@
 			var _scroll:int = 1 + int((chat_txt.maxScrollV-1) * (dragger_sprite.y - SCROLL_TOP) / (SCROLL_HEIGHT - SCROLL_DRAGGER_HEIGHT));
 			chat_txt.scrollV = _scroll;
 		}
-		
 		//聊天内容滚动，更新dragger
 		private function chatScroll(e:Event) {
 			updateScroller();

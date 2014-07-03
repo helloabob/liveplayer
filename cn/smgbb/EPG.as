@@ -43,8 +43,7 @@
 		private var hide_info_timer_dur:Number = 3;//装载超时显示时间
 		private var update_timer_dur:Number = 60;//刷新EPG时间(s)
 		private var date_des:String;//2008-02-03
-		//private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
-		private var xml_dir:String = "http://localhost";//EPG的路径
+		private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
 		private var config_dir:String = "http://epg.bbtv.cn/interface/config.aspx";//配置文件路径
 		private var hint_timer:Timer;//提示
 		private var unhint_timer:Timer;//提示
@@ -71,8 +70,7 @@
 		private var month_arr:Array = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
 		//////////////修改频道只需修改下面频道名称，全频道名称参见vidConst.as/////////////
 		//EPG.fla文件里需要有全套的ICON		
-		public static const CID_ARR:Array = [240];//BBTV
-		//public static const CID_ARR:Array = [212, 215, 218, 220, 217, 211, 216, 219, 210];//BBTV
+		public static const CID_ARR:Array = [212, 215, 218, 220, 217, 211, 216, 219, 210];//BBTV
 		//public static const CID_ARR:Array = [212, 215, 218, 214, 220, 217, 211, 216, 219, 210,242,253,241,240,223,224,256,255,294,293,284,279,503,226,231,233,234];//.tv
 		//public static const CID_ARR:Array = [1626, 1624, 1625, 1623, 1627, 1621, 1620, 1622, 1628,1629,1630];
 		//public static const CN_ARR:Array = ["财经频道","纪实频道","艺术人文","五星体育","外语频道","娱乐频道","生活时尚","东方卫视","戏剧频道","新闻综合","电影频道","浙江卫视","湖南卫视",
@@ -266,8 +264,8 @@
 				btn_array[i].id = i;
 				btn_array[i].over.visible = false;
 				btn_array[i].buttonMode = true;
-				//btn_array[i].addEventListener(MouseEvent.MOUSE_OVER, btnOver);
-				//btn_array[i].addEventListener(MouseEvent.MOUSE_OUT, btnOut);
+				btn_array[i].addEventListener(MouseEvent.MOUSE_OVER, btnOver);
+				btn_array[i].addEventListener(MouseEvent.MOUSE_OUT, btnOut);
 				btn_array[i].addEventListener(MouseEvent.CLICK, btnClick);
 			}
 		}
@@ -569,16 +567,13 @@
 			epg_ld.removeEventListener(IOErrorEvent.IO_ERROR, ldError);
 			var my_str:String = e.target.data.toString();
 			var _xml:XML=new XML(my_str);
-			//var prog_node:XMLList =_xml.channel;
+			var prog_node:XMLList =_xml.channel;
 			
-			//var cid_des:String = prog_node[0].attribute("name");
-			var cid_des:String = "星尚酷";
+			var cid_des:String = prog_node[0].attribute("name");
 			//trace(cid_des);
-			//var my_cid:String = prog_node[0].attribute("id");
-			var my_cid:String = "240";
+			var my_cid:String = prog_node[0].attribute("id");
 			//trace(my_cid);
-			//var _date_des:String=prog_node[0].attribute("date");
-			var _date_des:String="2011-06-24";
+			var _date_des:String=prog_node[0].attribute("date");
 			//trace(_date_des);
 			//var cid_des:String = my_str.substring(cid_index + 6, cid_index + 10);//e.g. 财经频道
 			
@@ -595,38 +590,37 @@
 			}*/
 			
 			
-			var _len1:int = _xml.children().length();
-			//var _len2:int = prog_node.children()[0].children().length();
+			var _len1:int = prog_node.children().length();
+			var _len2:int = prog_node.children()[0].children().length();
 			
 			//解析EPG
 			tmp_obj = new Object();
 			tmp_obj.detail_arr = new Array();
 			tmp_obj.major_arr = new Array();
 			for (var i=0; i<_len1; i++) {
-				var _arr:XML= _xml.children()[i];
+				var _arr:XML= prog_node.children()[i];
 				var _obj1:Object = {};
 				
 				_obj1.date=_date_des;
 				_obj1.cid = my_cid;
-				_obj1.title=_arr.child("节目名称");
-				//_obj1.type = _arr.child("type");
-				_obj1.starttime = _arr.child("播出时间");
-				//_obj1.endtime = _arr.child("endtime");
+				_obj1.title=_arr.child("title");
+				_obj1.type = _arr.child("type");
+				_obj1.starttime = _arr.child("starttime");
+				_obj1.endtime = _arr.child("endtime");
 				_obj1.timestamp = _arr.child("timestamp");
-				//_obj1.duration = int(_arr.child("length").toString());
+				_obj1.duration = int(_arr.child("length").toString());
 
 				tmp_obj.detail_arr.push(_obj1);
 				var start_arr:Array = _obj1.starttime.split(":");
-				//var end_arr:Array = _obj1.endtime.split(":");
-				//_obj1.dura = 60*(parseInt(end_arr[0])-parseInt(start_arr[0]))+parseInt(end_arr[1])-parseInt(start_arr[1]);//duration in minutes
-				/*if (_obj1.dura<0) {
+				var end_arr:Array = _obj1.endtime.split(":");
+				_obj1.dura = 60*(parseInt(end_arr[0])-parseInt(start_arr[0]))+parseInt(end_arr[1])-parseInt(start_arr[1]);//duration in minutes
+				if (_obj1.dura<0) {
 					_obj1.dura+=24*60;
 				}
 				if (_obj1.type != "广") {
 					_obj1.id = tmp_obj.major_arr.length;
 					tmp_obj.major_arr.push(_obj1);
 				}
-				*/
 				
 			}
 			
@@ -903,14 +897,12 @@
 			}
 			refreshSet();
 
-			//title_mc.chanl_txt.text = vidConst.CN_ARR[chanl_show] + "  节目单";//第一财经 节目单
-			title_mc.chanl_txt.text = "星尚酷 节目单";
+			title_mc.chanl_txt.text = vidConst.CN_ARR[chanl_show] + "  节目单";//第一财经 节目单
 			var _arr:Array = _date.split("-");
 			if (_arr.length > 2) {//[2009, 07, 01]
 				title_mc.date_txt.text = _arr[0] + "年" + _arr[1] + "月" + _arr[2] + "日 " + cal_spt.getChildByName("cal0").day_txt.text;
 			}
-			//var tmp_str:String = xml_dir + "/" + cur_cid + "_" + _date + ".xml";
-			var tmp_str:String = xml_dir + "/" + "2011-06-24.xml";
+			var tmp_str:String = xml_dir + "/" + cur_cid + "_" + _date + ".xml";
 			epg_timer.reset();
 			epg_timer.start();
 			epg_ld.addEventListener(Event.COMPLETE, ldComplete);

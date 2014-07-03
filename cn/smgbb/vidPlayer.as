@@ -51,8 +51,8 @@
 		private var ui_url:String = "ui_main.swf";//?t=" + Math.random();
 		private var ui_info:String = "ui_info.swf";//?t=" + Math.random();
 		private var ui_recom:String = "ui_recom.swf";//?t=" + Math.random();
-		private var ui_epg:String = "ui_epg.swf";//?t=" + Math.random();
-		//private var ui_epg:String = "ui_epg_radio.swf";//?t=" + Math.random();
+		//private var ui_epg:String = "ui_epg.swf";//?t=" + Math.random();
+		private var ui_epg:String = "ui_epg_radio.swf";//?t=" + Math.random();
 		private var ui_chat:String = "ui_chat.swf";//?t=" + Math.random();
 		private var ad_url:String = "http://172.26.43.167:2317/publish.ashx?platid=4&rd="+Math.random();//广告配置地址
 		private var is_init_arr:Array;//控制各面板是否初始化的数组
@@ -167,7 +167,6 @@
 			ui_ld.contentLoaderInfo.addEventListener(Event.COMPLETE, uiComplete);
 			ui_ld.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, uiError);
 			ui_ld.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, uiError);
-			ExternalInterface.call("alert",vidConst.UI_DIR+":"+ui_url);
 			ui_ld.load(new URLRequest(vidConst.UI_DIR+ui_url));
 			//ui_ld.load(new URLRequest("./ui_main.swf"));
 			ExternalInterface.addCallback("pauseVideo", pauseVideo);
