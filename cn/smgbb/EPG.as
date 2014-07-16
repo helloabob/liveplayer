@@ -1,25 +1,25 @@
 ﻿package cn.smgbb
 {
 	/*EPG模块*/
-	import flash.display.SimpleButton;
-	import flash.system.Security;
-	import flash.events.Event;
-	import flash.events.IOErrorEvent;
-	import flash.events.SecurityErrorEvent;
-	import flash.events.MouseEvent;
-	import flash.events.TimerEvent;
-	import flash.text.TextField;
-	import flash.text.TextFieldAutoSize;
-	import flash.display.Sprite;
 	import flash.display.Loader;
 	import flash.display.MovieClip;
+	import flash.display.SimpleButton;
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.IOErrorEvent;
+	import flash.events.MouseEvent;
+	import flash.events.SecurityErrorEvent;
+	import flash.events.TimerEvent;
+	import flash.geom.Rectangle;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.system.Security;
+	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
 	import flash.ui.Mouse;
 	import flash.utils.Timer;
-	import flash.utils.setTimeout;
 	import flash.utils.clearTimeout;
-	import flash.geom.Rectangle;
+	import flash.utils.setTimeout;
 	
 	import gs.TweenLite;
 	
@@ -43,8 +43,10 @@
 		private var hide_info_timer_dur:Number = 3;//装载超时显示时间
 		private var update_timer_dur:Number = 60;//刷新EPG时间(s)
 		private var date_des:String;//2008-02-03
-		private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
-		private var config_dir:String = "http://epg.bbtv.cn/interface/config.aspx";//配置文件路径
+		private var xml_dir:String ="http://prolist.kankanews.com/prolist";
+//		private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
+//		private var config_dir:String = "http://epg.bbtv.cn/interface/config.aspx";//配置文件路径
+		private var config_dir:String="http://test.editor.com/getServerTime.php";
 		private var hint_timer:Timer;//提示
 		private var unhint_timer:Timer;//提示
 		private var config_timer:Timer;//urlloader超时 
@@ -70,7 +72,7 @@
 		private var month_arr:Array = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
 		//////////////修改频道只需修改下面频道名称，全频道名称参见vidConst.as/////////////
 		//EPG.fla文件里需要有全套的ICON		
-		public static const CID_ARR:Array = [212, 215, 218, 220, 217, 211, 216, 219, 210];//BBTV
+		public static const CID_ARR:Array = [212, 215, 218, 220, 217, 216, 219, 210];//BBTV
 		//public static const CID_ARR:Array = [212, 215, 218, 214, 220, 217, 211, 216, 219, 210,242,253,241,240,223,224,256,255,294,293,284,279,503,226,231,233,234];//.tv
 		//public static const CID_ARR:Array = [1626, 1624, 1625, 1623, 1627, 1621, 1620, 1622, 1628,1629,1630];
 		//public static const CN_ARR:Array = ["财经频道","纪实频道","艺术人文","五星体育","外语频道","娱乐频道","生活时尚","东方卫视","戏剧频道","新闻综合","电影频道","浙江卫视","湖南卫视",
@@ -82,6 +84,8 @@
 
 		public var def_cid:int = 241;//默认频道号	
 		public var cur_cid:int;//当前频道CID
+		
+		public var change_cname:String="";
 		
 		public var change_cid:uint;//换频道时外部调用
 		public var change_stamp:Number;	
@@ -115,7 +119,8 @@
 			epgInit();
 		}
 		//初始化
-		private function epgInit() {
+		private function epgInit():void {
+			
 			Security.allowDomain("*");	
 			change_cid = def_cid;
 			change_stamp = int(new Date().getTime() / 1000);
@@ -123,6 +128,7 @@
 			id_arr = new Array();
 			num_pro_arr = new Array(total_icon);
 			num_playing_arr = new Array(total_icon);
+			
 			var _num:int = chanl_set.numChildren;
 			var j:int;
 			var _id:int;
@@ -240,12 +246,19 @@
 			var _xml:XML=new XML(cfg_str);
 			//date_des = _xml.child("systemdate");
 			var time_str:String=_xml.child("systemtime");
+			trace("time:"+time_str);
+//			now_date.setFullYear(int(time_str.substr(0,4)));
+//			now_date.setMonth(int(time_str.substr(5,2)-1));
+//			now_date.setDate(int(time_str.substr(8,2)));
+//			now_date.setHours(int(time_str.substr(11,2)));
+//			now_date.setMinutes(int(time_str.substr(14,2)));
+//			now_date.setSeconds(int(time_str.substr(17,2)));
 			now_date.setFullYear(int(time_str.substr(0,4)));
-			now_date.setMonth(int(time_str.substr(5,2)-1));
-			now_date.setDate(int(time_str.substr(8,2)));
-			now_date.setHours(int(time_str.substr(11,2)));
-			now_date.setMinutes(int(time_str.substr(14,2)));
-			now_date.setSeconds(int(time_str.substr(17,2)));
+			now_date.setMonth(int(time_str.substr(4,2))-1);
+			now_date.setDate(int(time_str.substr(6,2)));
+			now_date.setHours(int(time_str.substr(8,2)));
+			now_date.setMinutes(int(time_str.substr(10,2)));
+			now_date.setSeconds(int(time_str.substr(12,2)));
 			date_des=parseDate(now_date);//2008-02-03
 
 			initCont();
@@ -502,6 +515,7 @@
 			unhintTimer(new TimerEvent(TimerEvent.TIMER));
 			//trace(vidConst.CID_ARR[_index]);
 			loadDate("", vidConst.CID_ARR[id_arr[cur_id]]);
+			change_cname=vidConst.CN_ARR[id_arr[cur_id]];
 		}
 		
 		//向上滚一轮

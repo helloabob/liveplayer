@@ -13,10 +13,10 @@
 		"广西卫视","极速汽车","游戏风云","法制天地","娱乐前线","新闻资讯","中央二套","中央七套","中央九套","中央十套","动感101","东方广播","东广新闻","故事广播","经典947","上海交通台","上海电台","戏剧曲艺","LoveRadio","第一财经","五星体育"];//频道名称
 		public static const CHANL_ARR:Array = ["fi","re","art","sports","ics","ent","life","ori","drama","news","mov","zj","hn","js","bj","teen","toon","tour","gx","max","game","cons","entf","fh","cctv2","cctv7","cctv9","cctv10","a101","a792","a909","a1072","a947","atraf","ashr","aplay","alove","afi","asports"];
 		//UI加载目录
-		public static const UI_DIR:String = "/bbtv_common/bbtv_flash/flash/v5/";//ui文件根目录
+//		public static const UI_DIR:String = "/bbtv_common/bbtv_flash/flash/v5/";//ui文件根目录
 		//public static const UI_DIR:String = "file:///E:/Work Source/web IPTV/Flash/新版bbtv播放器/2009-6-23/";//ui文件根目录
 		//public static const UI_DIR:String = "http://localhost/v3/";//ui文件根目录
-		//public static const UI_DIR:String = "./";//ui文件根目录
+		public static const UI_DIR:String = "./";//ui文件根目录
 
 	}	
 }

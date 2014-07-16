@@ -12,7 +12,6 @@
 	import flash.net.URLRequest;
 	import flash.display.Loader;
 	import flash.display.Sprite;
-	import flash.display.Stage;
 	import flash.display.StageDisplayState;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
@@ -51,8 +50,8 @@
 		private var ui_url:String = "ui_main.swf";//?t=" + Math.random();
 		private var ui_info:String = "ui_info.swf";//?t=" + Math.random();
 		private var ui_recom:String = "ui_recom.swf";//?t=" + Math.random();
-		//private var ui_epg:String = "ui_epg.swf";//?t=" + Math.random();
-		private var ui_epg:String = "ui_epg_radio.swf";//?t=" + Math.random();
+		private var ui_epg:String = "ui_epg.swf";//?t=" + Math.random();
+//		private var ui_epg:String = "ui_epg_radio.swf";//?t=" + Math.random();
 		private var ui_chat:String = "ui_chat.swf";//?t=" + Math.random();
 		private var ad_url:String = "http://172.26.43.167:2317/publish.ashx?platid=4&rd="+Math.random();//广告配置地址
 		private var is_init_arr:Array;//控制各面板是否初始化的数组
@@ -139,7 +138,7 @@
 			initVidPlayer();
 		}
 		//初始化
-		private function initVidPlayer() {//init
+		private function initVidPlayer():void {//init
 			Security.allowDomain("*");
 			hint_fmt = new TextFormat();
 			hint_fmt.color = 0xFFFFFF;
@@ -195,7 +194,7 @@
 			is_first_time = false;//修复全屏后bug
 		}
 		//主界面装载完毕
-		private function uiComplete(e:Event) {
+		private function uiComplete(e:Event):void {
 			ui_ld.contentLoaderInfo.removeEventListener(Event.COMPLETE, uiComplete);
 			ui_ld.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR, uiError);
 			ui_ld.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, uiError);
@@ -727,8 +726,8 @@
 			epg_ld.contentLoaderInfo.addEventListener(Event.COMPLETE, epgUIComplete);
 			epg_ld.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, epgUIError);
 			epg_ld.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, epgUIError);
-			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg+"?bbtv_channelid="+vid_cid+"&t="+Math.random()));
-			//epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg));
+//			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg+"?bbtv_channelid="+vid_cid+"&t="+Math.random()));
+			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg));
 			//epg_ld.load(new URLRequest("http://localhost/ui_epg.swf?bbtv_channelid=220&t="+Math.random()));
 		}
 		//加载聊天
@@ -883,15 +882,17 @@
 		private function epgChangeChanl(e:Event) {
 			//trace(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap), Number(e.currentTarget.change_end));
 			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp));
+			title_text.resetText();
 			//avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap));
 		}
 		//初始化视频区域
 		private function initVideo() {
-			avideo = new aVideo( { cid:vid_cid, timestamp:vid_timestamp, endtimestamp:vid_endtimestamp, mode:vid_mode } );
+			avideo = new aVideo( { cid:vid_cid, timestamp:vid_timestamp, endtimestamp:vid_endtimestamp, mode:vid_mode,liveurl:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8" } );
 			avideo.addEventListener(aVideo.PROG_CHANGED, progChange);
 			avideo.addEventListener(aVideo.STATUS_CHANGED, statusChange);
 			avideo.x = avideo.y = 1;
 			ui_spt.video_mc.addChildAt(avideo, 1);
+			title_text.resetText();
 			
 			scroll_text = new scrollText(537, 17);
 			scroll_text.x = (VIDEO_WIDTH - 537) / 2;
@@ -953,23 +954,23 @@
 			}
 		}
 		//各种错误信息
-		private function uiError(e:Event) {
+		private function uiError(e:Event):void {
 			trace("fail to load ui.");
 		}
-		private function infoUIError(e:Event) {
+		private function infoUIError(e:Event):void {
 			trace("fail to load info_ui");
 		}
-		private function recomUIError(e:Event) {
+		private function recomUIError(e:Event):void {
 			trace("fail to load recom_ui");
 		}
-		private function epgUIError(e:Event) {
+		private function epgUIError(e:Event):void {
 			trace("fail to load epg_ui");
 		}
-		private function chatUIError(e:Event) {
+		private function chatUIError(e:Event):void {
 			trace("fail to load chat_ui");
 		}
 		//广告加载失败
-		private function adError(e:Event) {
+		private function adError(e:Event):void {
 			trace("fail to load adv.xml");
 			ad_ld.close();
 			ad_out_timer.removeEventListener(TimerEvent.TIMER, adError);

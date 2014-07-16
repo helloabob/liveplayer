@@ -1,19 +1,28 @@
 ﻿package cn.smgbb
 {
 	/*视频类*/
+	import flash.display.Loader;
+	import flash.display.Sprite;
+	import flash.display.StageDisplayState;
 	import flash.events.Event;
-	import flash.events.TimerEvent;
+	import flash.events.EventDispatcher;
 	import flash.events.FullScreenEvent;
 	import flash.events.IOErrorEvent;
 	import flash.events.SecurityErrorEvent;
-	import flash.events.EventDispatcher;
+	import flash.events.TimerEvent;
+	import flash.external.ExternalInterface;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
-	import flash.display.Sprite;
-	import flash.display.Loader;
-	import flash.display.StageDisplayState;
 	import flash.utils.Timer;
-	import flash.external.ExternalInterface;
+	import flash.utils.setTimeout;
+	
+	import org.osmf.events.MediaFactoryEvent;
+	import org.osmf.media.MediaFactory;
+	import org.osmf.media.MediaPlayerSprite;
+	import org.osmf.media.PluginInfoResource;
+	import org.osmf.media.URLResource;
+	import org.osmf.net.httpstreaming.hls.HLSPluginInfo;
+
 	public class aVideo extends Sprite
 	{
 		private var is_first_time:Boolean=true;
@@ -38,11 +47,14 @@
 		private var vid_timestamp:Number = 0;
 		private var vid_endtimestamp:Number = 0;
 		private var vid_end:Number;
+		private var live_url:String="";
 		//private var vid_site:String = "api.smgbb.tv";
 		private var vid_site:String = "api.smgbb.tv";
 		//private var vid_datarate:String = "64";
 		private var vid_ld:Loader;
 		private var tviecore;
+		private var mps:MediaPlayerSprite;
+		private var factory:MediaFactory;
 		
 		public var playing_status:String;
 		public static const MODE_LIVE:String = "LIVE";
@@ -66,17 +78,33 @@
 			if (_obj.mode) {
 				vid_mode = _obj.mode;
 			}
+			if (_obj.liveurl) {
+				live_url = _obj.liveurl;
+			}
 			init();
 		}
 		private function init() {
-			check_ld = new URLLoader();//check当前时间戳对应的节目，获取节目时长
-			check_ld.addEventListener(Event.COMPLETE, checkComplete);
-			check_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, checkError);
-			check_ld.addEventListener(IOErrorEvent.IO_ERROR, checkError);
-			check_out_timer = new Timer(check_out_timer_dur * 1000, 1);
-			check_out_timer.addEventListener(TimerEvent.TIMER, checkError);
+//			check_ld = new URLLoader();//check当前时间戳对应的节目，获取节目时长
+//			check_ld.addEventListener(Event.COMPLETE, checkComplete);
+//			check_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, checkError);
+//			check_ld.addEventListener(IOErrorEvent.IO_ERROR, checkError);
+//			check_out_timer = new Timer(check_out_timer_dur * 1000, 1);
+//			check_out_timer.addEventListener(TimerEvent.TIMER, checkError);
+//			
+//			loadCheck();
 			
-			loadCheck();
+			if(is_first_time){
+				is_first_time=false;
+				factory = new MediaFactory();
+				factory.loadPlugin(new PluginInfoResource(new HLSPluginInfo()));
+				mps=new MediaPlayerSprite();
+				mps.width=544;
+				mps.height=423;
+				addChildAt(mps,0);
+				is_vid_ready = true;
+				newPlay2();
+			}
+			
 		}
 		//加载详细信息
 		private function loadCheck() {
@@ -233,7 +261,10 @@
 				vid_cid = _cid;
 				vid_timestamp = _timestamp;
 				trace(vid_cid);
-				loadCheck();
+				live_url="http://segment.livehls.kksmg.com/m3u8/"+_cid+"_"+_timestamp+".m3u8";
+				trace("live_url:"+live_url);
+				newPlay2();
+//				loadCheck();
 				//tviecore.externalPlay(_cid,_timestamp,_end,_is_live);
 			}
 		}
@@ -279,7 +310,11 @@
 			//if (!_timestamp) {//if(_timestamp==0)
 				//_timestamp = int(new Date().getTime() / 1000);
 			//}
+//			mps.media=factory.createMediaElement(new URLResource("http://segment.livehls.kksmg.com/hls/dfws/index.m3u8"));
 			tviecore.sendUICommand("UI_COMMAND_PLAY",{cid:_cid,timeStamp:_timestamp});
+		}
+		public function newPlay2():void{
+			mps.media=factory.createMediaElement(new URLResource(live_url));
 		}
 		//设置全屏事件侦听
 		public function setFSListener() {
