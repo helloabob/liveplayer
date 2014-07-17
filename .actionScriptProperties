@@ -32,9 +32,7 @@
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
-  <applications>
-    <application path="liveplayer.as"/>
-  </applications>
+  <applications/>
   <modules/>
   <workers/>
   <buildCSSFiles/>
