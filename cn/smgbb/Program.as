@@ -1,20 +1,20 @@
 ﻿package cn.smgbb
 {
 	/*具体节目的类*/
+	import flash.display.GradientType;
+	import flash.display.MovieClip;
+	import flash.display.SpreadMethod;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.events.MouseEvent;
+	import flash.geom.Matrix;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
-	import flash.events.MouseEvent;
-	import flash.utils.setInterval;
 	import flash.utils.clearInterval;
-	import flash.display.Sprite;
-	import flash.display.MovieClip;
-	import flash.display.GradientType;
-	import flash.display.SpreadMethod;
-	import flash.geom.Matrix;
+	import flash.utils.setInterval;
 	
 	import gs.TweenLite;
 
@@ -29,7 +29,7 @@
 		private var bg_color:uint = bg_color1;//背景色
 		private var hl_color:uint = 0xFFCC00;//高亮颜色
 		private var playing_color:uint = 0xCBFF00;//正在播放颜色
-		private var progDate:Date;//date
+		public var progDate:Date;//date
 		private var _progTitle:String="上海新报";//title of prog
 		private var progType:String="";//type of prog
 		private var _progStart:Date;//starttime of prog
@@ -100,7 +100,17 @@
 				_progStamp = _obj.timestamp;
 			}
 			if (_obj.duration) {
-				_progDuration = _obj.duration*60/1000;
+//				_progDuration = _obj.duration*60/1000;
+				var dur:String = _obj.duration;
+				var tmp:String = dur.substr(0,2);
+				var result:int = 0;
+				if(int(tmp)>0)result = int(tmp) * 3600;
+				tmp = dur.substr(2,2);
+				if(int(tmp)>0)result = result + int(tmp) * 60;
+				tmp = dur.substr(4,2);
+				if(int(tmp)>0)result = result + int(tmp);
+				_progDuration = result;
+//				trace("dur:"+_obj.duration+"     res:"+result);
 			}
 			if (_obj.id) {
 				(_obj.id % 2)?(bg_color = bg_color2):(bg_color = bg_color1);

@@ -90,6 +90,13 @@
 		public var change_cid:uint;//换频道时外部调用
 		public var change_stamp:Number;	
 		public var chanl_show:int = -1;//显示频道的序号
+		public var change_duration:uint;
+		
+		public var change_title:String;
+		public var change_date:String;
+		public var change_starttime:String;
+		
+		
 		public static const CHANGE_CHANL:String = "change_channel";//事件
 		
 		//for chanl_icon
@@ -622,7 +629,8 @@
 				_obj1.starttime = _arr.child("starttime");
 				_obj1.endtime = _arr.child("endtime");
 				_obj1.timestamp = _arr.child("timestamp");
-				_obj1.duration = int(_arr.child("length").toString());
+				_obj1.duration = _arr.child("length");
+//				_obj1.duration = int(_arr.child("length").toString());
 
 				tmp_obj.detail_arr.push(_obj1);
 				var start_arr:Array = _obj1.starttime.split(":");
@@ -701,6 +709,12 @@
 			num_playing_arr[chanl_show] = _id;
 			change_cid = uint(e.target.progCid);
 			change_stamp = Number(e.target.progStamp);
+			change_duration = uint(e.target.progDuration);
+			
+			change_title = e.target.progTitle;
+			change_date = e.target.progDate;
+			change_starttime = e.target.progStart;
+			
 			dispatchEvent(new Event(EPG.CHANGE_CHANL));
 			for (var i = 0; i < _num; i++) {
 				if (i != _id) {

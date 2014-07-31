@@ -16,13 +16,6 @@
 	import flash.utils.Timer;
 	import flash.utils.setTimeout;
 	
-	import org.osmf.events.MediaFactoryEvent;
-	import org.osmf.media.MediaFactory;
-	import org.osmf.media.MediaPlayerSprite;
-	import org.osmf.media.PluginInfoResource;
-	import org.osmf.media.URLResource;
-	import org.osmf.net.httpstreaming.hls.HLSPluginInfo;
-
 	public class aVideo extends Sprite
 	{
 		private var is_first_time:Boolean=true;
@@ -40,7 +33,8 @@
 		private var check_ld:URLLoader;//节目详细信息Loader
 		private var check_out_timer:Timer;//超时
 		//////////////////////////////视频参数/////////////////
-		private var vid_url:String = "smgbb.swf";
+//		private var vid_url:String = "smgbb.swf";
+		private var vid_url:String = "PlayerKit.swf";
 		private var vid_mode:String = aVideo.MODE_LIVE;
 		//private var vid_ui:String = "ui.swf";
 		private var vid_cid:uint = 210;
@@ -52,9 +46,7 @@
 		private var vid_site:String = "api.smgbb.tv";
 		//private var vid_datarate:String = "64";
 		private var vid_ld:Loader;
-		private var tviecore;
-		private var mps:MediaPlayerSprite;
-		private var factory:MediaFactory;
+		private var tviecore:*;
 		
 		public var playing_status:String;
 		public static const MODE_LIVE:String = "LIVE";
@@ -83,6 +75,10 @@
 			}
 			init();
 		}
+		public function playVideo(obj:Object):void{
+			trace("playVideo:"+obj.url);
+			tviecore.sendUICommand("UI_COMMAND_PLAY",obj);
+		}
 		private function init() {
 //			check_ld = new URLLoader();//check当前时间戳对应的节目，获取节目时长
 //			check_ld.addEventListener(Event.COMPLETE, checkComplete);
@@ -93,16 +89,18 @@
 //			
 //			loadCheck();
 			
-			if(is_first_time){
-				is_first_time=false;
-				factory = new MediaFactory();
-				factory.loadPlugin(new PluginInfoResource(new HLSPluginInfo()));
-				mps=new MediaPlayerSprite();
-				mps.width=544;
-				mps.height=423;
-				addChildAt(mps,0);
-				is_vid_ready = true;
-				newPlay2();
+			if (is_first_time) {//未初始化
+				is_first_time = false;
+				vid_ld=new Loader();
+				vid_ld.contentLoaderInfo.addEventListener(Event.COMPLETE,vidComplete);
+				vid_ld.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,vidError);
+				vid_ld.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR,vidError);
+				trace(vidConst.UI_DIR+vid_url+"?t="+Math.random());
+				vid_ld.load(new URLRequest(vidConst.UI_DIR+vid_url+"?t="+Math.random()));
+			}else {//已完成初始化
+//				newPlay(vid_cid, vid_timestamp);
+				//tviecore.externalPlay(vid_cid, vid_timestamp, vid_end, false);
+				//tviecore.externalPlay(vid_cid, new Date().getTime() / 1000 + tviecore.timeOffSet()-1, vid_end,true);
 			}
 			
 		}
@@ -144,10 +142,10 @@
 				var _tmp_cid:String = _xml.channel.program.extension.property.attribute("id");
 				//trace(_tmp_cid);
 				if(_tmp_cid!=null && _tmp_cid!="0") {
-					vid_cid = _tmp_cid;
+					vid_cid = uint(_tmp_cid);
 				}
 				
-			}			
+			}
 			catch(e)
 			{
 				trace("EEERERERERERERER");
@@ -186,7 +184,7 @@
 			vid_ld.contentLoaderInfo.removeEventListener(SecurityErrorEvent.SECURITY_ERROR,vidError);
 			tviecore=vid_ld.contentLoaderInfo.content as Sprite;
 			addChildAt(tviecore, 0);
-			tviecore.start();
+//			tviecore.start();
 			tviecore.sendUICommand("UI_COMMAND_REGISTER_PLAYER_STATE", onPlayerStateHandler);
 			//tviecore.width = VIDEO_WIDTH;
 			//tviecore.height = VIDEO_HEIGHT;
@@ -203,15 +201,16 @@
 				vid_timestamp = maxtimestamp;
 				vid_end = 0;
 			}
-			newPlay(vid_cid, vid_timestamp);
+//			newPlay(vid_cid, vid_timestamp);
 			//tviecore.externalPlay(vid_cid, vid_timestamp, vid_end, false);
 			//returnToLive();
 			//this.addEventListener(Event.ENTER_FRAME, onThisEnterFrame);
 			setFSListener();
 		}
 		//视频状态改变
-		private function onPlayerStateHandler(e:Object):void {
-			playing_status = e.Info;
+		private function onPlayerStateHandler(e:*):void {
+//			playing_status = e.Info;
+			playing_status = e;
 			dispatchEvent(new Event(aVideo.STATUS_CHANGED));
 		}
 		//全屏
@@ -256,14 +255,16 @@
 			}
 		}
 		//换频道
-		public function changeChanl(_cid:uint, _timestamp:Number) {
+		public function changeChanl(_cid:uint, _timestamp:Number, _duration:uint) {
 			if (is_vid_ready) {
 				vid_cid = _cid;
 				vid_timestamp = _timestamp;
-				trace(vid_cid);
-				live_url="http://segment.livehls.kksmg.com/m3u8/"+_cid+"_"+_timestamp+".m3u8";
-				trace("live_url:"+live_url);
-				newPlay2();
+//				trace(vid_cid);
+//				live_url="http://segment.livehls.kksmg.com/m3u8/"+_cid+"_"+_timestamp+".m3u8";
+//				trace("live_url:"+live_url);
+//				newPlay2();
+				var urlString:String = "http://segment.livehls.kksmg.com/m3u8/{0}_{1}.m3u8";
+				playVideo({url:urlString.replace("{0}",_cid).replace("{1}",_timestamp),duration:_duration,islive:"false"});
 //				loadCheck();
 				//tviecore.externalPlay(_cid,_timestamp,_end,_is_live);
 			}
@@ -312,9 +313,6 @@
 			//}
 //			mps.media=factory.createMediaElement(new URLResource("http://segment.livehls.kksmg.com/hls/dfws/index.m3u8"));
 			tviecore.sendUICommand("UI_COMMAND_PLAY",{cid:_cid,timeStamp:_timestamp});
-		}
-		public function newPlay2():void{
-			mps.media=factory.createMediaElement(new URLResource(live_url));
 		}
 		//设置全屏事件侦听
 		public function setFSListener() {

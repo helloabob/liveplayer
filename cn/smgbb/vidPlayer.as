@@ -2,28 +2,27 @@
 {
 	/* 主类(入口） */
 	import flash.display.DisplayObject;
-	import flash.events.Event;
-	import flash.events.FullScreenEvent;
-	import flash.events.MouseEvent;
-	import flash.events.TimerEvent;
-	import flash.events.IOErrorEvent;
-	import flash.events.SecurityErrorEvent;
-	import flash.net.URLLoader;
-	import flash.net.URLRequest;
 	import flash.display.Loader;
 	import flash.display.Sprite;
 	import flash.display.StageDisplayState;
+	import flash.events.Event;
+	import flash.events.FullScreenEvent;
+	import flash.events.IOErrorEvent;
+	import flash.events.MouseEvent;
+	import flash.events.SecurityErrorEvent;
+	import flash.events.TimerEvent;
+	import flash.external.ExternalInterface;
+	import flash.geom.Rectangle;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
+	import flash.system.Security;
 	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
-	import flash.text.TextFieldAutoSize;
-	import flash.utils.Timer;
-	import flash.geom.Rectangle;
-	import flash.external.ExternalInterface;
-	import flash.system.Security;
 	import flash.ui.Mouse;
+	import flash.utils.Timer;
 	
-	import cn.smgbb.*;
 	import gs.TweenLite;
 	
 	public class vidPlayer extends Sprite
@@ -881,8 +880,10 @@
 		//侦听到EPG里切换节目的事件，通知avideo改变流
 		private function epgChangeChanl(e:Event) {
 			//trace(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap), Number(e.currentTarget.change_end));
-			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp));
-			title_text.resetText();
+			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp), uint(e.currentTarget.change_duration));
+//			title_text.resetText();
+			var obj:* = e.currentTarget;
+			title_text.resetText(obj.change_cid,obj.change_title,obj.change_date,obj.change_starttime);
 			//avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap));
 		}
 		//初始化视频区域
@@ -939,7 +940,7 @@
 		//视频状态改变
 		private function statusChange(e:Event) {
 			switch(avideo.playing_status) {
-				case "MODEL_STATE_PLAYING":
+				case "playing":
 				is_playing = true;
 				ui_spt.video_mc.play_btn.play_btn.visible = false;
 				ui_spt.video_mc.play_btn.pause_btn.visible = true;
