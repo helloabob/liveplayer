@@ -22,6 +22,7 @@
 		//默认起止时间
 		private var start_str:String="06:00:00";
 		private var end_str:String = "06:30:00";
+		public var currentDate:String = "2001-01-01";
 		//默认CID
 		private var _progCid:int = 210;//cid
 		private var bg_color1:uint = 0x262626;//背景色1
@@ -77,6 +78,7 @@
 		public function Program(_obj:Object) {
 			progDate = new Date();
 			if (_obj.date) {
+				currentDate = _obj.date;
 				progDate = parseDate(_obj.date);
 			}
 			if (_obj.cid) {
@@ -357,8 +359,8 @@
 		public function get progTitle():String {
 			return _progTitle;
 		}
-		public function get progStart():Date {
-			return _progStart;
+		public function get progStart():String {
+			return start_str;
 		}
 		//恢复成常态
 		public function setOut() {

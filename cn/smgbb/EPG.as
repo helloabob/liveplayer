@@ -91,6 +91,7 @@
 		public var change_stamp:Number;	
 		public var chanl_show:int = -1;//显示频道的序号
 		public var change_duration:uint;
+		public var change_channel_name:String = "";
 		
 		public var change_title:String;
 		public var change_date:String;
@@ -591,6 +592,7 @@
 			var prog_node:XMLList =_xml.channel;
 			
 			var cid_des:String = prog_node[0].attribute("name");
+			change_channel_name = cid_des;
 			//trace(cid_des);
 			var my_cid:String = prog_node[0].attribute("id");
 			//trace(my_cid);
@@ -712,7 +714,7 @@
 			change_duration = uint(e.target.progDuration);
 			
 			change_title = e.target.progTitle;
-			change_date = e.target.progDate;
+			change_date = e.target.currentDate;
 			change_starttime = e.target.progStart;
 			
 			dispatchEvent(new Event(EPG.CHANGE_CHANL));

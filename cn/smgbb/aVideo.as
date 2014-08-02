@@ -95,8 +95,9 @@
 				vid_ld.contentLoaderInfo.addEventListener(Event.COMPLETE,vidComplete);
 				vid_ld.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,vidError);
 				vid_ld.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR,vidError);
-				trace(vidConst.UI_DIR+vid_url+"?t="+Math.random());
-				vid_ld.load(new URLRequest(vidConst.UI_DIR+vid_url+"?t="+Math.random()));
+//				trace(vidConst.UI_DIR+vid_url+"?t="+Math.random());
+				vid_ld.load(new URLRequest(vidConst.UI_DIR+vid_url));
+//				vid_ld.load(new URLRequest(vidConst.UI_DIR+vid_url+"?t="+Math.random()));
 			}else {//已完成初始化
 //				newPlay(vid_cid, vid_timestamp);
 				//tviecore.externalPlay(vid_cid, vid_timestamp, vid_end, false);
@@ -201,6 +202,7 @@
 				vid_timestamp = maxtimestamp;
 				vid_end = 0;
 			}
+			playVideo({url:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8",duration:1,islive:"true"});
 //			newPlay(vid_cid, vid_timestamp);
 			//tviecore.externalPlay(vid_cid, vid_timestamp, vid_end, false);
 			//returnToLive();
@@ -255,7 +257,7 @@
 			}
 		}
 		//换频道
-		public function changeChanl(_cid:uint, _timestamp:Number, _duration:uint) {
+		public function changeChanl(_cid:uint, _timestamp:Number, _duration:uint, _islive:String="false") {
 			if (is_vid_ready) {
 				vid_cid = _cid;
 				vid_timestamp = _timestamp;
@@ -264,14 +266,15 @@
 //				trace("live_url:"+live_url);
 //				newPlay2();
 				var urlString:String = "http://segment.livehls.kksmg.com/m3u8/{0}_{1}.m3u8";
-				playVideo({url:urlString.replace("{0}",_cid).replace("{1}",_timestamp),duration:_duration,islive:"false"});
+				playVideo({url:urlString.replace("{0}",_cid).replace("{1}",_timestamp),duration:_duration,islive:_islive});
 //				loadCheck();
 				//tviecore.externalPlay(_cid,_timestamp,_end,_is_live);
 			}
 		}
 		//返回直播
 		public function returnToLive() {
-			newPlay(vid_cid, 0);
+//			newPlay(vid_cid, 0);
+			playVideo({url:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8",duration:1,islive:"true"});
 		}
 		//暂停恢复
 		public function setResume() {

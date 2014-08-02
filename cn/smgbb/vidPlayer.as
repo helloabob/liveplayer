@@ -883,11 +883,12 @@
 			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp), uint(e.currentTarget.change_duration));
 //			title_text.resetText();
 			var obj:* = e.currentTarget;
-			title_text.resetText(obj.change_cid,obj.change_title,obj.change_date,obj.change_starttime);
+			title_text.resetText(obj.change_channel_name,obj.change_title,obj.change_date,obj.change_starttime);
 			//avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap));
 		}
 		//初始化视频区域
 		private function initVideo() {
+			if(avideo!=null)return;
 			avideo = new aVideo( { cid:vid_cid, timestamp:vid_timestamp, endtimestamp:vid_endtimestamp, mode:vid_mode,liveurl:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8" } );
 			avideo.addEventListener(aVideo.PROG_CHANGED, progChange);
 			avideo.addEventListener(aVideo.STATUS_CHANGED, statusChange);
