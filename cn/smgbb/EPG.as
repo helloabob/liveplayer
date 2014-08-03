@@ -46,7 +46,9 @@
 		private var xml_dir:String ="http://prolist.kankanews.com/prolist";
 //		private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
 //		private var config_dir:String = "http://epg.bbtv.cn/interface/config.aspx";//配置文件路径
-		private var config_dir:String="http://test.editor.com/getServerTime.php";
+//		private var config_dir:String="http://test.editor.com/getServerTime.php";
+		private var config_dir:String="http://101.251.121.106:1214/interface/getServerTime.php";
+		private var channel_list_dir:String="http://test.editor.com/getChannelList.xml";
 		private var hint_timer:Timer;//提示
 		private var unhint_timer:Timer;//提示
 		private var config_timer:Timer;//urlloader超时 
@@ -113,6 +115,9 @@
 		private const SCROLL_HEIGHT:int = 296;//可拖动范围
 		private const SCROLL_DRAGGER_HEIGHT:int = 32;//dragger高度
 		
+		//new channel list xml
+		private var channel_list:Array=[];
+		
 		public function EPG(_cid:int=216) {
 			def_cid = _cid;
 			if (this.loaderInfo.parameters.bbtv_channelid != null) {//如果有loaderInfo信息
@@ -124,6 +129,29 @@
 				def_cid = CID_ARR[0];//取第一个
 			}
 			cur_id = CID_ARR.indexOf(def_cid);
+//			epgInit();
+			channelXMLInit();
+		}
+		private function channelXMLInit():void{
+			var channel_list_ld:URLLoader = new URLLoader();
+			channel_list_ld.addEventListener(Event.COMPLETE, channelXMLComplete);
+			channel_list_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
+			channel_list_ld.addEventListener(IOErrorEvent.IO_ERROR, configError);
+			channel_list_ld.load(new URLRequest(channel_list_dir));
+		}
+		private function channelXMLComplete(e:Event):void{
+			var ld:URLLoader = e.target as URLLoader;
+			ld.removeEventListener(Event.COMPLETE, channelXMLComplete);
+			ld.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
+			ld.removeEventListener(IOErrorEvent.IO_ERROR, configError);
+			var list_str:String = e.target.data.toString();
+			var _xml:XML = new XML(list_str);
+			var i:int = 0;
+			for each(var node:* in _xml.channel){
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+			}
 			epgInit();
 		}
 		//初始化
@@ -143,14 +171,26 @@
 			for (j = 1; j < _num; j++) {//最底层是选中的状态，其它为频道按钮
 				chanl_set.getChildAt(j).visible = false;
 			}
-			for (j = 0; j < total_icon; j++) {//根据CN_ARR的序列push对应的图标到btn_array中
-				_id = Math.max(0, vidConst.CID_ARR.indexOf(CID_ARR[j]));
-				id_arr.push(_id);
-				chanl_set.getChildByName(vidConst.CHANL_ARR[_id]+"_btn").visible = true;
-				chanl_set.getChildByName(vidConst.CHANL_ARR[_id] + "_btn").x = icon_x + j * icon_width;
-				chanl_set.getChildByName(vidConst.CHANL_ARR[_id] + "_btn").y = 0;
-				btn_array.push(chanl_set.getChildByName(vidConst.CHANL_ARR[_id] + "_btn") as MovieClip);				
+//			for (j = 0; j < total_icon; j++) {//根据CN_ARR的序列push对应的图标到btn_array中
+//				_id = Math.max(0, vidConst.CID_ARR.indexOf(CID_ARR[j]));
+//				id_arr.push(_id);
+//				chanl_set.getChildByName(vidConst.CHANL_ARR[_id]+"_btn").visible = true;
+//				chanl_set.getChildByName(vidConst.CHANL_ARR[_id] + "_btn").x = icon_x + j * icon_width;
+//				chanl_set.getChildByName(vidConst.CHANL_ARR[_id] + "_btn").y = 0;
+//				btn_array.push(chanl_set.getChildByName(vidConst.CHANL_ARR[_id] + "_btn") as MovieClip);				
+//			}
+			
+			for(j=0;j<channel_list.length;j++){
+				id_arr.push(j);
+				var obj:Object = channel_list[j];
+				var cb:ChannelButton = new ChannelButton(obj.name,obj.id);
+				cb.x = icon_x + j * 64;
+				cb.y = 4;
+				cb.selected = false;
+				chanl_set.addChild(cb);
+				btn_array.push(cb);
 			}
+			
 			//vidConst.setIndex(btn_array);
 			
 			//初始化提示信息
@@ -277,13 +317,27 @@
 			loadDate(date_des, def_cid);
 		}
 		//初始化频道按钮
+//		private function initChanlBtn() {
+//			left_btn.addEventListener(MouseEvent.CLICK, leftClick);
+//			right_btn.addEventListener(MouseEvent.CLICK, rightClick);
+//			refreshSet();
+//			for (var i = 0; i < CID_NUMBER; i++) {
+//				btn_array[i].id = i;
+//				btn_array[i].over.visible = false;
+//				btn_array[i].buttonMode = true;
+//				btn_array[i].addEventListener(MouseEvent.MOUSE_OVER, btnOver);
+//				btn_array[i].addEventListener(MouseEvent.MOUSE_OUT, btnOut);
+//				btn_array[i].addEventListener(MouseEvent.CLICK, btnClick);
+//			}
+//		}
+		//初始化频道按钮
 		private function initChanlBtn() {
 			left_btn.addEventListener(MouseEvent.CLICK, leftClick);
 			right_btn.addEventListener(MouseEvent.CLICK, rightClick);
 			refreshSet();
-			for (var i = 0; i < CID_NUMBER; i++) {
+			for (var i = 0; i < channel_list.length; i++) {
 				btn_array[i].id = i;
-				btn_array[i].over.visible = false;
+//				btn_array[i].over.visible = false;
 				btn_array[i].buttonMode = true;
 				btn_array[i].addEventListener(MouseEvent.MOUSE_OVER, btnOver);
 				btn_array[i].addEventListener(MouseEvent.MOUSE_OUT, btnOut);
@@ -873,6 +927,7 @@
 		}
 		//装载某频道某天的EPG
 		private function loadDate(_date:String, _cid:int):void {//_date format: e.g. 2008-12-08
+			trace("loadDate:"+_date+"::::"+_cid);
 			if (!_date) {
 				_date = date_des;
 			}
@@ -907,17 +962,20 @@
 			if (chanl_show < 0) {
 				chanl_show = 0;
 			}
-			//trace("chanl_show: " + chanl_show);
+			trace("chanl_show: " + chanl_show+" and total:"+ id_arr.join(";")+"cur_id:"+cur_id);
 			
-			cur_cid = vidConst.CID_ARR[chanl_show];// .CID_ARR[chanl_show];
+//			cur_cid = vidConst.CID_ARR[chanl_show];// .CID_ARR[chanl_show];
+			cur_cid = channel_list[cur_id].id;
 			for (var j in btn_array) {
-				btn_array[j].gray.visible = true;
-				btn_array[j].over.visible =false;
+//				btn_array[j].gray.visible = true;
+//				btn_array[j].over.visible =false;
+				btn_array[j].selected = false;
 			}
-			btn_array[cur_id].gray.visible = false;
+//			btn_array[cur_id].gray.visible = false;
+			btn_array[cur_id].selected = true;
 			chanl_set.bg.x = btn_array[cur_id].x;
 			//trace(btn_array[cur_id].x);
-			//trace("***********");
+			trace("***********");
 			
 			//居中显示
 			cur_icon = cur_id-int(shown_icon/2);

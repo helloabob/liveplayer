@@ -63,7 +63,7 @@
 			mouseChildren = false;
 			mouseEnabled = false;
 		}
-		public function resetText(_chl:String="第一财经", _pro:String="上班这点事", _day:String="2009-04-28", _time:String="06:05:00") {
+		public function resetText(_chl:String="东方卫视", _pro:String="直播", _day:String="2009-04-28", _time:String="06:05:00") {
 			title_txt.text = _chl + "  -  " + _pro;
 			title_txt.setTextFormat(title_fmt);
 			
