@@ -187,11 +187,12 @@
 				var obj:Object = channel_list[j];
 				var cb:ChannelButton = new ChannelButton(obj.name,obj.id);
 				cb.x = icon_x + j * 64;
-				cb.y = 4;
+				cb.y = 5;
 				cb.selected = false;
 				chanl_set.addChild(cb);
 				btn_array.push(cb);
 			}
+			chanl_set.bg.visible = false;
 			
 			//vidConst.setIndex(btn_array);
 			
@@ -929,7 +930,6 @@
 		}
 		//装载某频道某天的EPG
 		private function loadDate(_date:String, _cid:int):void {//_date format: e.g. 2008-12-08
-			trace("loadDate:"+_date+"::::"+_cid);
 			if (!_date) {
 				_date = date_des;
 			}
@@ -964,7 +964,6 @@
 			if (chanl_show < 0) {
 				chanl_show = 0;
 			}
-			trace("chanl_show: " + chanl_show+" and total:"+ id_arr.join(";")+"cur_id:"+cur_id);
 			
 //			cur_cid = vidConst.CID_ARR[chanl_show];// .CID_ARR[chanl_show];
 			cur_cid = channel_list[cur_id].id;
@@ -975,9 +974,10 @@
 			}
 //			btn_array[cur_id].gray.visible = false;
 			btn_array[cur_id].selected = true;
+//			频道按钮背景图标
 			chanl_set.bg.x = btn_array[cur_id].x;
 			//trace(btn_array[cur_id].x);
-			trace("***********");
+//			trace("***********");
 			
 			//居中显示
 			cur_icon = cur_id-int(shown_icon/2);
