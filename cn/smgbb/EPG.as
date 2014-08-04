@@ -47,8 +47,10 @@
 //		private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
 //		private var config_dir:String = "http://epg.bbtv.cn/interface/config.aspx";//配置文件路径
 //		private var config_dir:String="http://test.editor.com/getServerTime.php";
-		private var config_dir:String="http://101.251.121.106:1214/interface/getServerTime.php";
-		private var channel_list_dir:String="http://test.editor.com/getChannelList.xml";
+//		private var config_dir:String="http://101.251.121.106:1214/interface/getServerTime.php";
+		private var config_dir:String="http://kkeditor.sinaapp.com/live/getServerTime.php";
+//		private var channel_list_dir:String="http://test.editor.com/getChannelList.xml";
+		private var channel_list_dir:String="http://kkeditor.sinaapp.com/live/getChannelList.xml";
 		private var hint_timer:Timer;//提示
 		private var unhint_timer:Timer;//提示
 		private var config_timer:Timer;//urlloader超时 
