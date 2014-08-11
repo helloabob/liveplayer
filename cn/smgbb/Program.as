@@ -31,6 +31,7 @@
 		private var hl_color:uint = 0xFFCC00;//高亮颜色
 		private var playing_color:uint = 0xCBFF00;//正在播放颜色
 		public var progDate:Date;//date
+		public var url:String;
 		private var _progTitle:String="上海新报";//title of prog
 		private var progType:String="";//type of prog
 		private var _progStart:Date;//starttime of prog
@@ -101,17 +102,36 @@
 			if (_obj.timestamp) {
 				_progStamp = _obj.timestamp;
 			}
+			if (_obj.url) {
+				url = _obj.url;
+			}
 			if (_obj.duration) {
+//				version 1
 //				_progDuration = _obj.duration*60/1000;
+				
+//				version 2
+//				var dur:String = _obj.duration;
+//				var tmp:String = dur.substr(0,2);
+//				var result:int = 0;
+//				if(int(tmp)>0)result = int(tmp) * 3600;
+//				tmp = dur.substr(2,2);
+//				if(int(tmp)>0)result = result + int(tmp) * 60;
+//				tmp = dur.substr(4,2);
+//				if(int(tmp)>0)result = result + int(tmp);
+//				_progDuration = result;
+				
+//				version 3
 				var dur:String = _obj.duration;
-				var tmp:String = dur.substr(0,2);
+				var tmp:String = "";
 				var result:int = 0;
+				tmp=dur.substr(0,2);
 				if(int(tmp)>0)result = int(tmp) * 3600;
-				tmp = dur.substr(2,2);
+				tmp = dur.substr(3,2);
 				if(int(tmp)>0)result = result + int(tmp) * 60;
-				tmp = dur.substr(4,2);
+				tmp = dur.substr(6,2);
 				if(int(tmp)>0)result = result + int(tmp);
 				_progDuration = result;
+				
 //				trace("dur:"+_obj.duration+"     res:"+result);
 			}
 			if (_obj.id) {

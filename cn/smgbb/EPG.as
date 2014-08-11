@@ -47,10 +47,10 @@
 //		private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
 //		private var config_dir:String = "http://epg.bbtv.cn/interface/config.aspx";//配置文件路径
 //		private var config_dir:String="http://test.editor.com/getServerTime.php";
-//		private var config_dir:String="http://101.251.121.106:1214/interface/getServerTime.php";
-		private var config_dir:String="http://kkeditor.sinaapp.com/live/getServerTime.php";
-//		private var channel_list_dir:String="http://test.editor.com/getChannelList.xml";
-		private var channel_list_dir:String="http://kkeditor.sinaapp.com/live/getChannelList.xml";
+		private var config_dir:String="http://lms.smgtech.net/interface/getServerTime.php";
+//		private var config_dir:String="http://kkeditor.sinaapp.com/live/getServerTime.php";
+		private var channel_list_dir:String="http://lms.smgtech.net/interface/getChannelList.php";
+//		private var channel_list_dir:String="http://kkeditor.sinaapp.com/live/getChannelList.xml";
 		private var hint_timer:Timer;//提示
 		private var unhint_timer:Timer;//提示
 		private var config_timer:Timer;//urlloader超时 
@@ -92,9 +92,10 @@
 		public var change_cname:String="";
 		
 		public var change_cid:uint;//换频道时外部调用
-		public var change_stamp:Number;	
+		public var change_stamp:String;	
 		public var chanl_show:int = -1;//显示频道的序号
 		public var change_duration:uint;
+		public var change_url:String;
 		public var change_channel_name:String = "";
 		
 		public var change_title:String;
@@ -687,6 +688,7 @@
 				_obj1.type = _arr.child("type");
 				_obj1.starttime = _arr.child("starttime");
 				_obj1.endtime = _arr.child("endtime");
+				_obj1.url = _arr.child("url");
 				_obj1.timestamp = _arr.child("timestamp");
 				_obj1.duration = _arr.child("length");
 //				_obj1.duration = int(_arr.child("length").toString());
@@ -769,6 +771,7 @@
 			change_cid = uint(e.target.progCid);
 			change_stamp = Number(e.target.progStamp);
 			change_duration = uint(e.target.progDuration);
+			change_url = e.target.url;
 			
 			change_title = e.target.progTitle;
 			change_date = e.target.currentDate;

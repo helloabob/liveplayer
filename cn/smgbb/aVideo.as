@@ -55,6 +55,9 @@
 		public static const STATUS_CHANGED:String = "status_changed";
 		public static const AUTHOR_CHECK:String = "author_check";
 		
+		
+		private static const VOD_URL:String = "http://lms.smgtech.net/{0}";
+		
 		public function aVideo(_obj:Object) {
 			//vid_timestamp = 1242612000;
 			//vid_endtimestamp = 1242613500;
@@ -257,7 +260,7 @@
 			}
 		}
 		//换频道
-		public function changeChanl(_cid:uint, _timestamp:Number, _duration:uint, _islive:String="false") {
+		public function changeChanl(_url:String, _duration:uint, _islive:String="false") {
 			if (is_vid_ready) {
 				vid_cid = _cid;
 				vid_timestamp = _timestamp;
@@ -265,8 +268,14 @@
 //				live_url="http://segment.livehls.kksmg.com/m3u8/"+_cid+"_"+_timestamp+".m3u8";
 //				trace("live_url:"+live_url);
 //				newPlay2();
-				var urlString:String = "http://segment.livehls.kksmg.com/m3u8/{0}_{1}.m3u8";
-				playVideo({url:urlString.replace("{0}",_cid).replace("{1}",_timestamp),duration:_duration,islive:_islive});
+				
+//				version 1
+//				var urlString:String = "http://segment.livehls.kksmg.com/m3u8/{0}_{1}.m3u8";
+//				playVideo({url:urlString.replace("{0}",_cid).replace("{1}",_timestamp),duration:_duration,islive:_islive});
+				
+//				version 2
+				playVideo({url:VOD_URL.replace("{0}",_url),duration:_duration,islive:_islive});
+				
 //				loadCheck();
 				//tviecore.externalPlay(_cid,_timestamp,_end,_is_live);
 			}

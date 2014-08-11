@@ -880,7 +880,8 @@
 		//侦听到EPG里切换节目的事件，通知avideo改变流
 		private function epgChangeChanl(e:Event) {
 			//trace(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap), Number(e.currentTarget.change_end));
-			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp), uint(e.currentTarget.change_duration));
+//			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp), uint(e.currentTarget.change_duration));
+			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration));
 //			title_text.resetText();
 			var obj:* = e.currentTarget;
 			title_text.resetText(obj.change_channel_name,obj.change_title,obj.change_date,obj.change_starttime);
