@@ -43,7 +43,8 @@
 		private var hide_info_timer_dur:Number = 3;//装载超时显示时间
 		private var update_timer_dur:Number = 60;//刷新EPG时间(s)
 		private var date_des:String;//2008-02-03
-		private var xml_dir:String ="http://prolist.kankanews.com/prolist";
+//		private var xml_dir:String ="http://prolist.kankanews.com/prolist";
+		private var xml_dir:String = "http://lms.smgtech.net/interface/getProgramList.php?channelid={0}&date={1}";
 //		private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
 //		private var config_dir:String = "http://epg.bbtv.cn/interface/config.aspx";//配置文件路径
 //		private var config_dir:String="http://test.editor.com/getServerTime.php";
@@ -121,7 +122,7 @@
 		//new channel list xml
 		private var channel_list:Array=[];
 		
-		public function EPG(_cid:int=216) {
+		public function EPG(_cid:int=1) {
 			def_cid = _cid;
 			if (this.loaderInfo.parameters.bbtv_channelid != null) {//如果有loaderInfo信息
 				def_cid=int(this.loaderInfo.parameters.bbtv_channelid);
@@ -187,7 +188,7 @@
 				id_arr.push(j);
 				var obj:Object = channel_list[j];
 				var cb:ChannelButton = new ChannelButton(obj.name,obj.id);
-				cb.x = icon_x + j * 64;
+				cb.x = icon_x + j * 104;
 				cb.y = 5;
 				cb.selected = false;
 				chanl_set.addChild(cb);
@@ -312,7 +313,7 @@
 			now_date.setMinutes(int(time_str.substr(10,2)));
 			now_date.setSeconds(int(time_str.substr(12,2)));
 			date_des=parseDate(now_date);//2008-02-03
-
+//			date_des = "2014-08-11";
 			initCont();
 			initScroll();
 			initCalendar();
@@ -689,6 +690,7 @@
 				_obj1.starttime = _arr.child("starttime");
 				_obj1.endtime = _arr.child("endtime");
 				_obj1.url = _arr.child("url");
+//				trace("url:"+_arr);
 				_obj1.timestamp = _arr.child("timestamp");
 				_obj1.duration = _arr.child("length");
 //				_obj1.duration = int(_arr.child("length").toString());
@@ -772,6 +774,7 @@
 			change_stamp = Number(e.target.progStamp);
 			change_duration = uint(e.target.progDuration);
 			change_url = e.target.url;
+			trace("change_url:"+change_url);
 			
 			change_title = e.target.progTitle;
 			change_date = e.target.currentDate;
@@ -936,6 +939,7 @@
 			if (!_date) {
 				_date = date_des;
 			}
+			trace("loadDate:"+_date+"cid:"+_cid);
 			showInfo("正在加载数据...");			
 			var i:int;
 			var _spt:Sprite;
@@ -995,7 +999,9 @@
 			if (_arr.length > 2) {//[2009, 07, 01]
 				title_mc.date_txt.text = _arr[0] + "年" + _arr[1] + "月" + _arr[2] + "日 " + cal_spt.getChildByName("cal0").day_txt.text;
 			}
-			var tmp_str:String = xml_dir + "/" + cur_cid + "_" + _date + ".xml";
+//			var tmp_str:String = xml_dir + "/" + cur_cid + "_" + _date + ".xml";
+			var tmp_str:String = xml_dir.replace("{0}",cur_cid).replace("{1}",_date);
+			trace("channel_url:"+tmp_str);
 			epg_timer.reset();
 			epg_timer.start();
 			epg_ld.addEventListener(Event.COMPLETE, ldComplete);

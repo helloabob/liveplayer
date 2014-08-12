@@ -62,16 +62,21 @@
 			
 			mouseChildren = false;
 			mouseEnabled = false;
+			
+			time_txt.visible = false;
 		}
 		public function resetText(_chl:String="东方卫视", _pro:String="直播", _day:String="2009-04-28", _time:String="06:05:00") {
-			title_txt.text = _chl + "  -  " + _pro;
+			title_txt.text = _chl;
 			title_txt.setTextFormat(title_fmt);
 			
-			
-			var _arr:Array = _day.split("-");
-			var _date:Date = new Date(_arr[1]+"/"+_arr[2]+"/"+_arr[0]);
-			time_txt.text = "播出时间：" + _arr[0] + "年" + _arr[1] + "月" + _arr[2] + "日 星期" + DAY_ARR[_date.getDay()] + " " + _time.substr(0, 5);
-			time_txt.setTextFormat(time_fmt);
+//			title_txt.text = _chl + "  -  " + _pro;
+//			title_txt.setTextFormat(title_fmt);
+//			
+//			
+//			var _arr:Array = _day.split("-");
+//			var _date:Date = new Date(_arr[1]+"/"+_arr[2]+"/"+_arr[0]);
+//			time_txt.text = "播出时间：" + _arr[0] + "年" + _arr[1] + "月" + _arr[2] + "日 星期" + DAY_ARR[_date.getDay()] + " " + _time.substr(0, 5);
+//			time_txt.setTextFormat(time_fmt);
 		}
 		public function setOver() {
 			det_fmt.underline = false;

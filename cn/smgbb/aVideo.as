@@ -57,6 +57,7 @@
 		
 		
 		private static const VOD_URL:String = "http://lms.smgtech.net/{0}";
+		private static const DEFAULT_LIVE_URL:String = "http://segment.livehls.kksmg.com/hls/dfws/index.m3u8";
 		
 		public function aVideo(_obj:Object) {
 			//vid_timestamp = 1242612000;
@@ -205,7 +206,11 @@
 				vid_timestamp = maxtimestamp;
 				vid_end = 0;
 			}
-			playVideo({url:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8",duration:1,islive:"true"});
+			if(live_url==""){
+				live_url = DEFAULT_LIVE_URL;
+			}
+			playVideo({url:live_url,duration:1,islive:"true"});
+			
 //			newPlay(vid_cid, vid_timestamp);
 			//tviecore.externalPlay(vid_cid, vid_timestamp, vid_end, false);
 			//returnToLive();
@@ -261,9 +266,12 @@
 		}
 		//换频道
 		public function changeChanl(_url:String, _duration:uint, _islive:String="false") {
+			trace("changeChanl:"+_url);
 			if (is_vid_ready) {
-				vid_cid = _cid;
-				vid_timestamp = _timestamp;
+//				version 1
+//				vid_cid = _cid;
+//				vid_timestamp = _timestamp;
+				
 //				trace(vid_cid);
 //				live_url="http://segment.livehls.kksmg.com/m3u8/"+_cid+"_"+_timestamp+".m3u8";
 //				trace("live_url:"+live_url);
@@ -283,7 +291,8 @@
 		//返回直播
 		public function returnToLive() {
 //			newPlay(vid_cid, 0);
-			playVideo({url:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8",duration:1,islive:"true"});
+//			playVideo({url:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8",duration:1,islive:"true"});
+			playVideo({url:live_url,duration:1,islive:"true"});
 		}
 		//暂停恢复
 		public function setResume() {

@@ -112,6 +112,9 @@
 		//public static const UI_DIR:String = "file:///E:/Work Source/web IPTV/Flash/新版bbtv播放器/2009-6-23/";//ui文件根目录
 		//public static const UI_DIR:String = "http://localhost/v3/";//ui文件根目录
 
+		private var channel_list_dir:String="http://lms.smgtech.net/interface/getChannelList.php";
+		private var channel_list:Array=[];
+		
 		public function vidPlayer(_obj:Object) {
 			if (_obj.cid) {
 				vid_cid = int(_obj.cid);
@@ -134,7 +137,38 @@
 			info_obj = { };
 			////////////////////////param for recom/////////////////
 			recom_obj = { };
+//			initVidPlayer();
+			loadChannelInfo();
+		}
+		private function loadChannelInfo():void{
+			var channel_list_ld:URLLoader = new URLLoader();
+			channel_list_ld.addEventListener(Event.COMPLETE, channelXMLComplete);
+			channel_list_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
+			channel_list_ld.addEventListener(IOErrorEvent.IO_ERROR, configError);
+			channel_list_ld.load(new URLRequest(channel_list_dir));
+		}
+		private function channelXMLComplete(e:Event):void{
+			var ld:URLLoader = e.target as URLLoader;
+			ld.removeEventListener(Event.COMPLETE, channelXMLComplete);
+			ld.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
+			ld.removeEventListener(IOErrorEvent.IO_ERROR, configError);
+			var list_str:String = e.target.data.toString();
+			var _xml:XML = new XML(list_str);
+			var i:int = 0;
+			var canfind:Boolean = false;
+			for each(var node:* in _xml.channel){
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==vid_cid)canfind=true;
+				i++;
+			}
+			if(canfind==false)vid_cid=int(_xml.channel[0].@id);
 			initVidPlayer();
+		}
+		private function configError(e:Event) {
+			var ld:URLLoader = e.target as URLLoader;
+			ld.removeEventListener(Event.COMPLETE, channelXMLComplete);
+			ld.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
+			ld.removeEventListener(IOErrorEvent.IO_ERROR, configError);
 		}
 		//初始化
 		private function initVidPlayer():void {//init
@@ -167,7 +201,7 @@
 			ui_ld.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, uiError);
 			ui_ld.load(new URLRequest(vidConst.UI_DIR+ui_url));
 			//ui_ld.load(new URLRequest("./ui_main.swf"));
-			ExternalInterface.addCallback("pauseVideo", pauseVideo);
+//			ExternalInterface.addCallback("pauseVideo", pauseVideo);
 		}
 		//隐藏提示
 		private function unhintTimer(e:TimerEvent) {
@@ -328,7 +362,7 @@
 			//ad_buf = new advBuffer();
 			ad_spt.addChild(ad_buf);
 			//trace("_node length: " + _node.length());
-			for each(var _item in _node) {
+			for each(var _item:* in _node) {
 				var tmp_xml=_item.config;
 				var _obj:Object = { };
 				switch(String(_item.attribute("id")).substr(0,3)) {
@@ -878,7 +912,7 @@
 		}
 		
 		//侦听到EPG里切换节目的事件，通知avideo改变流
-		private function epgChangeChanl(e:Event) {
+		private function epgChangeChanl(e:Event):void {
 			//trace(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap), Number(e.currentTarget.change_end));
 //			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp), uint(e.currentTarget.change_duration));
 			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration));
@@ -887,15 +921,25 @@
 			title_text.resetText(obj.change_channel_name,obj.change_title,obj.change_date,obj.change_starttime);
 			//avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap));
 		}
+		private function channelInfoForChannelId(ccid:int):Object{
+			trace("channelInfoForChannelId:"+ccid);
+			for each(var obj:Object in channel_list){
+				trace("u:"+obj.id);
+				if(obj.id==ccid)return obj;
+			}
+			return {};
+		}
 		//初始化视频区域
 		private function initVideo() {
 			if(avideo!=null)return;
-			avideo = new aVideo( { cid:vid_cid, timestamp:vid_timestamp, endtimestamp:vid_endtimestamp, mode:vid_mode,liveurl:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8" } );
+			var liveurl:String=channelInfoForChannelId(vid_cid).live;
+			avideo = new aVideo( { cid:vid_cid, timestamp:vid_timestamp, endtimestamp:vid_endtimestamp, mode:vid_mode,liveurl:liveurl} );
 			avideo.addEventListener(aVideo.PROG_CHANGED, progChange);
 			avideo.addEventListener(aVideo.STATUS_CHANGED, statusChange);
 			avideo.x = avideo.y = 1;
 			ui_spt.video_mc.addChildAt(avideo, 1);
-			title_text.resetText();
+			var c_title:String = channelInfoForChannelId(vid_cid).name;
+			title_text.resetText(c_title);
 			
 			scroll_text = new scrollText(537, 17);
 			scroll_text.x = (VIDEO_WIDTH - 537) / 2;
