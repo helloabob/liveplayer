@@ -60,6 +60,8 @@
 		private var is_title_overflow:Boolean = false;//标题太长
 		//private var error_class:errorClass = new errorClass();
 		
+		private var video_type:String = "0";
+		
 		public var recExtension:Object;//扩展信息
 		public var is_down:Boolean = false;//是否激活，点击后被激活
 		//标题和时间文本的坐标
@@ -104,6 +106,9 @@
 			}
 			if (_obj.url) {
 				url = _obj.url;
+			}
+			if(_obj.video_type){
+				this.video_type = _obj.video_type;
 			}
 			if (_obj.duration) {
 //				version 1
@@ -204,7 +209,7 @@
 			air_txt = new TextField();
 			air_txt.name = "air_txt";
 			air_txt.width = 40;
-			air_txt.text = "看直播";
+			air_txt.text = this.video_type=="0"?"看直播":"听直播";
 			air_txt.selectable = false;
 			air_txt.mouseEnabled = false;
 			air_txt.setTextFormat(air_fmt);

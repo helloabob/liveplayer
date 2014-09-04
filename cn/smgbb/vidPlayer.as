@@ -71,7 +71,7 @@
 		private var ui_spt:Sprite;//主界面Sprite
 		private var info_spt:Sprite;//信息面板sprite
 		private var recom_spt:Sprite;//推荐面板Sprite
-		private var epg_spt:Sprite;//EPG面板Sprite
+		private var epg_spt:*;//EPG面板Sprite
 		private var chat_spt:Sprite;//聊天面板Sprite
 		private var cur_spt:Sprite;//当前面板
 		private var vid_spt:Sprite;//视频sprite
@@ -106,13 +106,14 @@
 		private const VIDEO_HEIGHT:int = 408;
 		private const panel_WIDTH:int = 354;//面板
 		public static const PANEL_WIDTH:int = 352;
+		private var video_type:String = "0";
 		//public static const CID_ARR:Array = [212, 215, 218, 214, 220, 217, 211, 216, 219, 210,225,242,253,226,241,240];//array of cid	
 		//public static const CN_ARR:Array = ["财经频道", "纪实频道", "艺术人文","五星体育","外语频道","娱乐频道", "生活时尚","东方卫视","戏剧频道","新闻综合","电影频道","浙江卫视","湖南卫视","凤凰卫视","江苏卫视","北京卫视"];//array of channel
 		//public static const UI_DIR:String = "/bbtv_common/bbtv_flash/flash/v4/";//ui文件根目录
 		//public static const UI_DIR:String = "file:///E:/Work Source/web IPTV/Flash/新版bbtv播放器/2009-6-23/";//ui文件根目录
 		//public static const UI_DIR:String = "http://localhost/v3/";//ui文件根目录
 
-		private var channel_list_dir:String="http://lms.smgtech.net/interface/getChannelList.php";
+		private var channel_list_dir:String="http://lms.smgtech.net/interface/getChannelList.php?type={0}";
 		private var channel_list:Array=[];
 		
 		public function vidPlayer(_obj:Object) {
@@ -133,6 +134,10 @@
 			if (vid_endtimestamp == 0) {
 				vid_endtimestamp = new Date().getTime() / 1000;
 			}
+			if (_obj.video_type) {
+				video_type = _obj.video_type;
+			}
+			channel_list_dir = channel_list_dir.replace("{0}",video_type);
 			/////////////////param for info///////////////////
 			info_obj = { };
 			////////////////////////param for recom/////////////////
@@ -145,6 +150,7 @@
 			channel_list_ld.addEventListener(Event.COMPLETE, channelXMLComplete);
 			channel_list_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
 			channel_list_ld.addEventListener(IOErrorEvent.IO_ERROR, configError);
+			trace(channel_list_dir);
 			channel_list_ld.load(new URLRequest(channel_list_dir));
 		}
 		private function channelXMLComplete(e:Event):void{
@@ -891,12 +897,8 @@
 			//ui_spt.panel_mc.removeChild(panel_loading);
 			epg_spt = e.target.content as Sprite;
 			epg_spt.body.addEventListener("change_channel", epgChangeChanl);
-			//var _class = e.target.content.body.constructor as Class;
-			//trace("EPG_UI COMPLETE");
-			//epg_spt =new _class;
-			//epg_spt = e.target.content as Sprite;			
-			//epg_spt.hl_mc.visible = false;
 			ui_spt.panel_mc.addChild(epg_spt);
+			epg_spt.body.channelXMLInit(this.video_type);
 			//epg_spt.visible = false;
 		}
 		//聊天面板加载完成

@@ -50,7 +50,7 @@
 //		private var config_dir:String="http://test.editor.com/getServerTime.php";
 		private var config_dir:String="http://lms.smgtech.net/interface/getServerTime.php";
 //		private var config_dir:String="http://kkeditor.sinaapp.com/live/getServerTime.php";
-		private var channel_list_dir:String="http://lms.smgtech.net/interface/getChannelList.php";
+		private var channel_list_dir:String="http://lms.smgtech.net/interface/getChannelList.php?type={0}";
 //		private var channel_list_dir:String="http://kkeditor.sinaapp.com/live/getChannelList.xml";
 		private var hint_timer:Timer;//提示
 		private var unhint_timer:Timer;//提示
@@ -121,6 +121,7 @@
 		
 		//new channel list xml
 		private var channel_list:Array=[];
+		private var video_type:String = "0";
 		
 		public function EPG(_cid:int=1) {
 			def_cid = _cid;
@@ -134,14 +135,14 @@
 			}
 			cur_id = CID_ARR.indexOf(def_cid);
 //			epgInit();
-			channelXMLInit();
 		}
-		private function channelXMLInit():void{
+		public function channelXMLInit(video_type:String="0"):void{
+			this.video_type = video_type;
 			var channel_list_ld:URLLoader = new URLLoader();
 			channel_list_ld.addEventListener(Event.COMPLETE, channelXMLComplete);
 			channel_list_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
 			channel_list_ld.addEventListener(IOErrorEvent.IO_ERROR, configError);
-			channel_list_ld.load(new URLRequest(channel_list_dir));
+			channel_list_ld.load(new URLRequest(channel_list_dir.replace("{0}",video_type)));
 		}
 		private function channelXMLComplete(e:Event):void{
 			var ld:URLLoader = e.target as URLLoader;
@@ -690,6 +691,7 @@
 				_obj1.starttime = _arr.child("starttime");
 				_obj1.endtime = _arr.child("endtime");
 				_obj1.url = _arr.child("url");
+				_obj1.video_type = this.video_type;
 //				trace("url:"+_arr);
 				_obj1.timestamp = _arr.child("timestamp");
 				_obj1.duration = _arr.child("length");
@@ -973,6 +975,7 @@
 			}
 			
 //			cur_cid = vidConst.CID_ARR[chanl_show];// .CID_ARR[chanl_show];
+			trace("cur_id:"+cur_id);
 			cur_cid = channel_list[cur_id].id;
 			for (var j in btn_array) {
 //				btn_array[j].gray.visible = true;

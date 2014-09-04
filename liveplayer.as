@@ -26,7 +26,8 @@ package
 			_obj.bbtv_recom_image=this.loaderInfo.parameters.bbtv_recom_image;
 			_obj.bbtv_recom_link=this.loaderInfo.parameters.bbtv_recom_link;
 			_obj.bbtv_recom_time=this.loaderInfo.parameters.bbtv_recom_time;
-			
+			_obj.video_type=this.loaderInfo.parameters.type;
+//			_obj.video_type="1";
 			var vid_player:vidPlayer=new vidPlayer(_obj);
 			addChild(vid_player);
 		}
