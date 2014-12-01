@@ -56,7 +56,7 @@
 		public static const AUTHOR_CHECK:String = "author_check";
 		
 		
-		private static const VOD_URL:String = "http://lms.smgtech.net/{0}";
+		private static const VOD_URL:String = "http://lms.smgtech.cn/{0}";
 		private static const DEFAULT_LIVE_URL:String = "http://segment.livehls.kksmg.com/hls/dfws/index.m3u8";
 		
 		public function aVideo(_obj:Object) {

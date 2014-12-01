@@ -113,7 +113,7 @@
 		//public static const UI_DIR:String = "file:///E:/Work Source/web IPTV/Flash/新版bbtv播放器/2009-6-23/";//ui文件根目录
 		//public static const UI_DIR:String = "http://localhost/v3/";//ui文件根目录
 
-		private var channel_list_dir:String="http://lms.smgtech.net/interface/getChannelList.php?type={0}";
+		private var channel_list_dir:String="http://lms.smgtech.cn/interface/getChannelList.php?type={0}";
 		private var channel_list:Array=[];
 		
 		public function vidPlayer(_obj:Object) {
