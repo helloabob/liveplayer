@@ -113,7 +113,7 @@
 		//public static const UI_DIR:String = "file:///E:/Work Source/web IPTV/Flash/新版bbtv播放器/2009-6-23/";//ui文件根目录
 		//public static const UI_DIR:String = "http://localhost/v3/";//ui文件根目录
 
-		private var channel_list_dir:String="http://lms.smgtech.cn/interface/getChannelList.php?type={0}";
+		private var channel_list_dir:String=Constants.channelListUrl;
 		private var channel_list:Array=[];
 		
 		public function vidPlayer(_obj:Object) {
@@ -917,7 +917,7 @@
 		private function epgChangeChanl(e:Event):void {
 			//trace(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap), Number(e.currentTarget.change_end));
 //			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp), uint(e.currentTarget.change_duration));
-			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration));
+			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration),"false",e.currentTarget.change_cid,e.currentTarget.change_stamp);
 //			title_text.resetText();
 			var obj:* = e.currentTarget;
 			title_text.resetText(obj.change_channel_name,obj.change_title,obj.change_date,obj.change_starttime);

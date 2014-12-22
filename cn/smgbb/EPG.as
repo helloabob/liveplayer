@@ -44,13 +44,13 @@
 		private var update_timer_dur:Number = 60;//刷新EPG时间(s)
 		private var date_des:String;//2008-02-03
 //		private var xml_dir:String ="http://prolist.kankanews.com/prolist";
-		private var xml_dir:String = "http://lms.smgtech.cn/interface/getProgramList.php?channelid={0}&date={1}";
+		private var xml_dir:String = Constants.programListUrl;
 //		private var xml_dir:String = "http://epg.bbtv.cn/interface/minixml";//EPG的路径
 //		private var config_dir:String = "http://epg.bbtv.cn/interface/config.aspx";//配置文件路径
 //		private var config_dir:String="http://test.editor.com/getServerTime.php";
-		private var config_dir:String="http://lms.smgtech.cn/interface/getServerTime.php";
+		private var config_dir:String=Constants.serverTimeUrl;
 //		private var config_dir:String="http://kkeditor.sinaapp.com/live/getServerTime.php";
-		private var channel_list_dir:String="http://lms.smgtech.cn/interface/getChannelList.php?type={0}";
+		private var channel_list_dir:String=Constants.channelListUrl;
 //		private var channel_list_dir:String="http://kkeditor.sinaapp.com/live/getChannelList.xml";
 		private var hint_timer:Timer;//提示
 		private var unhint_timer:Timer;//提示
@@ -773,7 +773,8 @@
 			var _id:int = int(String(e.currentTarget.name).substr(4));
 			num_playing_arr[chanl_show] = _id;
 			change_cid = uint(e.target.progCid);
-			change_stamp = Number(e.target.progStamp);
+//			change_stamp = Number(e.target.progStamp);
+			change_stamp=e.target.progStamp;
 			change_duration = uint(e.target.progDuration);
 			change_url = e.target.url;
 			trace("change_url:"+change_url);

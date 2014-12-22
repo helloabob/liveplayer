@@ -56,7 +56,7 @@
 		public static const AUTHOR_CHECK:String = "author_check";
 		
 		
-		private static const VOD_URL:String = "http://lms.smgtech.cn/{0}";
+		private static const VOD_URL:String = Constants.vodPrefixUrl;
 		private static const DEFAULT_LIVE_URL:String = "http://segment.livehls.kksmg.com/hls/dfws/index.m3u8";
 		
 		public function aVideo(_obj:Object) {
@@ -265,7 +265,7 @@
 			}
 		}
 		//换频道
-		public function changeChanl(_url:String, _duration:uint, _islive:String="false") {
+		public function changeChanl(_url:String, _duration:uint, _islive:String="false",_cid:String="",_ts:String="") {
 			trace("changeChanl:"+_url);
 			if (is_vid_ready) {
 //				version 1
@@ -282,7 +282,8 @@
 //				playVideo({url:urlString.replace("{0}",_cid).replace("{1}",_timestamp),duration:_duration,islive:_islive});
 				
 //				version 2
-				playVideo({url:VOD_URL.replace("{0}",_url),duration:_duration,islive:_islive});
+				trace("cid:"+_cid+"ts:"+_ts);
+				playVideo({url:VOD_URL.replace("{0}",_url),duration:_duration,islive:_islive,cid:_cid,ts:_ts});
 				
 //				loadCheck();
 				//tviecore.externalPlay(_cid,_timestamp,_end,_is_live);
