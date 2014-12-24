@@ -293,7 +293,7 @@
 		public function returnToLive() {
 //			newPlay(vid_cid, 0);
 //			playVideo({url:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8",duration:1,islive:"true"});
-			playVideo({url:live_url,duration:1,islive:"true"});
+			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid});
 		}
 		//暂停恢复
 		public function setResume() {
