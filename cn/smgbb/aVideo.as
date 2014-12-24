@@ -209,7 +209,7 @@
 			if(live_url==""){
 				live_url = DEFAULT_LIVE_URL;
 			}
-			playVideo({url:live_url,duration:1,islive:"true"});
+			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid});
 			
 //			newPlay(vid_cid, vid_timestamp);
 			//tviecore.externalPlay(vid_cid, vid_timestamp, vid_end, false);

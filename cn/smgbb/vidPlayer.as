@@ -163,7 +163,8 @@
 			var i:int = 0;
 			var canfind:Boolean = false;
 			for each(var node:* in _xml.channel){
-				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+//				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				channel_list[i] = {name:node.@name,id:node.@id,live:"http://lms.xun-ao.com/Live/104/live/livestream.m3u8"};
 				if(int(node.@id)==vid_cid)canfind=true;
 				i++;
 			}
