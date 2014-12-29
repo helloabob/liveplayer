@@ -134,7 +134,20 @@
 				def_cid = CID_ARR[0];//取第一个
 			}
 			cur_id = CID_ARR.indexOf(def_cid);
-//			epgInit();
+
+			/*更新接口地址域名*/
+			var api_host:String = this.loaderInfo.parameters.apiHost;
+			if(api_host==null||api_host.length==0||api_host=="")api_host="lms.xun-ao.com";
+			Constants.channelListUrl = Constants.channelListUrl.replace("{9}",api_host);
+			Constants.programListUrl = Constants.programListUrl.replace("{9}",api_host);
+			Constants.vodPrefixUrl = Constants.vodPrefixUrl.replace("{9}",api_host);
+			Constants.serverTimeUrl = Constants.serverTimeUrl.replace("{9}",api_host);
+			xml_dir = Constants.programListUrl;
+			config_dir=Constants.serverTimeUrl;
+			channel_list_dir=Constants.channelListUrl;
+			/*结束*/
+			
+//			channelXMLInit();
 		}
 		public function channelXMLInit(video_type:String="0"):void{
 			this.video_type = video_type;
@@ -143,6 +156,8 @@
 			channel_list_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
 			channel_list_ld.addEventListener(IOErrorEvent.IO_ERROR, configError);
 			channel_list_ld.load(new URLRequest(channel_list_dir.replace("{0}",video_type)));
+			trace("host:"+channel_list_dir);
+			trace(channel_list_dir.replace("{0}",video_type));
 		}
 		private function channelXMLComplete(e:Event):void{
 			var ld:URLLoader = e.target as URLLoader;

@@ -116,6 +116,8 @@
 		private var channel_list_dir:String=Constants.channelListUrl;
 		private var channel_list:Array=[];
 		
+		private var apiHost:String = "";
+		
 		public function vidPlayer(_obj:Object) {
 			if (_obj.cid) {
 				vid_cid = int(_obj.cid);
@@ -137,6 +139,10 @@
 			if (_obj.video_type) {
 				video_type = _obj.video_type;
 			}
+			if (_obj.apiHost) {
+				apiHost = _obj.apiHost;
+			}
+			
 			channel_list_dir = channel_list_dir.replace("{0}",video_type);
 			/////////////////param for info///////////////////
 			info_obj = { };
@@ -163,8 +169,8 @@
 			var i:int = 0;
 			var canfind:Boolean = false;
 			for each(var node:* in _xml.channel){
-//				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
-				channel_list[i] = {name:node.@name,id:node.@id,live:"http://lms.xun-ao.com/Live/104/live/livestream.m3u8"};
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+//				channel_list[i] = {name:node.@name,id:node.@id,live:"http://lms.xun-ao.com/Live/104/live/livestream.m3u8"};
 				if(int(node.@id)==vid_cid)canfind=true;
 				i++;
 			}
@@ -767,7 +773,8 @@
 			epg_ld.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, epgUIError);
 			epg_ld.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, epgUIError);
 //			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg+"?bbtv_channelid="+vid_cid+"&t="+Math.random()));
-			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg));
+			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg+"?apiHost="+apiHost));
+			trace(vidConst.UI_DIR+ui_epg+"?apiHost="+apiHost);
 			//epg_ld.load(new URLRequest("http://localhost/ui_epg.swf?bbtv_channelid=220&t="+Math.random()));
 		}
 		//加载聊天
