@@ -108,9 +108,10 @@
 		
 		//for chanl_icon
 		private var total_icon:int= CID_NUMBER;//总共频道图标按钮数
-		private var shown_icon:int = 6;//一页显示的频道图标数
+		private var shown_icon:int = 3;//一页显示的频道图标数
 		private var cur_icon:int = 0;//当前激活图标id
-		private var icon_width:Number = 48.6;//频道图标按钮间间隔
+//		private var icon_width:Number = 48.6;//频道图标按钮间间隔
+		private var icon_width:Number = 96;
 		private var icon_x:Number = 0;//第一个频道按钮坐标
 		//for scroll_bar
 		private const CHANL_TOP:int = 0;//top of channels
@@ -156,7 +157,36 @@
 				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
 				if(int(node.@id)==def_cid)cur_id=i;
 				i++;
+				
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
+				channel_list[i] = {name:node.@name,id:node.@id,live:node.@live};
+				if(int(node.@id)==def_cid)cur_id=i;
+				i++;
 			}
+			total_icon = channel_list.length;
 			epgInit();
 		}
 		//初始化
@@ -189,7 +219,7 @@
 				id_arr.push(j);
 				var obj:Object = channel_list[j];
 				var cb:ChannelButton = new ChannelButton(obj.name,obj.id);
-				cb.x = icon_x + j * 104;
+				cb.x = icon_x + j * icon_width;
 				cb.y = 5;
 				cb.selected = false;
 				chanl_set.addChild(cb);
@@ -257,7 +287,8 @@
 		}
 		//提示
 		private function hintTimer(e:TimerEvent) {
-			hint.txt.text = vidConst.CN_ARR[vidConst.CID_ARR.indexOf(CID_ARR[btn_index])];
+			//hint.txt.text = vidConst.CN_ARR[vidConst.CID_ARR.indexOf(CID_ARR[btn_index])];
+			hint.txt.text = channel_list[btn_index].name;
 			hint.x = btn_array[btn_index].x + btn_array[btn_index].width/2+btn_array[btn_index].parent.x;
 			hint.visible = true;
 			unhint_timer.reset();
@@ -998,7 +1029,8 @@
 			}
 			refreshSet();
 
-			title_mc.chanl_txt.text = vidConst.CN_ARR[chanl_show] + "  节目单";//第一财经 节目单
+//			title_mc.chanl_txt.text = vidConst.CN_ARR[chanl_show] + "  节目单";//第一财经 节目单
+			title_mc.chanl_txt.text = channel_list[chanl_show].name + "  节目单";
 			var _arr:Array = _date.split("-");
 			if (_arr.length > 2) {//[2009, 07, 01]
 				title_mc.date_txt.text = _arr[0] + "年" + _arr[1] + "月" + _arr[2] + "日 " + cal_spt.getChildByName("cal0").day_txt.text;

@@ -9,7 +9,7 @@ package cn.smgbb
 		//border :  ffcd00  
 		//textColor:   ffcd00
 		
-		private var w:int = 100;
+		private var w:int = 92;
 		private var h:int = 20;
 		public var id:int = -1;
 		private var cid:int = 0;
