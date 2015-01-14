@@ -3,6 +3,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
+	import cn.smgbb.Constants;
 	import cn.smgbb.vidPlayer;
 	
 	public class liveplayer extends Sprite
@@ -27,6 +28,17 @@ package
 			_obj.bbtv_recom_link=this.loaderInfo.parameters.bbtv_recom_link;
 			_obj.bbtv_recom_time=this.loaderInfo.parameters.bbtv_recom_time;
 			_obj.video_type=this.loaderInfo.parameters.type;
+			
+			/*更新接口地址域名*/
+			var api_host:String = this.loaderInfo.parameters.apiHost;
+			if(api_host==null||api_host.length==0||api_host=="")api_host="lms.xun-ao.com";
+			Constants.channelListUrl = Constants.channelListUrl.replace("{9}",api_host);
+			Constants.programListUrl = Constants.programListUrl.replace("{9}",api_host);
+			Constants.vodPrefixUrl = Constants.vodPrefixUrl.replace("{9}",api_host);
+			/*结束*/
+			
+			_obj.apiHost = api_host;
+			
 //			_obj.video_type="1";
 			var vid_player:vidPlayer=new vidPlayer(_obj);
 			addChild(vid_player);
