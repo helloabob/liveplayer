@@ -944,6 +944,7 @@
 			if(avideo!=null)return;
 			var liveurl:String=channelInfoForChannelId(vid_cid).live;
 			avideo = new aVideo( { cid:vid_cid, timestamp:vid_timestamp, endtimestamp:vid_endtimestamp, mode:vid_mode,liveurl:liveurl} );
+			avideo.video_type = this.video_type;
 			avideo.addEventListener(aVideo.PROG_CHANGED, progChange);
 			avideo.addEventListener(aVideo.STATUS_CHANGED, statusChange);
 			avideo.x = avideo.y = 1;

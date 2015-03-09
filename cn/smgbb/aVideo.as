@@ -48,6 +48,8 @@
 		private var vid_ld:Loader;
 		private var tviecore:*;
 		
+		public var video_type:String="0";
+		
 		public var playing_status:String;
 		public static const MODE_LIVE:String = "LIVE";
 		public static const MODE_VOD:String = "VOD";
@@ -283,7 +285,7 @@
 				
 //				version 2
 				trace("cid:"+_cid+"ts:"+_ts);
-				playVideo({url:VOD_URL.replace("{0}",_url),duration:_duration,islive:_islive,cid:_cid,ts:_ts});
+				playVideo({url:VOD_URL.replace("{0}",_url),duration:_duration,islive:_islive,cid:_cid,ts:_ts,videotype:video_type});
 				
 //				loadCheck();
 				//tviecore.externalPlay(_cid,_timestamp,_end,_is_live);
