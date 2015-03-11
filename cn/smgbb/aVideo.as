@@ -211,7 +211,7 @@
 			if(live_url==""){
 				live_url = DEFAULT_LIVE_URL;
 			}
-			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid});
+			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid,videotype:video_type});
 			
 //			newPlay(vid_cid, vid_timestamp);
 			//tviecore.externalPlay(vid_cid, vid_timestamp, vid_end, false);
@@ -295,7 +295,7 @@
 		public function returnToLive() {
 //			newPlay(vid_cid, 0);
 //			playVideo({url:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8",duration:1,islive:"true"});
-			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid});
+			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid,videotype:video_type});
 		}
 		//暂停恢复
 		public function setResume() {
