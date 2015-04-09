@@ -644,6 +644,7 @@
 			unhintTimer(new TimerEvent(TimerEvent.TIMER));
 		}
 		private function airDown(e:MouseEvent):void {
+			Trace.log("airDown_returnToLive");
 			avideo.returnToLive();
 		}
 		//音量
@@ -773,7 +774,8 @@
 			epg_ld.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, epgUIError);
 			epg_ld.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, epgUIError);
 //			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg+"?bbtv_channelid="+vid_cid+"&t="+Math.random()));
-			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg+"?apiHost="+apiHost));
+//			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg+"?apiHost="+apiHost));
+			epg_ld.load(new URLRequest(vidConst.UI_DIR+ui_epg));
 			trace(vidConst.UI_DIR+ui_epg+"?apiHost="+apiHost);
 			//epg_ld.load(new URLRequest("http://localhost/ui_epg.swf?bbtv_channelid=220&t="+Math.random()));
 		}
@@ -906,7 +908,7 @@
 			epg_spt = e.target.content as Sprite;
 			epg_spt.body.addEventListener("change_channel", epgChangeChanl);
 			ui_spt.panel_mc.addChild(epg_spt);
-			epg_spt.body.channelXMLInit(this.video_type);
+			epg_spt.body.channelXMLInit(this.apiHost, this.video_type);
 			//epg_spt.visible = false;
 		}
 		//聊天面板加载完成
@@ -922,14 +924,13 @@
 		}
 		
 		//侦听到EPG里切换节目的事件，通知avideo改变流
-		private function epgChangeChanl(e:Event):void {
-			//trace(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap), Number(e.currentTarget.change_end));
-//			avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stamp), uint(e.currentTarget.change_duration));
-			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration),"false",e.currentTarget.change_cid,e.currentTarget.change_stamp);
-//			title_text.resetText();
+		private function epgChangeChanl(e:ChannelEvent):void {
+//			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration),"false",e.currentTarget.change_cid,e.currentTarget.change_stamp);
+			
+			avideo.changeChanl(e.param.url,e.param.duration,e.param.islive,e.param.cid,e.param.timestamp);
+			
 			var obj:* = e.currentTarget;
 			title_text.resetText(obj.change_channel_name,obj.change_title,obj.change_date,obj.change_starttime);
-			//avideo.changeChanl(uint(e.currentTarget.change_cid), Number(e.currentTarget.change_stmap));
 		}
 		private function channelInfoForChannelId(ccid:int):Object{
 			trace("channelInfoForChannelId:"+ccid);

@@ -267,7 +267,15 @@
 			}
 		}
 		//换频道
-		public function changeChanl(_url:String, _duration:uint, _islive:String="false",_cid:String="",_ts:String="") {
+		/**
+		 * 切换节目
+		 * @param _url 视频地址
+		 * @param _duration 视频时长
+		 * @param _islive 是否直播
+		 * @param _cid 频道id
+		 * @param _ts 节目时间戳
+		 */
+		public function changeChanl(_url:String, _duration:uint, _islive:String="false",_cid:String="",_ts:String=""):void {
 			trace("changeChanl:"+_url);
 			if (is_vid_ready) {
 //				version 1
@@ -292,7 +300,7 @@
 			}
 		}
 		//返回直播
-		public function returnToLive() {
+		public function returnToLive():void {
 //			newPlay(vid_cid, 0);
 //			playVideo({url:"http://segment.livehls.kksmg.com/hls/dfws/index.m3u8",duration:1,islive:"true"});
 			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid,videotype:video_type});

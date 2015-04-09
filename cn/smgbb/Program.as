@@ -98,8 +98,8 @@
 				_progStart = parseTime(start_str);
 			}
 			if (_obj.endtime) {
-				end_str = _obj.endtime;				
-				_progEnd = parseTime(end_str);				
+				end_str = _obj.endtime;	
+				_progEnd = parseTime(end_str);
 			}
 			if (_obj.timestamp) {
 				_progStamp = _obj.timestamp;
@@ -379,7 +379,8 @@
 			return _progStamp;
 		}
 		public function get endStamp():String {
-			return _progEnd.getTime()/1000;
+//			return _progEnd.getTime()/1000;
+			return end_str;
 		}
 		public function get progTitle():String {
 			return _progTitle;

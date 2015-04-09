@@ -31,7 +31,8 @@ package
 			
 			/*更新接口地址域名*/
 			var api_host:String = this.loaderInfo.parameters.apiHost;
-			if(api_host==null||api_host.length==0||api_host=="")api_host="lms.xun-ao.com";
+//			if(api_host==null||api_host.length==0||api_host=="")api_host="lms.xun-ao.com";
+			if(api_host==null||api_host.length==0||api_host=="")api_host=Constants.defaultHost;
 			Constants.channelListUrl = Constants.channelListUrl.replace("{9}",api_host);
 			Constants.programListUrl = Constants.programListUrl.replace("{9}",api_host);
 			Constants.vodPrefixUrl = Constants.vodPrefixUrl.replace("{9}",api_host);

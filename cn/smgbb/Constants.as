@@ -23,6 +23,9 @@ package cn.smgbb
 		public static var programListUrl:String = "http://{9}/interface/getProgramList.php?channelid={0}&date={1}";
 		public static var vodPrefixUrl:String = "http://{9}/{0}";
 		
+		public static const defaultHost:String = "lms.csytv.com";
+//		public static const defaultHost:String = "lms.xun-ao.com";
+		
 		public function Constants()
 		{
 		}
