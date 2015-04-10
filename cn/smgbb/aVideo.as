@@ -41,13 +41,17 @@
 		private var vid_timestamp:Number = 0;
 		private var vid_endtimestamp:Number = 0;
 		private var vid_end:Number;
-		private var live_url:String="";
+		/**
+		 * 直播视频地址
+		 */
+		public var live_url:String="";
 		//private var vid_site:String = "api.smgbb.tv";
 		private var vid_site:String = "api.smgbb.tv";
 		//private var vid_datarate:String = "64";
 		private var vid_ld:Loader;
 		private var tviecore:*;
 		
+		/*视频格式 0视频，1音频*/
 		public var video_type:String="0";
 		
 		public var playing_status:String;
@@ -267,36 +271,24 @@
 			}
 		}
 		//换频道
-		/**
-		 * 切换节目
-		 * @param _url 视频地址
-		 * @param _duration 视频时长
-		 * @param _islive 是否直播
-		 * @param _cid 频道id
-		 * @param _ts 节目时间戳
-		 */
-		public function changeChanl(_url:String, _duration:uint, _islive:String="false",_cid:String="",_ts:String=""):void {
-			trace("changeChanl:"+_url);
-			if (is_vid_ready) {
-//				version 1
-//				vid_cid = _cid;
-//				vid_timestamp = _timestamp;
-				
-//				trace(vid_cid);
-//				live_url="http://segment.livehls.kksmg.com/m3u8/"+_cid+"_"+_timestamp+".m3u8";
-//				trace("live_url:"+live_url);
-//				newPlay2();
-				
-//				version 1
-//				var urlString:String = "http://segment.livehls.kksmg.com/m3u8/{0}_{1}.m3u8";
-//				playVideo({url:urlString.replace("{0}",_cid).replace("{1}",_timestamp),duration:_duration,islive:_islive});
-				
-//				version 2
-				trace("cid:"+_cid+"ts:"+_ts);
-				playVideo({url:VOD_URL.replace("{0}",_url),duration:_duration,islive:_islive,cid:_cid,ts:_ts,videotype:video_type});
-				
-//				loadCheck();
-				//tviecore.externalPlay(_cid,_timestamp,_end,_is_live);
+//		/**
+//		 * 切换节目
+//		 * @param _url 视频地址
+//		 * @param _duration 视频时长
+//		 * @param _islive 是否直播
+//		 * @param _cid 频道id
+//		 * @param _ts 节目时间戳
+//		 */
+//		public function changeChanl(_url:String, _duration:uint, _islive:String="false",_cid:String="",_ts:String=""):void {
+//			trace("changeChanl:"+_url);
+//			if (is_vid_ready) {
+//				trace("cid:"+_cid+"ts:"+_ts);
+//				playVideo({url:VOD_URL.replace("{0}",_url),duration:_duration,islive:_islive,cid:_cid,ts:_ts,videotype:video_type});	
+//			}
+//		}
+		public function changeChanl(obj:Object):void{
+			if(is_vid_ready){
+				playVideo(obj);
 			}
 		}
 		//返回直播

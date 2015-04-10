@@ -156,7 +156,6 @@
 			channel_list_ld.addEventListener(Event.COMPLETE, channelXMLComplete);
 			channel_list_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, configError);
 			channel_list_ld.addEventListener(IOErrorEvent.IO_ERROR, configError);
-			trace(channel_list_dir);
 			channel_list_ld.load(new URLRequest(channel_list_dir));
 		}
 		private function channelXMLComplete(e:Event):void{
@@ -644,7 +643,6 @@
 			unhintTimer(new TimerEvent(TimerEvent.TIMER));
 		}
 		private function airDown(e:MouseEvent):void {
-			Trace.log("airDown_returnToLive");
 			avideo.returnToLive();
 		}
 		//音量
@@ -926,16 +924,13 @@
 		//侦听到EPG里切换节目的事件，通知avideo改变流
 		private function epgChangeChanl(e:ChannelEvent):void {
 //			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration),"false",e.currentTarget.change_cid,e.currentTarget.change_stamp);
-			
-			avideo.changeChanl(e.param.url,e.param.duration,e.param.islive,e.param.cid,e.param.timestamp);
-			
+			avideo.changeChanl(e.param);
+			avideo.live_url = channelInfoForChannelId(e.param.cid).live;
 			var obj:* = e.currentTarget;
 			title_text.resetText(obj.change_channel_name,obj.change_title,obj.change_date,obj.change_starttime);
 		}
 		private function channelInfoForChannelId(ccid:int):Object{
-			trace("channelInfoForChannelId:"+ccid);
 			for each(var obj:Object in channel_list){
-				trace("u:"+obj.id);
 				if(obj.id==ccid)return obj;
 			}
 			return {};
