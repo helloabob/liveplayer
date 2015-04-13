@@ -291,6 +291,13 @@
 				playVideo(obj);
 			}
 		}
+		public function returnLive(param:Object):void{
+			param.url = live_url;
+			param.duration = 1;
+			param.islive = "true";
+			Trace.log("starttime:"+param.starttime+"  endtime:"+param.endtime+"   url:"+param.url);
+			playVideo(param);
+		}
 		//返回直播
 		public function returnToLive():void {
 //			newPlay(vid_cid, 0);

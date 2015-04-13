@@ -643,7 +643,10 @@
 			unhintTimer(new TimerEvent(TimerEvent.TIMER));
 		}
 		private function airDown(e:MouseEvent):void {
-			avideo.returnToLive();
+//			avideo.returnToLive();
+			var obj:Object = epg_spt.body.getLiveInfo();
+			if(obj==null)return;
+			avideo.returnLive(obj);
 		}
 		//音量
 		private function volOver(e:MouseEvent) {
@@ -924,8 +927,9 @@
 		//侦听到EPG里切换节目的事件，通知avideo改变流
 		private function epgChangeChanl(e:ChannelEvent):void {
 //			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration),"false",e.currentTarget.change_cid,e.currentTarget.change_stamp);
-			avideo.changeChanl(e.param);
+			Trace.log("切换节目-所在频道ID:"+e.param.cid);
 			avideo.live_url = channelInfoForChannelId(e.param.cid).live;
+			avideo.changeChanl(e.param);
 			var obj:* = e.currentTarget;
 			title_text.resetText(obj.change_channel_name,obj.change_title,obj.change_date,obj.change_starttime);
 		}
