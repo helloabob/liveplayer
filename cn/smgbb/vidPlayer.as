@@ -906,6 +906,7 @@
 			
 			//trace("epgUI");
 			//ui_spt.panel_mc.removeChild(panel_loading);
+			Trace.log("epgUI_Complete");
 			epg_spt = e.target.content as Sprite;
 			epg_spt.body.addEventListener("change_channel", epgChangeChanl);
 			ui_spt.panel_mc.addChild(epg_spt);
@@ -943,6 +944,7 @@
 		private function initVideo() {
 			if(avideo!=null)return;
 			var liveurl:String=channelInfoForChannelId(vid_cid).live;
+			Trace.log("initAVideo");
 			avideo = new aVideo( { cid:vid_cid, timestamp:vid_timestamp, endtimestamp:vid_endtimestamp, mode:vid_mode,liveurl:liveurl} );
 			avideo.video_type = this.video_type;
 			avideo.addEventListener(aVideo.PROG_CHANGED, progChange);
@@ -1040,6 +1042,29 @@
 			///////////广告配置文件加载失败/////////////
 			////////////////////////////////////////////
 		}
+		
+		/**
+		 * 计算直播的开始结束时间
+		 * @return Object ts/cid/starttime/endtime
+		 */
+		private function getLiveInfo():Object {
+			Trace.log("getLiveInfo()");
+			var result:Object = {};
+			var now_stamp:int = new Date().getTime() / 1000;
+			for(var i:int = 0;i < cur_chanl.numChildren;i++){
+				if (cur_chanl.getChildAt(i).progStamp.valueOf() > now_stamp) {
+					var prog:* = cur_chanl.getChildAt(i);
+					result.ts = prog.progStamp;
+					result.cid = prog.progCid;
+					result.starttime = prog.progStart;
+					result.endtime = prog.endStamp;
+					result.videotype = video_type;
+					return result;
+				}
+			}
+			return null;
+		}
+		
 	}
 	
 }
