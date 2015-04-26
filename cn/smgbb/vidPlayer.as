@@ -644,9 +644,9 @@
 		}
 		private function airDown(e:MouseEvent):void {
 //			avideo.returnToLive();
-			var obj:Object = epg_spt.body.getLiveInfo();
-			if(obj==null)return;
-			avideo.returnLive(obj);
+//			var obj:Object = epg_spt.body.getLiveInfo();
+//			if(obj==null)return;
+			avideo.returnLive();
 		}
 		//音量
 		private function volOver(e:MouseEvent) {
@@ -930,6 +930,7 @@
 //			avideo.changeChanl(e.currentTarget.change_url, uint(e.currentTarget.change_duration),"false",e.currentTarget.change_cid,e.currentTarget.change_stamp);
 			Trace.log("切换节目-所在频道ID:"+e.param.cid);
 			avideo.live_url = channelInfoForChannelId(e.param.cid).live;
+			e.param.url = Constants.vodPrefixUrl.replace("{0}",e.param.url);
 			avideo.changeChanl(e.param);
 			var obj:* = e.currentTarget;
 			title_text.resetText(obj.change_channel_name,obj.change_title,obj.change_date,obj.change_starttime);
@@ -1042,29 +1043,6 @@
 			///////////广告配置文件加载失败/////////////
 			////////////////////////////////////////////
 		}
-		
-		/**
-		 * 计算直播的开始结束时间
-		 * @return Object ts/cid/starttime/endtime
-		 */
-		private function getLiveInfo():Object {
-			Trace.log("getLiveInfo()");
-			var result:Object = {};
-			var now_stamp:int = new Date().getTime() / 1000;
-			for(var i:int = 0;i < cur_chanl.numChildren;i++){
-				if (cur_chanl.getChildAt(i).progStamp.valueOf() > now_stamp) {
-					var prog:* = cur_chanl.getChildAt(i);
-					result.ts = prog.progStamp;
-					result.cid = prog.progCid;
-					result.starttime = prog.progStart;
-					result.endtime = prog.endStamp;
-					result.videotype = video_type;
-					return result;
-				}
-			}
-			return null;
-		}
-		
 	}
 	
 }

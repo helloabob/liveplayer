@@ -89,7 +89,7 @@
 			trace("playVideo:"+obj.url);
 			tviecore.sendUICommand("UI_COMMAND_PLAY",obj);
 		}
-		private function init() {
+		private function init():void {
 //			check_ld = new URLLoader();//check当前时间戳对应的节目，获取节目时长
 //			check_ld.addEventListener(Event.COMPLETE, checkComplete);
 //			check_ld.addEventListener(SecurityErrorEvent.SECURITY_ERROR, checkError);
@@ -188,7 +188,7 @@
 			}
 		}
 		//装载视频swf完毕
-		private function vidComplete(e:Event) {//loading video completed
+		private function vidComplete(e:Event):void {//loading video completed
 			is_vid_ready = true;
 			vid_ld.contentLoaderInfo.removeEventListener(Event.COMPLETE,vidComplete);
 			vid_ld.contentLoaderInfo.removeEventListener(IOErrorEvent.IO_ERROR,vidError);
@@ -215,7 +215,8 @@
 			if(live_url==""){
 				live_url = DEFAULT_LIVE_URL;
 			}
-			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid,videotype:video_type});
+			this.returnLive();
+//			playVideo({url:live_url,duration:1,islive:"true",cid:vid_cid,videotype:video_type});
 			
 //			newPlay(vid_cid, vid_timestamp);
 			//tviecore.externalPlay(vid_cid, vid_timestamp, vid_end, false);
@@ -288,15 +289,21 @@
 //		}
 		public function changeChanl(obj:Object):void{
 			if(is_vid_ready){
+				vid_cid = obj.cid;
 				playVideo(obj);
 			}
 		}
-		public function returnLive(param:Object):void{
-			param.url = live_url;
-			param.duration = 1;
-			param.islive = "true";
-			Trace.log("starttime:"+param.starttime+"  endtime:"+param.endtime+"   url:"+param.url);
-			playVideo(param);
+		public function returnLive():void{
+			EPGUtil.getVodInfo(String(vid_cid),onPlayLive,null,null);
+			function onPlayLive(obj:Object):void{
+				obj.cid = vid_cid;
+				obj.url = live_url;
+				obj.duration = 1;
+				obj.islive = "true";
+				obj.videotype = video_type;
+				Trace.log("starttime:"+obj.starttime+"  endtime:"+obj.endtime+"   url:"+obj.url);
+				playVideo(obj);
+			}
 		}
 		//返回直播
 		public function returnToLive():void {

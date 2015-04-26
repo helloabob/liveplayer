@@ -23,11 +23,23 @@ package cn.smgbb
 		public static var programListUrl:String = "http://{9}/interface/getProgramList.php?channelid={0}&date={1}";
 		public static var vodPrefixUrl:String = "http://{9}/{0}";
 		
-//		public static const defaultHost:String = "lms.csytv.com";
-		public static const defaultHost:String = "lms.xun-ao.com";
+		public static const defaultHost:String = "lms.csytv.com";
+//		public static const defaultHost:String = "lms.xun-ao.com";
 		
 		public function Constants()
 		{
+		}
+		
+		//解析日期成yyyy-mm-dd的格式
+		public static function parseDate(_date:Date):String {//e.g. 2008-12-26
+			return _date.getFullYear() + "-" + addZero((_date.getMonth() + 1)) + "-" + addZero(_date.getDate());
+		}
+		//加个0
+		private static function addZero(_int:int):String {
+			if (_int <= 9) {
+				return "0" + _int;
+			}
+			return String(_int);
 		}
 	}
 }
