@@ -290,11 +290,18 @@
 		public function changeChanl(obj:Object):void{
 			if(is_vid_ready){
 				vid_cid = obj.cid;
-				playVideo(obj);
+				EPGUtil.getVodInfo(String(vid_cid),onPlayVod,obj.ts);
+				function onPlayVod(value:Object):void{
+					obj.starttime = value.starttime;
+					obj.endtime = value.endtime;
+					obj.videotype = video_type;
+					Trace.log("starttime:"+obj.starttime+"  endtime:"+obj.endtime+"   url:"+obj.url);
+					playVideo(obj);
+				}
 			}
 		}
 		public function returnLive():void{
-			EPGUtil.getVodInfo(String(vid_cid),onPlayLive,null,null);
+			EPGUtil.getVodInfo(String(vid_cid),onPlayLive,null);
 			function onPlayLive(obj:Object):void{
 				obj.cid = vid_cid;
 				obj.url = live_url;

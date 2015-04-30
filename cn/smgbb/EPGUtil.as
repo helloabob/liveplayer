@@ -20,12 +20,13 @@ package cn.smgbb
 		 * 查询指定频道，日期，某个时间戳下的点播/直播节目数据
 		 * @param cid 频道ID
 		 * @param func 回调函数，传递object对象，同步/异步
-		 * @param date 日期 格式 2015-01-01 直播传null
 		 * @param timestamp 时间戳 字符串 直播传null
 		 */
-		public static function getVodInfo(cid:String,func:Function, date:String=null, timestamp:String=null):void {
+		public static function getVodInfo(cid:String,func:Function, timestamp:String=null):void {
 			trace("getVodInfo:"+cid+"-"+func);
-			if(date==null)date=Constants.parseDate(new Date());
+			var date:String = "";
+			if(timestamp==null)date=Constants.parseDate(new Date());
+			else date=Constants.parseDate(new Date(int(timestamp)*1000));
 			var key:String = cid + "-" + date;
 			if(programDict[key]){
 				func(parseAndGetInfo(key,timestamp));
@@ -38,6 +39,7 @@ package cn.smgbb
 		 * 加载节目单
 		 */
 		private static function loadEPGInfo(cid:String, date:String,timestamp:String=null, func:Function=null):void{
+			trace("loadEPGInfo:"+cid+" dt:"+date);
 			var url:String = Constants.programListUrl.replace("{0}",cid).replace("{1}",date);
 			var urlloader:URLLoader = new URLLoader();
 			urlloader.addEventListener(Event.COMPLETE,onComplete);
@@ -53,6 +55,7 @@ package cn.smgbb
 		 * 解析节目单
 		 */
 		private static function parseAndGetInfo(key:String, timestamp:String=null):Object{
+			trace("parseAndGetInfo:"+key+"  ts:"+timestamp!=null?timestamp:"null");
 			if(programDict[key]==null)return null;
 			var now_timestamp:int=new Date().getTime()/1000;
 			var is_live:Boolean = timestamp==null?true:false;
