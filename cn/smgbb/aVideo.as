@@ -65,6 +65,9 @@
 		private static const VOD_URL:String = Constants.vodPrefixUrl;
 		private static const DEFAULT_LIVE_URL:String = "http://segment.livehls.kksmg.com/hls/dfws/index.m3u8";
 		
+		/*音频背景默认图片地址*/
+		public var soundDefaultImageUrl:String ="";
+		
 		public function aVideo(_obj:Object) {
 			//vid_timestamp = 1242612000;
 			//vid_endtimestamp = 1242613500;
@@ -87,6 +90,7 @@
 		}
 		public function playVideo(obj:Object):void{
 			trace("playVideo:"+obj.url);
+			obj.soundDefaultImageUrl=soundDefaultImageUrl;
 			tviecore.sendUICommand("UI_COMMAND_PLAY",obj);
 		}
 		private function init():void {

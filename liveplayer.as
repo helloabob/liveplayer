@@ -28,6 +28,7 @@ package
 			_obj.bbtv_recom_link=this.loaderInfo.parameters.bbtv_recom_link;
 			_obj.bbtv_recom_time=this.loaderInfo.parameters.bbtv_recom_time;
 			_obj.video_type=this.loaderInfo.parameters.type;
+			_obj.soundDefaultImageUrl=this.loaderInfo.parameters.soundDefaultImageUrl;
 			
 			/*更新接口地址域名*/
 			var api_host:String = this.loaderInfo.parameters.apiHost;

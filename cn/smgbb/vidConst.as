@@ -16,7 +16,7 @@
 //		public static const UI_DIR:String = "/bbtv_common/bbtv_flash/flash/v5/";//ui文件根目录
 		//public static const UI_DIR:String = "file:///E:/Work Source/web IPTV/Flash/新版bbtv播放器/2009-6-23/";//ui文件根目录
 		//public static const UI_DIR:String = "http://localhost/v3/";//ui文件根目录
-		public static const UI_DIR:String = "./";//ui文件根目录
+		public static const UI_DIR:String = "";//ui文件根目录
 
 	}	
 }

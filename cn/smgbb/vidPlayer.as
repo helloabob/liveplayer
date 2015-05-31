@@ -118,6 +118,11 @@
 		
 		private var apiHost:String = "";
 		
+		/**
+		 * 音频默认显示背景图片地址
+		 */
+		private var soundDefaultImageUrl:String = "";
+		
 		public function vidPlayer(_obj:Object) {
 			if (_obj.cid) {
 				vid_cid = int(_obj.cid);
@@ -141,6 +146,9 @@
 			}
 			if (_obj.apiHost) {
 				apiHost = _obj.apiHost;
+			}
+			if (_obj.soundDefaultImageUrl){
+				soundDefaultImageUrl = _obj.soundDefaultImageUrl;
 			}
 			
 			channel_list_dir = channel_list_dir.replace("{0}",video_type);
@@ -948,6 +956,7 @@
 			Trace.log("initAVideo");
 			avideo = new aVideo( { cid:vid_cid, timestamp:vid_timestamp, endtimestamp:vid_endtimestamp, mode:vid_mode,liveurl:liveurl} );
 			avideo.video_type = this.video_type;
+			avideo.soundDefaultImageUrl = soundDefaultImageUrl;
 			avideo.addEventListener(aVideo.PROG_CHANGED, progChange);
 			avideo.addEventListener(aVideo.STATUS_CHANGED, statusChange);
 			avideo.x = avideo.y = 1;
